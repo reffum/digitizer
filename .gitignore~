@@ -1,0 +1,4 @@
+/project
+/src/design_1/*
+!/src/design_1/design_1.bd
+!/src/design_1/hdl/design_1_wrapper.v

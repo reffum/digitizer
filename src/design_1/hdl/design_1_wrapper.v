@@ -100,6 +100,10 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+      
+    wire [15:0] adc_data;
+    wire adc_clk;
+    reg led_cs;  
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -122,11 +126,11 @@ module design_1_wrapper
         .FIXED_IO_mio(FIXED_IO_mio),
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb));
+        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .adc_clk(adc_clk),
+        .adc_data(adc_data));
         
-   wire [15:0] adc_data;
-   wire adc_clk;
-   reg led_cs;
+
    
    // Connect adc_data
    genvar i;

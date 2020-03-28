@@ -176,6 +176,11 @@
 /******************************************************************/
 
 
+/* Definitions for peripheral ADC_INPUT_0 */
+#define XPAR_ADC_INPUT_0_BASEADDR 0x60000000
+#define XPAR_ADC_INPUT_0_HIGHADDR 0x7FFFFFFF
+
+
 /* Definitions for peripheral PS7_AFI_0 */
 #define XPAR_PS7_AFI_0_S_AXI_BASEADDR 0xF8008000
 #define XPAR_PS7_AFI_0_S_AXI_HIGHADDR 0xF8008FFF

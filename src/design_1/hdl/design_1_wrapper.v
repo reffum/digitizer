@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2019.2 (win64) Build 2700185 Thu Oct 24 18:46:05 MDT 2019
-//Date        : Sun Mar 22 18:44:44 2020
+//Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+//Date        : Sat Mar 28 18:43:19 2020
 //Host        : DESKTOP-D2OREBE running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -31,21 +31,8 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    
-    ja, jc, jd,
-    
-    hdmi_rx_clk_n, 
-    hdmi_rx_clk_p,
-    hdmi_rx_n,
-    hdmi_rx_p,
-    
-    dphy_data_hs_n,
-    dphy_data_hs_p,
-    dphy_hs_clock_clk_n,
-    dphy_hs_clock_clk_p,
-    
-    led
-    );
+    adc_clk,
+    adc_data);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -67,17 +54,8 @@ module design_1_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  
-  input [7:0]ja, jc, jd;
-  
-  input hdmi_rx_clk_n, hdmi_rx_clk_p;
-  input [2:0] hdmi_rx_n, hdmi_rx_p;
-  
-  
-  input [1:0] dphy_data_hs_n, dphy_data_hs_p;
-  input dphy_hs_clock_clk_n, dphy_hs_clock_clk_p;
-  
-  output [3:0] led;
+  input adc_clk;
+  input [15:0]adc_data;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -100,10 +78,8 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-      
-    wire [15:0] adc_data;
-    wire adc_clk;
-    reg led_cs;  
+  wire adc_clk;
+  wire [15:0]adc_data;
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -129,96 +105,4 @@ module design_1_wrapper
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .adc_clk(adc_clk),
         .adc_data(adc_data));
-        
-
-   
-   // Connect adc_data
-   genvar i;
-   
-   generate
-      for (i=0; i < 4; i = i + 1)
-      begin: ja_adc_data
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_inst (
-          .O(adc_data[i]),
-          .I(ja[i]),
-          .IB(ja[i + 4])
-       );
-      end
-   endgenerate 
-   
-   generate
-      for (i=0; i < 4; i = i + 1)
-      begin: jc_adc_data
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_inst (
-          .O(adc_data[i + 4]),
-          .I(jc[i]),
-          .IB(jc[i + 4])
-       );
-      end
-   endgenerate  
-   
-   generate
-      for (i=0; i < 4; i = i + 1)
-      begin: jd_adc_data
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_inst (
-          .O(adc_data[i + 8]),
-          .I(jd[i]),
-          .IB(jd[i + 4])
-       );
-      end
-   endgenerate
-   
-   generate 
-    for(i = 0; i < 3; i = i + 1)
-    begin: hdmi_rx_adc
-        IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("TMDS_33")
-        ) IBUFDS_adc_clk (
-          .O(adc_data[12 + i]),
-          .I(hdmi_rx_p[i]),
-          .IB(hdmi_rx_n[i])
-        ); 
-    end  
-  endgenerate   
-  
-   IBUFDS #(
-      .DIFF_TERM("FALSE"),
-      .IBUF_LOW_PWR("FALSE"),
-      .IOSTANDARD("LVDS_25")
-    ) IBUFDS_adc_data15 (
-      .O(adc_data[15]),
-      .I(dphy_data_hs_p[0]),
-      .IB(dphy_data_hs_n[0])
-    );     
-    
-    IBUFDS #(
-      .DIFF_TERM("FALSE"),
-      .IBUF_LOW_PWR("FALSE"),
-      .IOSTANDARD("LVDS_25")
-    ) IBUFDS_adc_clk (
-      .O(adc_clk),
-      .I(dphy_hs_clock_clk_p),
-      .IB(dphy_hs_clock_clk_n)
-    );
-    
-    always @(posedge adc_clk) begin
-        led_cs <= |adc_data;
-    end
-    
-    assign led[0] = led_cs;
-    
 endmodule

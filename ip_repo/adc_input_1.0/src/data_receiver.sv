@@ -13,7 +13,7 @@ module data_receiver
     input wire 		 m00_axis_aresetn,
     output wire 	 m00_axis_tvalid,
     output wire [15 : 0] m00_axis_tdata,
-    output wire [1 : 0]  m00_axis_tstrb,
+    output wire [1 : 0]  m00_axis_tkeep,
     output wire 	 m00_axis_tlast,
     input wire 		 m00_axis_tready,
 
@@ -32,11 +32,18 @@ module data_receiver
     output logic 	 sr_pc
    
    );
+
+   //
+   // Constants
+   //
+   localparam INIT_COUNTER = 1024;
+   
    
    //
    // Nets
    //
-   logic  ACLK, ARESETN, TREADY, TVALID, TSTRB, TLAST;
+   logic  ACLK, ARESETN, TREADY, TVALID, TLAST;
+   logic [1:0] TKEEP;
    logic [15:0] TDATA;
    
    
@@ -53,7 +60,7 @@ module data_receiver
    //
    // State
    //
-   enum  logic [1:0] {S0, S1, S2, S3} state_ns, state_cs;
+   enum  logic [2:0] {INIT, S0, S1, S2, S3} state_ns, state_cs;
 
    //
    // Registers
@@ -66,7 +73,7 @@ module data_receiver
 
    // Return data word for current AXI stream transaction.
    function logic [15:0] GetData();
-      if(test)
+      if(!test)
 	return fifo_do;
       else
 	return counter_cs[15:0];
@@ -77,7 +84,7 @@ module data_receiver
    //
    always_ff @(posedge ACLK, negedge ARESETN) begin : STATE_REGISTER
       if(!ARESETN)
-	state_cs <= S0;
+	state_cs <= INIT;
       else
 	state_cs <= state_ns;
    end
@@ -86,6 +93,9 @@ module data_receiver
       state_ns <= state_cs;
 
       case(state_cs)
+	INIT:
+	  if(counter_cs == INIT_COUNTER)
+	    state_ns <= S0;
 	S0:
 	  if(start)
 	    state_ns <= S1;
@@ -94,7 +104,7 @@ module data_receiver
 	    state_ns <= S2;
 	S2:
 	  if(TREADY) 
-	    if(counter_cs > 1)
+	    if(counter_cs <= 1)
 	      state_ns <= S3;
 	S3:
 	  if(TREADY)
@@ -116,6 +126,8 @@ module data_receiver
       counter_ns <= counter_cs;
 
       case(state_cs)
+	INIT:
+	  counter_ns <= counter_cs + 1;
 	S1:
 	  counter_ns <= dsize;
 	S2:
@@ -130,16 +142,23 @@ module data_receiver
    always_comb begin : OUTPUTS_AND_CONTROL
       TVALID <= 1'b0;
       TDATA <= 16'd0;
-      TSTRB <= 4'b1111;
+      TKEEP <= 2'b11;
       TLAST <= 1'b0;
       sr_pc <= 1'b0;
       fifo_rden <= 1'b0;
       fifo_rst <= 1'b0;
-
+      fifo_wren <= 1'b1;
+      
+      
       case(state_cs)
+	INIT: begin
+	   fifo_rst <= 1'b1;
+	   fifo_wren <= 1'b0;
+	end
+	
 	S0: begin
 	   sr_pc <= 1'b1;
-	   fifo_rst <= 1'b1;
+	   fifo_wren <= 1'b0;
 	end
 
 	S2: begin
@@ -215,14 +234,13 @@ module data_receiver
      ARESETN = m00_axis_aresetn,
      TREADY = m00_axis_tready,
      m00_axis_tvalid = TVALID,
-     m00_axis_tstrb = TSTRB,
+     m00_axis_tkeep = TKEEP,
      m00_axis_tlast = TLAST;
 
    assign m00_axis_tdata = TDATA;
    
    assign fifo_di = adc_data;
    assign fifo_wrclk = adc_clk;
-   assign fifo_wren = 1'b1;
    assign fifo_rdclk = ACLK;
    
    

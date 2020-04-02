@@ -2,10 +2,6 @@
 `timescale 1 ns / 1 ps
 
 module adc_input_v1_0 
-  #(
-    parameter C_BASEADDR = 32'd0,
-    parameter C_HIGHADDR = 32'd0
-    )
    (
     // ADC inputs
     input 		 adc_clk,
@@ -39,7 +35,7 @@ module adc_input_v1_0
     input wire 		 m00_axis_aresetn,
     output wire 	 m00_axis_tvalid,
     output wire [15 : 0] m00_axis_tdata,
-    output wire [1 : 0]  m00_axis_tstrb,
+    output wire [1 : 0]  m00_axis_tkeep,
     output wire 	 m00_axis_tlast,
     input wire 		 m00_axis_tready
     );
@@ -58,6 +54,50 @@ module adc_input_v1_0
    //
    // Modules instantiation
    //
+   data_receiver data_receiver_inst
+     (
+      .test(cr_test),
+      .start(cr_start),
+      
+      .*
+      );
 
+   adc_input_axi_read adc_input_axi_read_inst
+     (
+      .ACLK(m00_axis_aclk),
+      .ARESETN(m00_axis_aresetn),
+
+      .ARADDR(s_axi_araddr),
+      .ARVALID(s_axi_arvalid),
+      .ARREADY(s_axi_arready),
+
+      .RDATA(s_axi_rdata),
+      .RRESP(s_axi_rresp),
+      .RVALID(s_axi_rvalid),
+      .RREADY(s_axi_rready),
+
+      .*
+      );
+
+   adc_input_write  adc_input_write_inst
+     (
+      .ACLK(m00_axis_aclk),
+      .ARESETN(m00_axis_aresetn),
+
+      .AWADDR(s_axi_awaddr),
+      .AWVALID(s_axi_awvalid),
+      .AWREADY(s_axi_awready),
+
+      .WDATA(s_axi_wdata),
+      .WSTRB(s_axi_wstrb),
+      .WVALID(s_axi_wvalid),
+      .WREADY(s_axi_wready),
+
+      .BRESP(s_axi_bresp),
+      .BVALID(s_axi_bvalid),
+      .BREADY(s_axi_bready),
+
+      .*
+      );
    
 endmodule

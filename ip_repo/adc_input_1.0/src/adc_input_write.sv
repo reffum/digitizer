@@ -5,10 +5,6 @@
 import adc_input_common::*;
 
 module adc_input_write
-  #(
-    parameter C_BASEADDR = 32'd0,
-    parameter C_HIGHADDR = 32'd0
-    )  
   (
    input 	      ACLK,
    input 	      ARESETN,
@@ -49,7 +45,7 @@ module adc_input_write
       if(!ARESETN)
 	state_cs <= S0;
       else
-	state_cs <= S1;
+	state_cs <= state_ns;
    end
 
    always_comb begin : STATE_LOGIC
@@ -62,7 +58,7 @@ module adc_input_write
 	S1:
 	  state_ns <= S2;
 	S2:
-	  if(BRESP)
+	  if(BREADY)
 	    state_ns <= S0;
       endcase // case (state_cs)
    end // block: STATE_LOGIC
@@ -87,12 +83,12 @@ module adc_input_write
       
       case(state_cs)
 	S1:
-	  case(AWADDR)
-	    C_BASEADDR + AXI_ADDR_CR: begin
+	  case(AWADDR[7:0])
+	    AXI_ADDR_CR: begin
 	       cr_start <= WDATA[0];
 	       cr_test_ns <= WDATA[1];
 	    end
-	    C_BASEADDR + AXI_ADDR_DSIZE:
+	    AXI_ADDR_DSIZE:
 	      dsize_ns <= WDATA;
 	    default: ;
 	  endcase // case (AWADDR)
@@ -115,7 +111,7 @@ module adc_input_write
 	end
 
 	S2: begin
-	   BVALID <= 1'b0;
+	   BVALID <= 1'b1;
 	end
 	default: ;
       endcase // case (state_cs)

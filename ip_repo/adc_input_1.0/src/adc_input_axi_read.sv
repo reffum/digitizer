@@ -5,10 +5,6 @@
 import adc_input_common::*;
 
 module adc_input_axi_read
-  #(
-    parameter C_BASEADDR = 32'd0,
-    parameter C_HIGHADDR = 32'd0
-    )  
   (
    input 	       ACLK,
    input 	       ARESETN,
@@ -38,18 +34,20 @@ module adc_input_axi_read
    function [31:0] ReadReg(logic [31:0] addr);
       automatic logic [31:0] value = 0;
 
-      case(addr)
-	C_BASEADDR + AXI_ADDR_CR:
+      case(addr[7:0])
+	AXI_ADDR_CR:
 	  if(cr_test)
 	    value = _CR_TEST;
-	C_BASEADDR + AXI_ADDR_SR:
+	AXI_ADDR_SR:
 	  if(sr_pc)
 	    value = _SR_PC;
-	C_BASEADDR + AXI_ADDR_DSIZE:
+	AXI_ADDR_DSIZE:
 	  value = dsize;
 	default:
 	  value = 0;
       endcase // case (addr)
+
+      return value;
    endfunction // ReadReg
 
    //

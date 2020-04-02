@@ -23219,3 +23219,1327 @@ TRACE::2020-04-01.21:04:37::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/
 
 TRACE::2020-04-01.21:04:37::SCWMssOS::rm -f ps7_cortexa9_0/lib/libxil.a
 
+TRACE::2020-04-03.18:38:27::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:27::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:27::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:31::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:31::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:31::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:31::SCWPlatform::Do not have an existing db opened. 
+TRACE::2020-04-03.18:38:38::SCWPlatform::Opened new HwDB with name design_1_wrapper
+TRACE::2020-04-03.18:38:38::SCWReader::Active system found as  design_1_wrapper
+TRACE::2020-04-03.18:38:38::SCWReader::Handling sysconfig design_1_wrapper
+TRACE::2020-04-03.18:38:38::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:38:39::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:38:39::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:38:39::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:39::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:39::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:39::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:39::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:39::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:39::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:39::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:39::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:39::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:39::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:39::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2020-04-03.18:38:40::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss with des name system
+TRACE::2020-04-03.18:38:40::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:40::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS:: library already available in sw design:  lwip211:1.1
+TRACE::2020-04-03.18:38:40::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:38:40::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:38:40::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:38:40::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:38:40::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss with des name system_0
+TRACE::2020-04-03.18:38:40::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:40::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS:: library already available in sw design:  lwip211:1.1
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:38:40::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:40::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:40::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:38:40::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:38:40::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:38:40::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:40::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:40::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2020-04-03.18:38:40::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:38:41::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:41::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:38:41::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:38:41::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:41::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:41::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:41::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:41::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:41::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:38:42::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:42::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:42::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:42::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:42::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:42::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:42::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:42::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:42::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:42::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:42::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:42::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:43::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:38:43::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:43::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:43::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:43::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:43::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:43::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:43::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:43::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:43::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:43::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:43::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+KEYINFO::2020-04-03.18:38:43::SCWMssOS::Could not open the swdb for system_1
+KEYINFO::2020-04-03.18:38:43::SCWMssOS::Could not open the sw design at  system_1
+ERROR: [Hsi 55-1558] Software Design system_1 is not found
+
+TRACE::2020-04-03.18:38:43::SCWMssOS::Cleared the swdb table entry
+TRACE::2020-04-03.18:38:43::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:43::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:43::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:43::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:38:44::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:44::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:38:44::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:44::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:44::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:44::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:44::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:44::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:44::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:44::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:45::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:38:45::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:38:45::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:38:45::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:45::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:45::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:45::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:45::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:38:45::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:38:45::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:38:45::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:38:45::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:38:45::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:38:45::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:27::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:27::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:27::SCWPlatform:: Platform location is C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa
+TRACE::2020-04-03.18:39:27::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:27::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Doing hw sync for the mss in domain: standalone_domain
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:33::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::update - Opened existing hwdb digitizer
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Doing hw sync for the mss in domain: free_rtos
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:33::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::update - Opened existing hwdb digitizer
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Doing hw sync for the mss in domain: zynq_fsbl
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/design_1_wrapper.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to set the existing hwdb with name design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Opened existing hwdb design_1_wrapper
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:33::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:39:33::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:33::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:33::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/tempdsa/digitizer.xsa
+TRACE::2020-04-03.18:39:33::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:33::SCWPlatform::update - Opened existing hwdb digitizer
+TRACE::2020-04-03.18:39:33::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:33::SCWMssOS::Completed hw sync for the mss in domain: standalone_domain
+TRACE::2020-04-03.18:39:33::SCWMssOS::Completed hw sync for the mss in domain: free_rtos
+TRACE::2020-04-03.18:39:33::SCWMssOS::Completed hw sync for the mss in domain: zynq_fsbl
+TRACE::2020-04-03.18:39:34::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:34::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:34::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:34::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:34::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:34::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:34::SCWPlatform::Do not have an existing db opened. 
+TRACE::2020-04-03.18:39:38::SCWPlatform::Opened new HwDB with name digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to set the existing hwdb with name digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Opened existing hwdb digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:38::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:38::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to set the existing hwdb with name digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Opened existing hwdb digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:38::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:38::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to set the existing hwdb with name digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Opened existing hwdb digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:38::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:38::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:38::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Trying to set the existing hwdb with name digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Opened existing hwdb digitizer_0
+TRACE::2020-04-03.18:39:38::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:38::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:38::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:38::SCWWriter::formatted JSON is {
+	"platformName":	"design_1_wrapper",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"design_1_wrapper",
+	"platHandOff":	"C:/Users/Oleg/Documents/work/Digitizer/software/digitizer.xsa",
+	"platIntHandOff":	"<platformDir>/hw/digitizer.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"design_1_wrapper",
+	"systems":	[{
+			"systemName":	"design_1_wrapper",
+			"systemDesc":	"design_1_wrapper",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"design_1_wrapper",
+			"sysActiveDom":	"zynq_fsbl",
+			"sysDefaultDom":	"free_rtos",
+			"domains":	[{
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on ps7_cortexa9_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"qemuArgs":	"C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt",
+					"qemuData":	"C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"cc8a313c023a181fd9ae06791f5d28fe",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["lwip211:1.1"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"free_rtos",
+					"domainDispName":	"free_rtos",
+					"domainDesc":	"",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"freertos10_xilinx",
+					"sdxOs":	"freertos",
+					"qemuArgs":	"C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt",
+					"qemuData":	"C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"1.4",
+					"mssFile":	"",
+					"md5Digest":	"04fbb0158c012c3b8ad71999f2d07693",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["lwip211:1.1"],
+					"libOptions":	{
+						"lwip211":	{
+							"api_mode":	"SOCKET_API",
+							"libOptionNames":	["api_mode"]
+						},
+						"libsContainingOptions":	["lwip211"]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.1",
+					"mssFile":	"",
+					"md5Digest":	"cdc387adc6e0f147adc5517972dc1fb1",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:4.2", "xilrsa:1.5"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+TRACE::2020-04-03.18:39:40::SCWPlatform::Clearing the existing platform
+TRACE::2020-04-03.18:39:40::SCWSystem::Clearing the existing sysconfig
+TRACE::2020-04-03.18:39:40::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:40::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:40::SCWBDomain::clearing the fsbl build
+TRACE::2020-04-03.18:39:40::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:40::SCWSystem::Clearing the domains completed.
+TRACE::2020-04-03.18:39:40::SCWPlatform::Clearing the opened hw db.
+TRACE::2020-04-03.18:39:40::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:40::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:40::SCWPlatform:: Platform location is C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:40::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:40::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:41::SCWPlatform::Removing the HwDB with name C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:41::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:41::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:41::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:41::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:41::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:41::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:41::SCWPlatform::Do not have an existing db opened. 
+TRACE::2020-04-03.18:39:45::SCWPlatform::Opened new HwDB with name digitizer_1
+TRACE::2020-04-03.18:39:45::SCWReader::Active system found as  design_1_wrapper
+TRACE::2020-04-03.18:39:45::SCWReader::Handling sysconfig design_1_wrapper
+TRACE::2020-04-03.18:39:45::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:39:45::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:39:45::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:39:45::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:45::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:45::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:45::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:45::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:45::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:45::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2020-04-03.18:39:46::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss with des name system
+TRACE::2020-04-03.18:39:46::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:46::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS:: library already available in sw design:  lwip211:1.1
+TRACE::2020-04-03.18:39:46::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:39:46::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:39:46::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:39:46::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:39:46::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss with des name system_0
+TRACE::2020-04-03.18:39:46::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:46::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS:: library already available in sw design:  lwip211:1.1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:39:46::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:46::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:46::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:39:46::SCWDomain::checking for install qemu data   : 
+TRACE::2020-04-03.18:39:46::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/
+TRACE::2020-04-03.18:39:46::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2019.2/data/emulation/platforms/zynq/qemu/qemu_args.txt
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:46::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:46::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:46::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:46::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:39:47::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:47::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:47::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:47::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:39:47::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2020-04-03.18:39:47::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:47::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWReader::No isolation master present  
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:47::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:47::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:47::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:47::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:47::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:47::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:47::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:48::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:48::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:48::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+KEYINFO::2020-04-03.18:39:48::SCWMssOS::Could not open the swdb for system_1
+KEYINFO::2020-04-03.18:39:48::SCWMssOS::Could not open the sw design at  system_1
+ERROR: [Hsi 55-1558] Software Design system_1 is not found
+
+TRACE::2020-04-03.18:39:48::SCWMssOS::Cleared the swdb table entry
+TRACE::2020-04-03.18:39:48::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:39:48::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:48::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:48::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:48::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:48::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:48::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:48::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:48::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:48::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:48::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:48::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:49::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:49::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:39:49::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:49::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:49::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:49::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:49::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:49::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:49::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:49::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::In reload Mss file.
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:49::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:49::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:49::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:49::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:49::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+
+TRACE::2020-04-03.18:39:50::SCWMssOS::No sw design opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::mss exists loading the mss file  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::Opened the sw design from mss  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::Adding the swdes entry C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system_1
+TRACE::2020-04-03.18:39:50::SCWMssOS::updating the scw layer about changes
+TRACE::2020-04-03.18:39:50::SCWMssOS::Opened the sw design.  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:50::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:50::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS:: library already available in sw design:  xilffs:4.2
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:50::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:50::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS:: library already available in sw design:  xilrsa:1.5
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to open the hw design at C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA given C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA absoulate path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform::DSA directory C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Platform Path C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/hw/digitizer.xsa
+TRACE::2020-04-03.18:39:50::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2020-04-03.18:39:50::SCWPlatform::Trying to set the existing hwdb with name digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Opened existing hwdb digitizer_1
+TRACE::2020-04-03.18:39:50::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2020-04-03.18:39:50::SCWMssOS::Checking the sw design at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::DEBUG:  swdes dump  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/free_rtos/bsp/system.mss|system_0||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system||
+C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system_1||
+
+TRACE::2020-04-03.18:39:50::SCWMssOS::Sw design exists and opened at  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2020-04-03.18:39:50::SCWMssOS::Removing the swdes entry for  C:/Users/Oleg/Documents/work/Digitizer/software/design_1_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss

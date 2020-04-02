@@ -12,7 +12,7 @@ _ide/
 !/src/design_1/design_1.bd
 !/src/design_1/hdl
 /src/design_1/hdl/*
-!/src/design_1/hdl/design_1_wrapper.v
+!/src/design_1/hdl/digitizer.v
 
 
 /software/webtalk

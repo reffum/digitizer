@@ -6,8 +6,8 @@ _ide/
 *.o
 
 
-/project
 /digitizer
+/software
 /src/design_1/*
 !/src/design_1/design_1.bd
 !/src/design_1/hdl
@@ -15,5 +15,5 @@ _ide/
 !/src/design_1/hdl/digitizer.v
 
 
-/software/webtalk
-/Packages/.repos.xml
+
+/Packages

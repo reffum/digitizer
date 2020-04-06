@@ -15,5 +15,10 @@ _ide/
 !/src/design_1/hdl/digitizer.v
 
 
-/software/webtalk
+/software/*
+!/software/adc_receiver/
+/software/adc_receiver/*
+!/software/adc_receiver/src/
+
+
 /Packages/.repos.xml

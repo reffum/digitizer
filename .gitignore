@@ -15,10 +15,10 @@ _ide/
 !/src/design_1/hdl/digitizer.v
 
 
-/software/*
-!/software/adc_receiver/
-/software/adc_receiver/*
-!/software/adc_receiver/src/
+/soft1/*
+!/soft1/adc_receiver/
+/soft1/adc_receiver/*
+!/soft1/adc_receiver/src/
 
 
 /Packages/.repos.xml

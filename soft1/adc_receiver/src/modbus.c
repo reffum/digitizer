@@ -14,6 +14,9 @@ int modbus_socket;
 /* Remote address */
 struct sockaddr_in remote_addr;
 
+// Remote addr for data channel
+extern struct sockaddr_in data_remote_addr;
+
 void modbus_responce(uint8_t* data, unsigned size)
 {
 	write(modbus_socket, data, size);

@@ -6,16 +6,20 @@
 #include "data_channel.h"
 
 
-#define ADDR_ID			0
-#define ADDR_STATUS		1
-#define ADDR_CONTROL	2
-#define ADDR_DSIZE		3
+#define ADDR_ID				0
+#define ADDR_STATUS			1
+#define ADDR_CONTROL		2
+#define ADDR_DSIZE			3
+#define REMOTE_DATA_PORT	4
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
 
 static const uint16_t ID_VALUE = 0x55AA;
 
+uint16_t remote_port = 0;
+
+extern struct sockaddr_in remote_addr;
 
 int reg_read(uint16_t addr, uint16_t* value)
 {
@@ -37,6 +41,9 @@ int reg_read(uint16_t addr, uint16_t* value)
 		break;
 	case ADDR_DSIZE:
 		*value = adc_input_get_size() >> 16;
+		break;
+	case REMOTE_DATA_PORT:
+		*value = remote_port;
 		break;
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
@@ -61,6 +68,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 	case ADDR_DSIZE:
 		adc_input_set_size(*value << 16);
 		break;
+	case REMOTE_DATA_PORT:
+		remote_port = *value;
+		data_channel_set_remote_params(remote_addr.sin_addr, htons(remote_port));
+		break;
+
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
 	}

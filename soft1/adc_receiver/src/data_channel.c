@@ -7,13 +7,15 @@
 
 int data_socket;
 
-u8 dma_buffer[1024*1024*64] __attribute__ ((aligned (32)));
+u8 dma_buffer[1024*1024*32] __attribute__ ((aligned (32)));
 XAxiDma xaxidma;
 
 const int UDP_PACKET_SIZE = 16*1024;
 
-// Connected MODBUS master address
-extern struct sockaddr_in remote_addr;
+uint16_t DATA_PORT = 1024;
+
+// Connected data socket address
+struct sockaddr_in data_remote_addr, data_local_addr;
 
 void data_channel_init(void)
 {
@@ -22,6 +24,13 @@ void data_channel_init(void)
 
 	data_socket = lwip_socket(AF_INET, SOCK_DGRAM, 0);
 	assert(data_socket >= 0);
+
+	data_local_addr.sin_family = AF_INET;
+	data_local_addr.sin_port = htons(DATA_PORT);
+	data_local_addr.sin_addr.s_addr = INADDR_ANY;
+
+	r = lwip_bind(data_socket, (struct sockaddr*)&data_local_addr, sizeof(data_local_addr));
+	assert(r == 0);
 
     adc_input_set_size(64*1024);
     adc_input_set_test(true);
@@ -52,8 +61,15 @@ void data_channel_send(void)
 	while(data_size > 0)
 	{
 		curr_size = (data_size > UDP_PACKET_SIZE) ? UDP_PACKET_SIZE : data_size;
-		r = lwip_sendto(data_socket, dma_buffer, curr_size, 0, (struct sockaddr*)&remote_addr, sizeof(remote_addr));
+		r = lwip_sendto(data_socket, dma_buffer, curr_size, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
 
 		data_size -= curr_size;
 	}
+}
+
+void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port)
+{
+	data_remote_addr.sin_family = AF_INET;
+	data_remote_addr.sin_addr = sin_addr;
+	data_remote_addr.sin_port = sin_port;
 }

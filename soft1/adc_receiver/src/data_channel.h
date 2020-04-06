@@ -4,11 +4,14 @@
 #ifndef _DATA_CHANNEL_H_
 #define _DATA_CHANNEL_H_
 
+#include "lwip/sockets.h"
+
 void data_channel_init(void);
 
 // Start data receive from ADC, transmit it to memory throw DMA and send to UDP
 void data_channel_send(void);
 
-
+// Set data channel IP addr and port in sockaddr format
+void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port);
 
 #endif	/*	_DATA_CHANNEL_H_	*/

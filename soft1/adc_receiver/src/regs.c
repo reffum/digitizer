@@ -63,7 +63,7 @@ int reg_write(uint16_t addr, uint16_t* value)
 			adc_input_set_test(false);
 
 		if(*value & _CONTROL_START)
-			data_channel_send();
+			adc_input_start();
 		break;
 	case ADDR_DSIZE:
 		adc_input_set_size(*value << 16);

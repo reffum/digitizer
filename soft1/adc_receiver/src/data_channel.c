@@ -4,13 +4,14 @@
 #include "xaxidma.h"
 #include "xparameters.h"
 #include "adc_input.h"
+#include "modbus.h"
 
 int data_socket;
 
 u8 dma_buffer[1024*1024*32] __attribute__ ((aligned (32)));
 XAxiDma xaxidma;
 
-const int UDP_PACKET_SIZE = 16*1024;
+const int UDP_PACKET_SIZE = 1024;
 
 uint16_t DATA_PORT = 1024;
 
@@ -21,16 +22,6 @@ void data_channel_init(void)
 {
 	int r;
 	XAxiDma_Config *xaxidma_config;
-
-	data_socket = lwip_socket(AF_INET, SOCK_DGRAM, 0);
-	assert(data_socket >= 0);
-
-	data_local_addr.sin_family = AF_INET;
-	data_local_addr.sin_port = htons(DATA_PORT);
-	data_local_addr.sin_addr.s_addr = INADDR_ANY;
-
-	r = lwip_bind(data_socket, (struct sockaddr*)&data_local_addr, sizeof(data_local_addr));
-	assert(r == 0);
 
     adc_input_set_size(64*1024);
     adc_input_set_test(true);
@@ -58,13 +49,15 @@ void data_channel_send(void)
 	int data_size = adc_input_get_size();
 	int curr_size;
 
-	while(data_size > 0)
-	{
-		curr_size = (data_size > UDP_PACKET_SIZE) ? UDP_PACKET_SIZE : data_size;
-		r = lwip_sendto(data_socket, dma_buffer, curr_size, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
+	r = lwip_sendto(data_socket, dma_buffer, UDP_PACKET_SIZE, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
 
-		data_size -= curr_size;
-	}
+//	while(data_size > 0)
+//	{
+//		curr_size = (data_size > UDP_PACKET_SIZE) ? UDP_PACKET_SIZE : data_size;
+//		r = lwip_sendto(data_socket, dma_buffer, curr_size, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
+//
+//		data_size -= curr_size;
+//	}
 }
 
 void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port)
@@ -73,3 +66,58 @@ void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port)
 	data_remote_addr.sin_addr = sin_addr;
 	data_remote_addr.sin_port = sin_port;
 }
+
+void data_thread(void * p)
+{
+	int sock;
+	struct sockaddr_in remote_addr;
+	int r, size;
+
+	data_channel_init();
+
+	data_socket = lwip_socket(AF_INET, SOCK_STREAM, 0);
+	assert(data_socket >= 0);
+
+	data_local_addr.sin_family = AF_INET;
+	data_local_addr.sin_port = htons(DATA_PORT);
+	data_local_addr.sin_addr.s_addr = INADDR_ANY;
+
+	r = lwip_bind(data_socket, (struct sockaddr*)&data_local_addr, sizeof(data_local_addr));
+	assert(r >= 0);
+
+	while(1)
+	{
+		lwip_listen(data_socket, 0);
+
+		size = sizeof(remote_addr);
+
+		sock = lwip_accept(data_socket, (struct sockaddr*)&remote_addr, (socklen_t *)&size);
+
+		while(1)
+		{
+			int r;
+			// Start transfer from ADC to DDR
+			r = XAxiDma_SimpleTransfer(&xaxidma, (u32)dma_buffer,  sizeof(dma_buffer), XAXIDMA_DEVICE_TO_DMA);
+			assert(r == XST_SUCCESS);
+
+			// Wait until data is transferred in DDR of close MODBUS connection
+			while(XAxiDma_Busy(&xaxidma, XAXIDMA_DEVICE_TO_DMA))
+			{
+				if(!modbus_connection_state())
+					break;
+			}
+
+			Xil_DCacheInvalidateRange((u32)dma_buffer, sizeof(dma_buffer));
+
+			int data_size = adc_input_get_size();
+
+			r = lwip_send(sock, dma_buffer, data_size, 0);
+
+			if(r == -1)
+				break;
+		}
+
+		close(sock);
+	}
+}
+

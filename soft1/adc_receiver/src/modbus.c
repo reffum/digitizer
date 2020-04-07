@@ -11,6 +11,9 @@ static const unsigned MODBUS_PORT = 502;
 
 int modbus_socket;
 
+// connection state
+bool conn_state = false;
+
 /* Remote address */
 struct sockaddr_in remote_addr;
 
@@ -82,6 +85,7 @@ void modbus_thread(void * p)
 		size = sizeof(remote_addr);
 
 		modbus_socket = lwip_accept(sock, (struct sockaddr *)&remote_addr, (socklen_t *)&size);
+		conn_state = true;
 
 		while(1)
 		{
@@ -98,5 +102,11 @@ void modbus_thread(void * p)
 		}
 
 		close(modbus_socket);
+		conn_state = false;
 	}
+}
+
+bool modbus_connection_state()
+{
+	return conn_state;
 }

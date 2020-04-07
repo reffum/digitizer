@@ -31,6 +31,7 @@
 #include "netif/xadapter.h"
 #include "platform_config.h"
 #include "xil_printf.h"
+#include "data_channel.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -197,9 +198,11 @@ void network_thread(void *p)
 
     xil_printf("\r\n");
 
-    data_channel_init();
+    sys_thread_new("modbus", modbus_thread, 0,
+		THREAD_STACKSIZE,
+		DEFAULT_THREAD_PRIO);
 
-    sys_thread_new("echod", modbus_thread, 0,
+    sys_thread_new("data", data_thread, 0,
 		THREAD_STACKSIZE,
 		DEFAULT_THREAD_PRIO);
     vTaskDelete(NULL);

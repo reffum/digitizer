@@ -69,9 +69,8 @@ module tb;
    assign FIXED_IO_ps_porb = resetn,
      FIXED_IO_ps_srstb = resetn;
 
-   assign jd_p[3] = adc_clk_ex;
-   assign jd_n[3] = ~jd_p[3];
-   
+   assign hdmi_clk_p = adc_clk_ex;
+   assign hdmi_clk_n = ~adc_clk_ex;
 
    initial begin : CLK_GEN
       clk = 1'b0;
@@ -87,6 +86,8 @@ module tb;
 `define A tb.UUT.design_1_i.processing_system7_0.inst
    initial begin : TEST
       logic [1:0] responce;
+      logic [31:0] register;
+      
       
       $display("TEST start");
       resetn = 1'b0;
@@ -117,7 +118,13 @@ module tb;
       `A.write_data(32'h6000_0000, 4, 32'h0000_0003, responce);
       assert(responce === 2'b00);
       
-      #10us;
+      // Wait for end of data transmitt
+      do begin
+	 `A.read_data(DMA_ADDR + 'h34, 4, register, responce);
+	 assert(responce === 2'b00);
+      end while(!(register & 2));
+
+      `A.peek_mem_to_file("data.bin", 32'h0010_0000, 32'h0000_0020);
       
       $finish;
       

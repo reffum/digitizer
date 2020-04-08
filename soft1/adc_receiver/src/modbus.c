@@ -2,6 +2,7 @@
 // MODBUS communicatoin
 //
 #include <assert.h>
+#include "xil_printf.h"
 #include "mb.h"
 #include "lwip/sockets.h"
 #include "regs.h"
@@ -86,6 +87,7 @@ void modbus_thread(void * p)
 
 		modbus_socket = lwip_accept(sock, (struct sockaddr *)&remote_addr, (socklen_t *)&size);
 		conn_state = true;
+		print("MODBUS connect\r\n");
 
 		while(1)
 		{
@@ -102,6 +104,7 @@ void modbus_thread(void * p)
 		}
 
 		close(modbus_socket);
+		print("MODBUS disconnect\r\n");
 		conn_state = false;
 	}
 }

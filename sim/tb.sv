@@ -64,15 +64,27 @@ module tb;
    
    logic       clk, resetn;
 
-   logic       adc_clk_ex;
-   
+   logic       adc_clk;
+   logic [11:0] adc_data;
 
    assign FIXED_IO_ps_clk = clk;
    assign FIXED_IO_ps_porb = resetn,
      FIXED_IO_ps_srstb = resetn;
 
-   assign hdmi_clk_p = adc_clk_ex;
-   assign hdmi_clk_n = ~adc_clk_ex;
+   // ADC data interface connected to
+   // FPGA ports
+   assign hdmi_clk_p = adc_clk;
+   assign hdmi_clk_n = ~adc_clk;
+
+   assign ja_p = adc_data[3:0];
+   assign ja_n = ~ja_p;
+
+   assign jb_p = adc_data[7:4];
+   assign jb_n = ~jb_p;
+
+   assign jc_p = adc_data[11:8];
+   assign jc_n = ~jc_p;
+   
 
    initial begin : CLK_GEN
       clk = 1'b0;
@@ -80,10 +92,26 @@ module tb;
    end
 
    initial begin : ADC_CLK_GEN
-      adc_clk_ex = 1'b0;
-      forever #(ADC_CLK_PERIOD/2) adc_clk_ex = ~adc_clk_ex;
+      adc_clk = 1'b0;
+      forever #(ADC_CLK_PERIOD/2) adc_clk = ~adc_clk;
    end
-   
+
+   clocking adc_ck @(posedge adc_clk);
+      output negedge adc_data;
+   endclocking // adc_ck
+
+   initial begin : ADC_DATA_GENERATE
+      automatic logic [11:0] value = 0;
+      
+      // Generate countinous incremented value
+      adc_data = {$size(adc_data){1'b0}};
+
+      forever begin
+	 adc_ck.adc_data <= value;
+	 value = value + 1;
+	 @(adc_ck);
+      end
+   end // block: ADC_DATA_GENERATE
    
 `define A tb.UUT.design_1_i.processing_system7_0.inst
    initial begin : TEST
@@ -117,7 +145,7 @@ module tb;
       assert(responce === 2'b00);
 
       // Set test mode and start
-      `A.write_data(32'h6000_0000, 4, 32'h0000_0003, responce);
+      `A.write_data(32'h6000_0000, 4, 32'h0000_0001, responce);
       assert(responce === 2'b00);
       
       // Wait for end of data transmitt

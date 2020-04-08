@@ -65,7 +65,7 @@ module tb;
    logic       clk, resetn;
 
    logic       adc_clk;
-   logic [11:0] adc_data;
+   logic [15:0] adc_data;
 
    assign FIXED_IO_ps_clk = clk;
    assign FIXED_IO_ps_porb = resetn,
@@ -84,7 +84,9 @@ module tb;
 
    assign jc_p = adc_data[11:8];
    assign jc_n = ~jc_p;
-   
+
+   assign jd_p = adc_data[15:12];
+   assign jd_n = ~jd_p;
 
    initial begin : CLK_GEN
       clk = 1'b0;
@@ -144,7 +146,7 @@ module tb;
       `A.write_data(32'h6000_0008, 4, DATA_SIZE, responce);
       assert(responce === 2'b00);
 
-      // Set test mode and start
+      // Set start
       `A.write_data(32'h6000_0000, 4, 32'h0000_0001, responce);
       assert(responce === 2'b00);
       

@@ -24,4 +24,8 @@ _ide/
 /soft1/dma_test/*
 !/soft1/dma_test/src/
 
+!/soft1/modbus/
+/soft1/modbus/*
+!/soft1/modbus/src/
+
 /Packages/.repos.xml

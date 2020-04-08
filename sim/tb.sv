@@ -24,7 +24,9 @@
 module tb;
    localparam time ADC_CLK_PERIOD = 100ns;
    localparam DMA_ADDR = 32'h4040_0000;
-   
+   localparam MEM_ADDRESS = 32'h0010_0000;
+   localparam DMA_BUFFER_SIZE = 1024*1024*32;
+   localparam DATA_SIZE = 64*1024;
    
    //
    // UUT ports
@@ -103,15 +105,15 @@ module tb;
       `A.write_data(DMA_ADDR + 'h30, 4, 32'h0000_0001, responce);
       assert(responce === 2'b00);
 
-      `A.write_data(DMA_ADDR + 'h48, 4, 32'h0010_0000, responce);
+      `A.write_data(DMA_ADDR + 'h48, 4, MEM_ADDRESS, responce);
       assert(responce === 2'b00);
 
-      `A.write_data(DMA_ADDR + 'h58, 4, 32'h0000_1000, responce);
+      `A.write_data(DMA_ADDR + 'h58, 4, DMA_BUFFER_SIZE, responce);
       assert(responce === 2'b00);
 
       
       // Set packet size
-      `A.write_data(32'h6000_0008, 4, 32'h0000_0020, responce);
+      `A.write_data(32'h6000_0008, 4, DATA_SIZE, responce);
       assert(responce === 2'b00);
 
       // Set test mode and start
@@ -124,7 +126,7 @@ module tb;
 	 assert(responce === 2'b00);
       end while(!(register & 2));
 
-      `A.peek_mem_to_file("data.bin", 32'h0010_0000, 32'h0000_0020);
+      `A.peek_mem_to_file("data.bin", MEM_ADDRESS, DATA_SIZE);
       
       $finish;
       

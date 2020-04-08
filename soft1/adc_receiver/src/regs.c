@@ -11,11 +11,20 @@
 #define ADDR_CONTROL		2
 #define ADDR_DSIZE			3
 #define REMOTE_DATA_PORT	4
+#define V1					5
+#define V2					6
+#define V3					7
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
 
 static const uint16_t ID_VALUE = 0x55AA;
+
+/* This firmware version */
+const struct
+{
+	uint8_t v1,v2,v3;
+} version = {0,0,1};
 
 uint16_t remote_port = 0;
 
@@ -44,6 +53,16 @@ int reg_read(uint16_t addr, uint16_t* value)
 		break;
 	case REMOTE_DATA_PORT:
 		*value = remote_port;
+		break;
+
+	case V1:
+		*value = version.v1;
+		break;
+	case V2:
+		*value = version.v2;
+		break;
+	case V3:
+		*value = version.v3;
 		break;
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;

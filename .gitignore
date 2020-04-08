@@ -20,5 +20,8 @@ _ide/
 /soft1/adc_receiver/*
 !/soft1/adc_receiver/src/
 
+!/soft1/dma_test/
+/soft1/dma_test/*
+!/soft1/dma_test/src/
 
 /Packages/.repos.xml

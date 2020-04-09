@@ -11,8 +11,6 @@ int data_socket;
 u8 dma_buffer[1024*1024*32] __attribute__ ((aligned (32)));
 XAxiDma xaxidma;
 
-const int UDP_PACKET_SIZE = 1024;
-
 uint16_t DATA_PORT = 1024;
 
 // Connected data socket address
@@ -31,33 +29,6 @@ void data_channel_init(void)
 
     r = XAxiDma_CfgInitialize(&xaxidma, xaxidma_config);
     assert(r == XST_SUCCESS);
-}
-
-void data_channel_send(void)
-{
-	int r;
-	// Start transfer from ADC to DDR
-	r = XAxiDma_SimpleTransfer(&xaxidma, (u32)dma_buffer,  sizeof(dma_buffer), XAXIDMA_DEVICE_TO_DMA);
-	assert(r == XST_SUCCESS);
-
-	adc_input_start();
-
-	while(XAxiDma_Busy(&xaxidma, XAXIDMA_DEVICE_TO_DMA));
-	Xil_DCacheInvalidateRange((u32)dma_buffer, sizeof(dma_buffer));
-
-	// Send data to host
-	int data_size = adc_input_get_size();
-	int curr_size;
-
-	r = lwip_sendto(data_socket, dma_buffer, UDP_PACKET_SIZE, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
-
-//	while(data_size > 0)
-//	{
-//		curr_size = (data_size > UDP_PACKET_SIZE) ? UDP_PACKET_SIZE : data_size;
-//		r = lwip_sendto(data_socket, dma_buffer, curr_size, 0, (struct sockaddr*)&data_remote_addr, sizeof(data_remote_addr));
-//
-//		data_size -= curr_size;
-//	}
 }
 
 void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port)
@@ -92,6 +63,7 @@ void data_thread(void * p)
 		size = sizeof(remote_addr);
 
 		sock = lwip_accept(data_socket, (struct sockaddr*)&remote_addr, (socklen_t *)&size);
+		print("DATA connect\r\n");
 
 		while(1)
 		{
@@ -104,7 +76,10 @@ void data_thread(void * p)
 			while(XAxiDma_Busy(&xaxidma, XAXIDMA_DEVICE_TO_DMA))
 			{
 				if(!modbus_connection_state())
-					break;
+				{
+					XAxiDma_Reset(&xaxidma);
+					goto close_connection;
+				}
 			}
 
 			Xil_DCacheInvalidateRange((u32)dma_buffer, sizeof(dma_buffer));
@@ -117,7 +92,9 @@ void data_thread(void * p)
 				break;
 		}
 
+close_connection:
 		close(sock);
+		print("DATA disconnect\r\n");
 	}
 }
 

@@ -37,8 +37,6 @@ module digitizer
     jc_p, jc_n,
     jd_p, jd_n,
     
-    hdmi_clk_n, hdmi_clk_p,    
-    
     led
     );
   inout [14:0]DDR_addr;
@@ -67,7 +65,6 @@ module digitizer
   input [3:0] jb_p, jb_n; 
   input [3:0] jc_p, jc_n; 
   input [3:0] jd_p, jd_n; 
-  input hdmi_clk_n, hdmi_clk_p;
   
   output [3:0] led;
 
@@ -125,70 +122,18 @@ module digitizer
 
    
    // Connect adc_data
-   genvar i;
-   
-   generate
-      for (i=0; i < 4; i = i + 1)
-      begin: gen_adc_data
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_JA (
-          .O(adc_data[i]),
-          .I(ja_p[i]),
-          .IB(ja_n[i])
-       );
-              
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_JB (
-          .O(adc_data[4 + i]),
-          .I(jb_p[i]),
-          .IB(jb_n[i])
-       ); 
-       
-       IBUFDS #(
-          .DIFF_TERM("FALSE"),
-          .IBUF_LOW_PWR("FALSE"),
-          .IOSTANDARD("LVDS_25")
-       ) IBUFDS_JC (
-          .O(adc_data[8 + i]),
-          .I(jc_p[i]),
-          .IB(jc_n[i])
-       );                            
-      end
-      
-      for(i = 0; i < 4; i = i + 1) 
-      begin : gen_jd_adc_data
-           IBUFDS #(
-              .DIFF_TERM("FALSE"),
-              .IBUF_LOW_PWR("FALSE"),
-              .IOSTANDARD("LVDS_25")
-           ) IBUFDS_JD (
-              .O(adc_data[12 + i]),
-              .I(jd_p[i]),
-              .IB(jd_n[i])
-           );       
-      end
-   endgenerate 
-   
-   IBUFDS #(
-      .DIFF_TERM("FALSE"),
-      .IBUF_LOW_PWR("FALSE"),
-      .IOSTANDARD("LVDS_25")
-   ) IBUFDS_JE (
-      .O(adc_clk),
-      .I(hdmi_clk_p),
-      .IB(hdmi_clk_n)
-   );     
+   assign adc_clk = jd_p[3];
 
-    always @(posedge adc_clk) begin
-        led_cs <= |adc_data;
-    end
-    
-    assign led[0] = led_cs;
+   assign adc_data[3:0] = ja_p[3:0];
+   assign adc_data[7:4] = jb_p[3:0];
+   assign adc_data[11:8] = jc_p[3:0];
+   assign adc_data[14:12] = jd_p[2:0];
+   assign adc_data[15] = ja_n[0];
+   
+   always @(posedge adc_clk) begin
+      led_cs <= |adc_data;
+   end
+   
+   assign led[0] = led_cs;
         
 endmodule

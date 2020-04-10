@@ -122,12 +122,13 @@ module digitizer
 
    
    // Connect adc_data
-   assign adc_clk = jd_p[3];
+   assign adc_clk = jd_p[2];
 
    assign adc_data[3:0] = ja_p[3:0];
    assign adc_data[7:4] = jb_p[3:0];
    assign adc_data[11:8] = jc_p[3:0];
-   assign adc_data[14:12] = jd_p[2:0];
+   assign adc_data[13:12] = jd_p[1:0];
+   assign adc_data[14] = jd_p[3];
    assign adc_data[15] = ja_n[0];
    
    always @(posedge adc_clk) begin

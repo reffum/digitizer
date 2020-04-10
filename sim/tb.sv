@@ -137,7 +137,7 @@ module tb;
       assert(responce === 2'b00);
 
       // Set start
-      `A.write_data(32'h6000_0000, 4, 32'h0000_0003, responce);
+      `A.write_data(32'h6000_0000, 4, 32'h0000_0001, responce);
       assert(responce === 2'b00);
       
       // Wait for end of data transmitt

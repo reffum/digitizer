@@ -57,7 +57,6 @@ module tb;
    wire [3:0]  jb_p, jb_n; 
    wire [3:0]  jc_p, jc_n; 
    wire [3:0]  jd_p, jd_n; 
-   wire        hdmi_clk_n, hdmi_clk_p;
    
    wire        led;
 
@@ -71,23 +70,14 @@ module tb;
    assign FIXED_IO_ps_porb = resetn,
      FIXED_IO_ps_srstb = resetn;
 
-   // ADC data interface connected to
-   // FPGA ports
-   assign hdmi_clk_p = adc_clk;
-   assign hdmi_clk_n = ~adc_clk;
-
-   assign ja_p = adc_data[3:0];
-   assign ja_n = ~ja_p;
-
-   assign jb_p = adc_data[7:4];
-   assign jb_n = ~jb_p;
-
-   assign jc_p = adc_data[11:8];
-   assign jc_n = ~jc_p;
-
-   assign jd_p = adc_data[15:12];
-   assign jd_n = ~jd_p;
-
+   assign jd_p[3] = adc_clk;
+   assign ja_p[3:0] = adc_data[3:0];
+   assign jb_p[3:0] = adc_data[7:4];
+   assign jc_p[3:0] = adc_data[11:8];
+   assign jd_p[2:0] = adc_data[14:12];
+   assign ja_n[0] = adc_data[15];
+   
+   
    initial begin : CLK_GEN
       clk = 1'b0;
       forever #15ns clk = ~clk;

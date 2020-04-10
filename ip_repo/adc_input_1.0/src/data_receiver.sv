@@ -122,7 +122,7 @@ module data_receiver
 	  if(TREADY)
 	    state_ns <= S0;
       endcase // case (state_cs)
-   end // block: STATE_LOGIC
+   end // block: STATE_LOGIC   
 
    //
    // Data registers logic

@@ -60,7 +60,7 @@ module data_receiver
    //
    // State
    //
-   enum  logic [2:0] {INIT, S0, S1, S2, S3} state_ns, state_cs;
+   enum  logic [2:0] {INIT, S0, S1, S2, S3, S4} state_ns, state_cs;
 
    //
    // Registers
@@ -104,9 +104,21 @@ module data_receiver
 	    state_ns <= S2;
 	S2:
 	  if(TREADY) 
-	    if(counter_cs <= 1)
+	    if(counter_cs > 1)
+	      if(test || fifo_almost_full)
+		state_ns <= S2;
+	      else
+		state_ns <= S1;
+	    else if(test || fifo_almost_full)
+	      state_ns <= S4;
+	    else
 	      state_ns <= S3;
+
 	S3:
+	  if(fifo_almost_full)
+	    state_ns <= S4;
+	
+	S4:
 	  if(TREADY)
 	    state_ns <= S0;
       endcase // case (state_cs)
@@ -128,12 +140,11 @@ module data_receiver
       case(state_cs)
 	INIT:
 	  counter_ns <= counter_cs + 1;
-	S1:
+	S0:
 	  counter_ns <= dsize;
 	S2:
 	  if(TREADY)
-	    if(counter_cs > 1)
-	      counter_ns <= counter_cs - 1;
+	    counter_ns <= counter_cs - 1;
 	default:
 	  counter_ns <= counter_cs;
       endcase // case (state_cs)
@@ -169,7 +180,7 @@ module data_receiver
 	     fifo_rden <= 1'b1;
 	end
 
-	S3: begin
+	S4: begin
 	   TDATA <= GetData();
 	   TVALID <= 1'b1;
 	   TLAST <= 1'b1;

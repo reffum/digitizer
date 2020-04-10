@@ -7,7 +7,7 @@ volatile struct regs
 	uint32_t CR;
 	uint32_t SR;
 	uint32_t DSIZE;
-} *regs = XPAR_ADC_INPUT_0_BASEADDR;
+} *regs = (struct regs*)XPAR_ADC_INPUT_0_BASEADDR;
 
 #define _CR_START		0x1
 #define _CR_TEST		0x2

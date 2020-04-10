@@ -4,6 +4,7 @@
 #include "xparameters.h"
 #include "adc_input.h"
 #include "data_channel.h"
+#include "spi.h"
 
 
 #define ADDR_ID				0
@@ -14,6 +15,7 @@
 #define V1					5
 #define V2					6
 #define V3					7
+#define SPI_SEND			8
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -90,6 +92,10 @@ int reg_write(uint16_t addr, uint16_t* value)
 	case REMOTE_DATA_PORT:
 		remote_port = *value;
 		data_channel_set_remote_params(remote_addr.sin_addr, htons(remote_port));
+		break;
+
+	case SPI_SEND:
+		spi_send(*value);
 		break;
 
 	default:

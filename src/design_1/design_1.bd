@@ -639,16 +639,16 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
-            ]
-          },
           "m01_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
             ]
           },
           "xbar_to_m01_couplers": {
@@ -657,10 +657,10 @@
               "m01_couplers/S_AXI"
             ]
           },
-          "m00_couplers_to_ps7_0_axi_periph": {
+          "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "S00_AXI",
+              "s00_couplers/S_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -669,10 +669,10 @@
               "xbar/S00_AXI"
             ]
           },
-          "ps7_0_axi_periph_to_s00_couplers": {
+          "m00_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           }
         },
@@ -760,7 +760,7 @@
             "value": "10.000000"
           },
           "PCW_ACT_SPI_PERIPHERAL_FREQMHZ": {
-            "value": "10.000000"
+            "value": "166.666672"
           },
           "PCW_ACT_TPIU_PERIPHERAL_FREQMHZ": {
             "value": "200.000000"
@@ -893,6 +893,9 @@
           },
           "PCW_ENET0_RESET_ENABLE": {
             "value": "0"
+          },
+          "PCW_ENET0_RESET_IO": {
+            "value": "<Select>"
           },
           "PCW_ENET1_PERIPHERAL_CLKSRC": {
             "value": "IO PLL"
@@ -1078,7 +1081,7 @@
             "value": "0"
           },
           "PCW_EN_SPI1": {
-            "value": "0"
+            "value": "1"
           },
           "PCW_EN_TRACE": {
             "value": "0"
@@ -1660,10 +1663,10 @@
             "value": "54"
           },
           "PCW_MIO_TREE_PERIPHERALS": {
-            "value": "GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#UART 1#UART 1#GPIO#GPIO#Enet 0#Enet 0"
+            "value": "GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#Quad SPI Flash#GPIO#SPI 1#SPI 1#SPI 1#SPI 1#GPIO#GPIO#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#UART 1#UART 1#GPIO#GPIO#Enet 0#Enet 0"
           },
           "PCW_MIO_TREE_SIGNALS": {
-            "value": "gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#gpio[9]#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#tx#rx#gpio[50]#gpio[51]#mdc#mdio"
+            "value": "gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#gpio[9]#mosi#miso#sclk#ss[0]#gpio[14]#gpio[15]#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#tx#rx#gpio[50]#gpio[51]#mdc#mdio"
           },
           "PCW_M_AXI_GP0_ENABLE_STATIC_REMAP": {
             "value": "0"
@@ -1941,17 +1944,47 @@
           "PCW_SPI0_PERIPHERAL_ENABLE": {
             "value": "0"
           },
-          "PCW_SPI1_PERIPHERAL_ENABLE": {
+          "PCW_SPI1_BASEADDR": {
+            "value": "0xE0007000"
+          },
+          "PCW_SPI1_GRP_SS1_ENABLE": {
             "value": "0"
+          },
+          "PCW_SPI1_GRP_SS2_ENABLE": {
+            "value": "0"
+          },
+          "PCW_SPI1_HIGHADDR": {
+            "value": "0xE0007FFF"
+          },
+          "PCW_SPI1_PERIPHERAL_ENABLE": {
+            "value": "1"
+          },
+          "PCW_SPI1_SPI1_IO": {
+            "value": "MIO 10 .. 15"
           },
           "PCW_SPI_PERIPHERAL_CLKSRC": {
             "value": "IO PLL"
           },
+          "PCW_SPI_PERIPHERAL_FREQMHZ": {
+            "value": "166.666666"
+          },
           "PCW_SPI_PERIPHERAL_VALID": {
-            "value": "0"
+            "value": "1"
           },
           "PCW_S_AXI_GP0_ID_WIDTH": {
             "value": "6"
+          },
+          "PCW_S_AXI_HP0_DATA_WIDTH": {
+            "value": "32"
+          },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
           },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
@@ -2366,16 +2399,16 @@
           "axi_dma_0/S_AXIS_S2MM"
         ]
       },
-      "processing_system7_0_M_AXI_GP0": {
-        "interface_ports": [
-          "processing_system7_0/M_AXI_GP0",
-          "ps7_0_axi_periph/S00_AXI"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_M_AXI_GP0": {
+        "interface_ports": [
+          "processing_system7_0/M_AXI_GP0",
+          "ps7_0_axi_periph/S00_AXI"
         ]
       },
       "processing_system7_0_DDR": {
@@ -2390,16 +2423,16 @@
           "axi_mem_intercon/S00_AXI"
         ]
       },
-      "axi_mem_intercon_M00_AXI": {
-        "interface_ports": [
-          "axi_mem_intercon/M00_AXI",
-          "processing_system7_0/S_AXI_GP0"
-        ]
-      },
       "ps7_0_axi_periph_M00_AXI": {
         "interface_ports": [
           "ps7_0_axi_periph/M00_AXI",
           "axi_dma_0/S_AXI_LITE"
+        ]
+      },
+      "axi_mem_intercon_M00_AXI": {
+        "interface_ports": [
+          "axi_mem_intercon/M00_AXI",
+          "processing_system7_0/S_AXI_GP0"
         ]
       }
     },

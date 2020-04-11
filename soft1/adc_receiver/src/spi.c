@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include "xspips.h"
 #include "xparameters.h"
+#include "gpio.h"
+#include "spi.h"
 
 static XSpiPs SpiInstance;
 
@@ -34,9 +36,31 @@ uint16_t spi_send(uint16_t word)
 {
 	uint16_t recv;
 
-	XSpiPs_SetSlaveSelect(&SpiInstance, 0x01);
 	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&word, (u8*)&recv, 2);
-	XSpiPs_SetSlaveSelect(&SpiInstance, 0x0F);
 
 	return recv;
+}
+
+void adc_spi_send(uint16_t word)
+{
+	adc_csb(false);
+	spi_send(word);
+	adc_csb(true);
+}
+
+void clkdist_send(uint16_t word)
+{
+
+	spi_send(word);
+
+	clkdisk_sen(true);
+	clkdisk_sen(false);
+}
+
+void adc_csb(bool b)
+{
+	if(b)
+		XSpiPs_SetSlaveSelect(&SpiInstance, 1);
+	else
+		XSpiPs_SetSlaveSelect(&SpiInstance, 0xF);
 }

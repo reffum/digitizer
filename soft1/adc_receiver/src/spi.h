@@ -12,5 +12,12 @@ void spi_init(void);
 // Execute SPI transfer
 uint16_t spi_send(uint16_t word);
 
+// Send SPI word to connected devices
+void adc_spi_send(uint16_t word);
+void clkdist_send(uint16_t word);
+
+// Control ADC_CSB line
+void adc_csb(bool);
+
 
 #endif	/* _SPI_H_ */

@@ -26,7 +26,7 @@ module tb;
    localparam DMA_ADDR = 32'h4040_0000;
    localparam MEM_ADDRESS = 32'h0010_0000;
    localparam DMA_BUFFER_SIZE = 1024*1024*32;
-   localparam DATA_SIZE = 64*1024;
+   localparam DATA_SIZE = 2*1024;
    
    //
    // UUT ports
@@ -64,8 +64,8 @@ module tb;
    
    logic       clk, resetn;
 
-   logic       adc_clk;
-   logic [15:0] adc_data;
+   logic       adc_clk_p, adc_clk_n;
+   logic [7:0] adc_data_p, adc_data_n;
 
    assign FIXED_IO_ps_clk = clk;
    assign FIXED_IO_ps_porb = resetn,
@@ -73,53 +73,40 @@ module tb;
 
    // ADC data interface connected to
    // FPGA ports
-   assign hdmi_clk_p = adc_clk;
-   assign hdmi_clk_n = ~adc_clk;
+   assign hdmi_clk_p = adc_clk_p;
+   assign hdmi_clk_n = adc_clk_n;
 
-   assign ja_p = adc_data[3:0];
-   assign ja_n = ~ja_p;
+   assign ja_p = adc_data_p[3:0];
+   assign ja_n = adc_data_n[3:0];
 
-   assign jb_p = adc_data[7:4];
-   assign jb_n = ~jb_p;
-
-   assign jc_p = adc_data[11:8];
-   assign jc_n = ~jc_p;
-
-   assign jd_p = adc_data[15:12];
-   assign jd_n = ~jd_p;
+   assign jb_p = adc_data_p[7:4];
+   assign jb_n = adc_data_n[7:4];
 
    initial begin : CLK_GEN
       clk = 1'b0;
       forever #15ns clk = ~clk;
    end
 
-   initial begin : ADC_CLK_GEN
-      adc_clk = 1'b0;
-      forever #(ADC_CLK_PERIOD/2) adc_clk = ~adc_clk;
-   end
-
-   clocking adc_ck @(posedge adc_clk);
-      output negedge adc_data;
-   endclocking // adc_ck
-
-   initial begin : ADC_DATA_GENERATE
-      automatic logic [15:0] value = 0;
-      
-      // Generate countinous incremented value
-      adc_data = {$size(adc_data){1'b0}};
-
-      forever begin
-	 adc_ck.adc_data <= value;
-	 value = value + 1;
-	 @(adc_ck);
-      end
-   end // block: ADC_DATA_GENERATE
+   adc16dv160 adc16dv160_inst
+     (
+      .outclk_p(adc_clk_p),
+      .outclk_n(adc_clk_n),
+      .d_p(adc_data_p),
+      .d_n(adc_data_n)
+      );
+   
    
 `define A tb.UUT.design_1_i.processing_system7_0.inst
    initial begin : TEST
       logic [1:0] responce;
       logic [31:0] register;
-      
+
+      automatic logic [15:0] AdcData[1024];
+
+      foreach(AdcData[i])
+	AdcData[i] = i;
+
+      adc16dv160_inst.Start(AdcData);
       
       $display("TEST start");
       resetn = 1'b0;
@@ -147,7 +134,7 @@ module tb;
       assert(responce === 2'b00);
 
       // Set start
-      `A.write_data(32'h6000_0000, 4, 32'h0000_0003, responce);
+      `A.write_data(32'h6000_0000, 4, 32'h0000_0001, responce);
       assert(responce === 2'b00);
       
       // Wait for end of data transmitt

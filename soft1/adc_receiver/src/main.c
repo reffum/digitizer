@@ -33,6 +33,7 @@
 #include "xil_printf.h"
 #include "data_channel.h"
 #include "spi.h"
+#include "gpio.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -229,10 +230,14 @@ int main_thread()
 	IicPhyReset();
 #endif
 
+
+    gpio_init();
+    spi_init();
+
 	/* initialize lwIP before calling sys_thread_new */
     lwip_init();
 
-    spi_init();
+
 
     /* any thread using lwIP should be created using sys_thread_new */
     sys_thread_new("NW_THRD", network_thread, NULL,

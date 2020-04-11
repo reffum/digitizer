@@ -15,7 +15,8 @@
 #define V1					5
 #define V2					6
 #define V3					7
-#define SPI_SEND			8
+#define ADC_SPI_SEND		8
+#define CLK_SPI_SEND		9
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -94,8 +95,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 		data_channel_set_remote_params(remote_addr.sin_addr, htons(remote_port));
 		break;
 
-	case SPI_SEND:
-		spi_send(*value);
+	case ADC_SPI_SEND:
+		adc_spi_send(*value);
+		break;
+	case CLK_SPI_SEND:
+		clkdist_send(*value);
 		break;
 
 	default:

@@ -124,13 +124,26 @@ module digitizer
 	.adc_clk_n(adc_clk_n),
         .adc_data_p(adc_data_p),
 	.adc_data_n(adc_data_n));
-
-   assign adc_data_p[3:0] = ja_p;
-   assign adc_data_n[3:0] = ja_n;
-   assign adc_data_p[7:4] = jb_p;
-   assign adc_data_n[7:4] = jb_n;
+   
    assign adc_clk_p = hdmi_clk_p;
    assign adc_clk_n = hdmi_clk_n;
+   
+   assign adc_data_p[0] = jd_p[3];
+   assign adc_data_n[0] = jd_n[3];
+   assign adc_data_p[1] = jd_p[2];
+   assign adc_data_n[1] = jd_n[2];
+   assign adc_data_p[2] = jd_p[1];
+   assign adc_data_n[2] = jd_n[1];   
+   assign adc_data_p[3] = jd_p[0];
+   assign adc_data_n[3] = jd_n[0];
+   assign adc_data_p[4] = jc_p[3];
+   assign adc_data_n[4] = jc_n[3];
+   assign adc_data_p[5] = jc_p[2];
+   assign adc_data_n[5] = jc_n[2];       
+   assign adc_data_p[6] = jc_p[1];
+   assign adc_data_n[6] = jc_n[1]; 
+   assign adc_data_p[7] = jc_p[0];
+   assign adc_data_n[7] = jc_n[0];        
 
    assign led[0] = 1'b1;
    

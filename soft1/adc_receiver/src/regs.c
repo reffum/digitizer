@@ -5,6 +5,7 @@
 #include "adc_input.h"
 #include "data_channel.h"
 #include "spi.h"
+#include "pwm.h"
 
 
 #define ADDR_ID				0
@@ -17,9 +18,14 @@
 #define V3					7
 #define ADC_SPI_SEND		8
 #define CLK_SPI_SEND		9
+#define PWM_FREQ			10
+#define PWM_DC				11
+#define PWM_CONTROL			12
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
+
+#define _PWM_CONTROL_ENABLE	0x1
 
 static const uint16_t ID_VALUE = 0x55AA;
 
@@ -67,6 +73,21 @@ int reg_read(uint16_t addr, uint16_t* value)
 	case V3:
 		*value = version.v3;
 		break;
+
+	case PWM_FREQ:
+		*value = pwm_get_freq();
+		break;
+	case PWM_DC:
+		*value = pwm_get_dc();
+		break;
+	case PWM_CONTROL:
+		if(pwm_is_enabled())
+			*value = _PWM_CONTROL_ENABLE;
+		else
+			*value = 0;
+
+		break;
+
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
 	}
@@ -100,6 +121,25 @@ int reg_write(uint16_t addr, uint16_t* value)
 		break;
 	case CLK_SPI_SEND:
 		clkdist_send(*value);
+		break;
+
+	case PWM_FREQ:
+		if(*value > PWM_FREQ_MAX || *value < PWM_FREQ_MIN)
+			return MB_ILLEGAL_DATA_VALUE;
+		pwm_set_freq(*value);
+		break;
+
+	case PWM_DC:
+		if(*value > PWM_DC_MAX || *value < PWM_DC_MIN)
+			return MB_ILLEGAL_DATA_VALUE;
+		pwm_set_dc(*value);
+		break;
+
+	case PWM_CONTROL:
+		if(*value & _PWM_CONTROL_ENABLE)
+			pwm_enable();
+		else
+			pwm_disable();
 		break;
 
 	default:

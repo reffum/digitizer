@@ -76,11 +76,23 @@ module tb;
    assign hdmi_clk_p = adc_clk_p;
    assign hdmi_clk_n = adc_clk_n;
 
-   assign ja_p = adc_data_p[3:0];
-   assign ja_n = adc_data_n[3:0];
-
-   assign jb_p = adc_data_p[7:4];
-   assign jb_n = adc_data_n[7:4];
+   assign jd_p[0] = adc_data_p[3];
+   assign jd_n[0] = adc_data_n[3];
+   assign jd_p[1] = adc_data_p[2];
+   assign jd_n[1] = adc_data_n[2];
+   assign jd_p[2] = adc_data_p[1];
+   assign jd_n[2] = adc_data_n[1];
+   assign jd_p[3] = adc_data_p[0];
+   assign jd_n[3] = adc_data_n[0];
+   
+   assign jc_p[0] = adc_data_p[7];
+   assign jc_n[0] = adc_data_n[7];
+   assign jc_p[1] = adc_data_p[6];
+   assign jc_n[1] = adc_data_n[6];
+   assign jc_p[2] = adc_data_p[5];
+   assign jc_n[2] = adc_data_n[5];
+   assign jc_p[3] = adc_data_p[4];
+   assign jc_n[3] = adc_data_n[4];
 
    initial begin : CLK_GEN
       clk = 1'b0;

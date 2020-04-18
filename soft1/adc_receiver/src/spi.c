@@ -2,10 +2,32 @@
 #include <stdint.h>
 #include "xspips.h"
 #include "xparameters.h"
+#include "xil_misc_psreset_api.h"
 #include "gpio.h"
 #include "spi.h"
 
 static XSpiPs SpiInstance;
+
+#define XSLCR_MIO_MST_TRI0	(XSLCR_BASEADDR + 0x0000080C)
+
+
+
+// Set MIO_10 to TRI state
+static void mosi_tri(bool b)
+{
+	const uint32_t PIN_10 = (1 << 10);
+	uint32_t* xslcr_mio_mst_tri0 = (uint32_t*)(XSLCR_MIO_MST_TRI0);
+
+	if(b)
+	{
+		*xslcr_mio_mst_tri0 |= PIN_10;
+	}
+	else
+	{
+		*xslcr_mio_mst_tri0 &= ~PIN_10;
+	}
+}
+
 
 void spi_init()
 {

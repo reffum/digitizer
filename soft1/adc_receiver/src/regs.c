@@ -6,6 +6,7 @@
 #include "data_channel.h"
 #include "spi.h"
 #include "pwm.h"
+#include "adc16dv160.h"
 
 
 #define ADDR_ID				0
@@ -16,11 +17,12 @@
 #define V1					5
 #define V2					6
 #define V3					7
-#define ADC_SPI_SEND		8
-#define CLK_SPI_SEND		9
-#define PWM_FREQ			10
-#define PWM_DC				11
-#define PWM_CONTROL			12
+#define ADC_ADDR			8
+#define ADC_DATA			9
+#define CLK_SPI_SEND		10
+#define PWM_FREQ			11
+#define PWM_DC				12
+#define PWM_CONTROL			13
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -38,6 +40,9 @@ const struct
 uint16_t remote_port = 0;
 
 extern struct sockaddr_in remote_addr;
+
+/* ADC register address */
+static uint8_t adc_addr = 0;
 
 int reg_read(uint16_t addr, uint16_t* value)
 {
@@ -72,6 +77,13 @@ int reg_read(uint16_t addr, uint16_t* value)
 		break;
 	case V3:
 		*value = version.v3;
+		break;
+
+	case ADC_ADDR:
+		*value = adc_addr;
+		break;
+	case ADC_DATA:
+		*value = adc16dv160_read(adc_addr);
 		break;
 
 	case PWM_FREQ:
@@ -116,9 +128,13 @@ int reg_write(uint16_t addr, uint16_t* value)
 		data_channel_set_remote_params(remote_addr.sin_addr, htons(remote_port));
 		break;
 
-	case ADC_SPI_SEND:
-		adc_spi_send(*value);
+	case ADC_ADDR:
+		adc_addr = *value;
 		break;
+	case ADC_DATA:
+		adc16dv160_write(adc_addr, *value);
+		break;
+
 	case CLK_SPI_SEND:
 		clkdist_send(*value);
 		break;

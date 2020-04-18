@@ -14,10 +14,10 @@ void spi_init(void);
 uint16_t spi_send_2wire(uint16_t word);
 
 // Execute SPI half-duplex write
-void spi_write_1wire(uint16_t word);
+void spi_write_1wire(uint8_t word);
 
 // Execute SPI half-duplex read
-uint16_t spi_read_1wire(void);
+uint8_t spi_read_1wire(void);
 
 // Send SPI word to connected devices
 void adc_spi_send(uint16_t word);

@@ -63,19 +63,19 @@ uint16_t spi_send_2wire(uint16_t word)
 	return recv;
 }
 
-void spi_write_1wire(uint16_t word)
+void spi_write_1wire(uint8_t word)
 {
-	uint16_t recv;
+	uint8_t recv;
 
-	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&word, (u8*)&recv, 2);
+	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&word, (u8*)&recv, 1);
 }
 
-uint16_t spi_read_1wire(void)
+uint8_t spi_read_1wire(void)
 {
-	uint16_t recv, writev;
+	uint8_t recv, writev;
 
 	mosi_tri(true);
-	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&writev, (u8*)&recv, 2);
+	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&writev, (u8*)&recv, 1);
 	mosi_tri(false);
 
 	return recv;

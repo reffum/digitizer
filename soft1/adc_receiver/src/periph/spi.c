@@ -81,15 +81,6 @@ uint8_t spi_read_1wire(void)
 	return recv;
 }
 
-void clkdist_send(uint16_t word)
-{
-
-	spi_send_2wire(word);
-
-	clkdisk_sen(true);
-	clkdisk_sen(false);
-}
-
 void adc_csb(bool b)
 {
 	if(b)

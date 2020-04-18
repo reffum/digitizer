@@ -19,9 +19,6 @@ void spi_write_1wire(uint8_t word);
 // Execute SPI half-duplex read
 uint8_t spi_read_1wire(void);
 
-// Send SPI word to connected devices
-void clkdist_send(uint16_t word);
-
 // Control ADC_CSB line
 void adc_csb(bool);
 

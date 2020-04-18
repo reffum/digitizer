@@ -7,7 +7,7 @@
 
 XGpioPs Gpio;	/* The driver instance for GPIO Device. */
 
-static const PIN_CLKDIST_SEN = 0;
+static const int PIN_CLKDIST_SEN = 0;
 
 void gpio_init()
 {

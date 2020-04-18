@@ -81,13 +81,6 @@ uint8_t spi_read_1wire(void)
 	return recv;
 }
 
-void adc_spi_send(uint16_t word)
-{
-	adc_csb(false);
-	spi_send_2wire(word);
-	adc_csb(true);
-}
-
 void clkdist_send(uint16_t word)
 {
 

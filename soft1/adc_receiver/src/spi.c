@@ -54,7 +54,7 @@ void spi_init()
 	XSpiPs_SetSlaveSelect(&SpiInstance, 0x0F);
 }
 
-uint16_t spi_send(uint16_t word)
+uint16_t spi_send_2wire(uint16_t word)
 {
 	uint16_t recv;
 
@@ -63,17 +63,35 @@ uint16_t spi_send(uint16_t word)
 	return recv;
 }
 
+void spi_write_1wire(uint16_t word)
+{
+	uint16_t recv;
+
+	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&word, (u8*)&recv, 2);
+}
+
+uint16_t spi_read_1wire(void)
+{
+	uint16_t recv, writev;
+
+	mosi_tri(true);
+	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&writev, (u8*)&recv, 2);
+	mosi_tri(false);
+
+	return recv;
+}
+
 void adc_spi_send(uint16_t word)
 {
 	adc_csb(false);
-	spi_send(word);
+	spi_send_2wire(word);
 	adc_csb(true);
 }
 
 void clkdist_send(uint16_t word)
 {
 
-	spi_send(word);
+	spi_send_2wire(word);
 
 	clkdisk_sen(true);
 	clkdisk_sen(false);

@@ -7,6 +7,7 @@
 #include "spi.h"
 #include "pwm.h"
 #include "adc16dv160.h"
+#include "hmc987.h"
 
 
 #define ADDR_ID				0
@@ -19,10 +20,11 @@
 #define V3					7
 #define ADC_ADDR			8
 #define ADC_DATA			9
-#define CLK_SPI_SEND		10
-#define PWM_FREQ			11
-#define PWM_DC				12
-#define PWM_CONTROL			13
+#define CLK_ADDR			10
+#define CLK_DATA			11
+#define PWM_FREQ			12
+#define PWM_DC				13
+#define PWM_CONTROL			14
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -43,6 +45,9 @@ extern struct sockaddr_in remote_addr;
 
 /* ADC register address */
 static uint8_t adc_addr = 0;
+
+/* CLKDIST register address */
+static uint8_t clk_addr = 0;
 
 int reg_read(uint16_t addr, uint16_t* value)
 {
@@ -84,6 +89,13 @@ int reg_read(uint16_t addr, uint16_t* value)
 		break;
 	case ADC_DATA:
 		*value = adc16dv160_read(adc_addr);
+		break;
+
+	case CLK_ADDR:
+		*value = clk_addr;
+		break;
+	case CLK_DATA:
+		*value = hmc987_read(clk_addr);
 		break;
 
 	case PWM_FREQ:
@@ -135,8 +147,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 		adc16dv160_write(adc_addr, *value);
 		break;
 
-	case CLK_SPI_SEND:
-		clkdist_send(*value);
+	case CLK_ADDR:
+		clk_addr = *value;
+		break;
+	case CLK_DATA:
+		hmc987_write(clk_addr, *value);
 		break;
 
 	case PWM_FREQ:

@@ -5,6 +5,8 @@
 
 static XTtcPs TtcPsInst;  /* Timer counter instance */
 
+volatile int temp;
+
 void pwm_init(void)
 {
 	//
@@ -18,17 +20,18 @@ void pwm_init(void)
 	Status = XTtcPs_CfgInitialize(&TtcPsInst, config, config->BaseAddress);
 	assert(Status == XST_SUCCESS);
 
-	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_WAVE_DISABLE);
+	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_MATCH_MODE | XTTCPS_OPTION_WAVE_POLARITY | XTTCPS_OPTION_WAVE_DISABLE);
 }
 
 void pwm_enable(void)
 {
-	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE );
+	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_MATCH_MODE | XTTCPS_OPTION_WAVE_POLARITY  );
+	XTtcPs_Start(&TtcPsInst);
 }
 
 void pwm_disable(void)
 {
-	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_WAVE_DISABLE);
+	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_WAVE_POLARITY|  XTTCPS_OPTION_WAVE_DISABLE);
 }
 
 bool pwm_is_enabled(void)

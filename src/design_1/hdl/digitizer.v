@@ -67,7 +67,7 @@ module digitizer
    input [3:0] 	jb_p, jb_n; 
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
-   output [1:1] je; 
+   output [0:0] je; 
    input 	hdmi_clk_n, hdmi_clk_p;
    
    output [3:0] led;
@@ -149,6 +149,6 @@ module digitizer
    assign adc_data_n[7] = jc_n[0];        
 
    assign led[0] = 1'b1;
-   assign je[1] = TTC0_WAVE1_OUT_0;
+   assign je[0] = TTC0_WAVE1_OUT_0;
    
 endmodule

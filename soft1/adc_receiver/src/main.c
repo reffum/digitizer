@@ -34,6 +34,7 @@
 #include "data_channel.h"
 #include "spi.h"
 #include "gpio.h"
+#include "pwm.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -233,6 +234,7 @@ int main_thread()
 
     gpio_init();
     spi_init();
+    pwm_init();
 
 	/* initialize lwIP before calling sys_thread_new */
     lwip_init();

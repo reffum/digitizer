@@ -36,7 +36,7 @@ module digitizer
    jb_p, jb_n, 
    jc_p, jc_n,
    jd_p, jd_n,
-  
+   je,
    hdmi_clk_n, hdmi_clk_p,    
   
    led
@@ -66,7 +66,8 @@ module digitizer
    input [3:0] 	ja_p, ja_n;
    input [3:0] 	jb_p, jb_n; 
    input [3:0] 	jc_p, jc_n; 
-   input [3:0] 	jd_p, jd_n; 
+   input [3:0] 	jd_p, jd_n;
+   output [1:1] je; 
    input 	hdmi_clk_n, hdmi_clk_p;
    
    output [3:0] led;
@@ -92,6 +93,7 @@ module digitizer
    wire 	FIXED_IO_ps_clk;
    wire FIXED_IO_ps_porb;
    wire FIXED_IO_ps_srstb;
+   wire TTC0_WAVE1_OUT;
    
    wire [7:0] adc_data_p, adc_data_n;
    wire       adc_clk_p, adc_n;
@@ -123,7 +125,8 @@ module digitizer
         .adc_clk_p(adc_clk_p),
 	.adc_clk_n(adc_clk_n),
         .adc_data_p(adc_data_p),
-	.adc_data_n(adc_data_n));
+	.adc_data_n(adc_data_n),
+	.TTC0_WAVE1_OUT(TTC0_WAVE1_OUT));
    
    assign adc_clk_p = hdmi_clk_p;
    assign adc_clk_n = hdmi_clk_n;
@@ -146,5 +149,6 @@ module digitizer
    assign adc_data_n[7] = jc_n[0];        
 
    assign led[0] = 1'b1;
+   assign je[1] = TTC0_WAVE1_OUT;
    
 endmodule

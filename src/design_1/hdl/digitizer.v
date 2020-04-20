@@ -37,7 +37,8 @@ module digitizer
    jc_p, jc_n,
    jd_p, jd_n,
    je,
-   hdmi_clk_n, hdmi_clk_p,    
+   hdmi_clk_n, hdmi_clk_p, 
+   hdmi_d_n, hdmi_d_p,   
   
    led
    );
@@ -69,6 +70,7 @@ module digitizer
    input [3:0] 	jd_p, jd_n;
    output [0:0] je; 
    input 	hdmi_clk_n, hdmi_clk_p;
+   output [0:0]   hdmi_d_n, hdmi_d_p;
    
    output [3:0] led;
 
@@ -97,6 +99,7 @@ module digitizer
    
    wire [7:0] adc_data_p, adc_data_n;
    wire       adc_clk_p, adc_n;
+   wire     ADC_CLK_OUT;
    
    reg 	       led_cs;  
 
@@ -126,7 +129,17 @@ module digitizer
 	.adc_clk_n(adc_clk_n),
         .adc_data_p(adc_data_p),
 	.adc_data_n(adc_data_n),
-	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0));
+	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0),
+	.ADC_CLK_OUT(ADC_CLK_OUT));
+	
+	OBUFDS #(
+      .IOSTANDARD("TMDS_33"),
+      .SLEW("FAST")
+   ) OBUFDS_inst (
+      .O(hdmi_d_p[0]),
+      .OB(hdmi_d_n[0]),
+      .I(ADC_CLK_OUT)
+   );	
    
    assign adc_clk_p = hdmi_clk_p;
    assign adc_clk_n = hdmi_clk_n;

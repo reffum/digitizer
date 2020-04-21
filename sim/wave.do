@@ -7,5 +7,6 @@ add wave /tb/UUT/design_1_i/adc16dv160_input_0/inst/cr_test
 add wave /tb/UUT/design_1_i/adc16dv160_input_0/inst/cr_start
 add wave /tb/UUT/design_1_i/adc16dv160_input_0/inst/sr_pc
 add wave /tb/UUT/design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs
+add wave /tb/ja_p /tb/ja_n
 
 

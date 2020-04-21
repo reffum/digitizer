@@ -56,10 +56,11 @@ module tb;
    wire [3:0]  ja_p, ja_n;
    wire [3:0]  jb_p, jb_n; 
    wire [3:0]  jc_p, jc_n; 
-   wire [3:0]  jd_p, jd_n; 
+   wire [3:0]  jd_p, jd_n;
+   wire        je;
    wire        hdmi_clk_n, hdmi_clk_p;
-   
-   wire        led;
+   wire        hdmi_d_n, hdmi_d_p;
+   wire [3:0]  led;
 
    
    logic       clk, resetn;

@@ -47,7 +47,7 @@ void spi_init()
 	assert(Status == XST_SUCCESS);
 
 	XSpiPs_SetOptions(&SpiInstance, XSPIPS_MASTER_OPTION |
-			   XSPIPS_FORCE_SSELECT_OPTION);
+			   XSPIPS_FORCE_SSELECT_OPTION );
 
 	XSpiPs_SetClkPrescaler(&SpiInstance, XSPIPS_CLK_PRESCALE_256);
 
@@ -81,10 +81,15 @@ uint8_t spi_read_1wire(void)
 	return recv;
 }
 
+volatile u32 dbg = 0;
+
 void adc_csb(bool b)
 {
+	*((u32*)0xE0007000) |= 0x4000;
 	if(b)
-		XSpiPs_SetSlaveSelect(&SpiInstance, 1);
+		XSpiPs_SetSlaveSelect(&SpiInstance, 0);
 	else
 		XSpiPs_SetSlaveSelect(&SpiInstance, 0xF);
+
+	dbg = *((u32*)0xE0007000);
 }

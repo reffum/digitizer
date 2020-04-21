@@ -132,16 +132,25 @@ module digitizer
 	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0),
 	.ADC_CLK_OUT(ADC_CLK_OUT));
 	
+	OBUFDS #(
+      .IOSTANDARD("TMDS_33"),
+      .SLEW("FAST")
+   ) OBUFDS_inst (
+      .O(hdmi_d_p[0]),
+      .OB(hdmi_d_n[0]),
+      .I(ADC_CLK_OUT)
+   );	
 //	OBUFDS #(
 //      .IOSTANDARD("TMDS_33"),
 //      .SLEW("FAST")
 //   ) OBUFDS_inst (
-//      .O(hdmi_d_p[0]),
-//      .OB(hdmi_d_n[0]),
+//      .O(ja_p[0]),
+//      .OB(ja_n[0]),
 //      .I(ADC_CLK_OUT)
 //   );	
-    assign ja_p[0] = ADC_CLK_OUT;
-    assign ja_n[0] = ~ADC_CLK_OUT;
+
+//    assign ja_p[0] = ADC_CLK_OUT;
+//    assign ja_n[0] = ~ADC_CLK_OUT;
    
    assign adc_clk_p = hdmi_clk_p;
    assign adc_clk_n = hdmi_clk_n;
@@ -165,5 +174,11 @@ module digitizer
 
    assign led[0] = 1'b1;
    assign je[0] = TTC0_WAVE1_OUT_0;
+   
+   //TODO: for debug only
+   (*keep*) reg [7:0] dbg_cnt;
+   
+   always @(posedge ADC_CLK_OUT)
+        dbg_cnt = dbg_cnt + 1;
    
 endmodule

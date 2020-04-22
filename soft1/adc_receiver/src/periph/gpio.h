@@ -12,5 +12,8 @@ void gpio_init(void);
 // Outputs
 void clkdisk_sen(bool);
 
+// Control ADC_CSB line
+void adc_csb(bool);
+
 #endif	/* _GPIO_H_	*/
 

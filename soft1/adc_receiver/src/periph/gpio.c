@@ -8,6 +8,7 @@
 XGpioPs Gpio;	/* The driver instance for GPIO Device. */
 
 static const int PIN_CLKDIST_SEN = 0;
+static const int PIN_ADC_CSB = 9;
 
 void gpio_init()
 {
@@ -24,6 +25,8 @@ void gpio_init()
 
 	XGpioPs_SetDirectionPin(&Gpio, PIN_CLKDIST_SEN, 1);
 	XGpioPs_SetOutputEnablePin(&Gpio, PIN_CLKDIST_SEN, 1);
+	XGpioPs_SetDirectionPin(&Gpio, PIN_ADC_CSB, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, PIN_ADC_CSB, 1);
 
 	clkdisk_sen(false);
 }
@@ -31,4 +34,9 @@ void gpio_init()
 void clkdisk_sen(bool b)
 {
 	XGpioPs_WritePin(&Gpio, PIN_CLKDIST_SEN, b);
+}
+
+void adc_csb(bool b)
+{
+	XGpioPs_WritePin(&Gpio, PIN_ADC_CSB, b);
 }

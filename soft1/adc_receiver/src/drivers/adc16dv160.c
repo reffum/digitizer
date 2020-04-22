@@ -9,18 +9,14 @@ static const uint16_t _WRITE = 0x0000;
 
 void adc16dv160_init()
 {
-	volatile uint8_t data;
 
 	while(1)
 	{
-		//adc16dv160_write(0, 0x66);
-		clkdisk_sen(true);
+		adc16dv160_write(0, 0x66);
 		sleep(1);
-		clkdisk_sen(false);
+		adc16dv160_write(0, 0x66);
 		sleep(1);
 	}
-
-	data = adc16dv160_read(0);
 }
 
 void adc16dv160_write(uint8_t addr, uint8_t data)

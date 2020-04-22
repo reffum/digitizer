@@ -19,8 +19,5 @@ void spi_write_1wire(uint8_t word);
 // Execute SPI half-duplex read
 uint8_t spi_read_1wire(void);
 
-// Control ADC_CSB line
-void adc_csb(bool);
-
 
 #endif	/* _SPI_H_ */

@@ -35,6 +35,7 @@
 #include "spi.h"
 #include "gpio.h"
 #include "pwm.h"
+#include "adc16dv160.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -235,6 +236,7 @@ int main_thread()
     gpio_init();
     spi_init();
     pwm_init();
+    adc16dv160_init();
 
 	/* initialize lwIP before calling sys_thread_new */
     lwip_init();

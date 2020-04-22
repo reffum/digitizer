@@ -1,3 +1,4 @@
+#include <sleep.h>
 #include "adc16dv160.h"
 #include "gpio.h"
 #include "spi.h"
@@ -5,6 +6,22 @@
 // READ/WRITE bit
 static const uint16_t _READ = 0x8000;
 static const uint16_t _WRITE = 0x0000;
+
+void adc16dv160_init()
+{
+	volatile uint8_t data;
+
+	while(1)
+	{
+		//adc16dv160_write(0, 0x66);
+		clkdisk_sen(true);
+		sleep(1);
+		clkdisk_sen(false);
+		sleep(1);
+	}
+
+	data = adc16dv160_read(0);
+}
 
 void adc16dv160_write(uint8_t addr, uint8_t data)
 {

@@ -128,7 +128,7 @@ module adc16dv160_input_v1_0
 	 
 	 IDDR
 	   #(
-	     .DDR_CLK_EDGE("OPPOSITE_EDGE"),
+	     .DDR_CLK_EDGE("SAME_EDGE"),
 	     .INIT_Q1(1'b0),
 	     .INIT_Q2(1'b0),
 	     .SRTYPE("SYNC")

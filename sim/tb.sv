@@ -113,11 +113,15 @@ module tb;
    initial begin : TEST
       logic [1:0] responce;
       logic [31:0] register;
+      int 	   i;
 
       automatic logic [15:0] AdcData[1024];
 
-      foreach(AdcData[i])
-	AdcData[i] = i;
+      for(i = 0; i < $size(AdcData); i = i + 2) begin
+	 AdcData[i] = 16'h00FF;
+	 AdcData[i + 1] = 16'hFF00;
+      end
+      
 
       adc16dv160_inst.Start(AdcData);
       

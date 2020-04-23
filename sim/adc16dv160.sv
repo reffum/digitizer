@@ -38,7 +38,7 @@ module adc16dv160
    initial begin
       automatic logic [15:0] w;
       
-      outclk = 1'b0;
+      outclk = 1'b1;
       d = 8'd0;
       
       @(start == 1);
@@ -48,12 +48,12 @@ module adc16dv160
 	    w = OutputData[i];
 
 	    d = 8'hXX;
-	    #(PERIOD/2 - TSU - TH);
-	    d = {w[14], w[12], w[10], w[8], w[6], w[4], w[2], w[0]};
-	    #(TSU) outclk = 1'b1;
-	    #(TH) d = 8'hXX;
+	    
 	    #(PERIOD/2 - TSU - TH) d = {w[15], w[13], w[11], w[9], w[7], w[5], w[3], w[1]};
 	    #(TSU) outclk = 1'b0;
+	    #(TH) d = 8'hXX;
+	    #(PERIOD/2 - TSU - TH) d = {w[14], w[12], w[10], w[8], w[6], w[4], w[2], w[0]};
+	    #(TSU) outclk = 1'b1;
 	    #(TH) d = 8'hXX;
 	 end // foreach (OutputData[i])
       end // forever begin

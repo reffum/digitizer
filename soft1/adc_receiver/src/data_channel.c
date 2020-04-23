@@ -22,7 +22,7 @@ void data_channel_init(void)
 	XAxiDma_Config *xaxidma_config;
 
     adc_input_set_size(64*1024);
-    adc_input_set_test(true);
+    adc_input_set_test(false);
 
     xaxidma_config = XAxiDma_LookupConfig(XPAR_AXI_DMA_0_DEVICE_ID);
     assert(xaxidma_config);

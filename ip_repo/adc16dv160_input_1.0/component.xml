@@ -306,7 +306,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>23acf9f6</spirit:value>
+            <spirit:value>23254d9b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -322,7 +322,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>23acf9f6</spirit:value>
+            <spirit:value>23254d9b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -410,6 +410,19 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ref_clk_delay</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -829,7 +842,7 @@
       <spirit:file>
         <spirit:name>src/adc16dv160_input.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a48c6b11</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_376d9088</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -892,8 +905,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>adc16dv160_input_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-04-12T15:37:02Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-04-24T12:03:29Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3dee1cf0_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2352eee0_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
@@ -992,14 +1005,31 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@25722e26_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@53258e0f_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@347119e_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@238fe970_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2850b068_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7922c14b_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47428c96_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63c02420_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@171d96cf_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4757b587_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4560860c_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d7841a4_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@609cb243_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3629f5d4_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18fb9ff9_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72905bec_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ce6cce0_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d85eb3d_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42ae77e0_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ea9c29_ARCHIVE_LOCATION">c:/Users/Oleg/Documents/work/Digitizer/ip_repo/adc16dv160_input_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8a54a161"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="fa7d8b6e"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c74281b4"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="da0e0791"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="242be7e7"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="98350291"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="74050833"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

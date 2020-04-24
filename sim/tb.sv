@@ -26,7 +26,7 @@ module tb;
    localparam DMA_ADDR = 32'h4040_0000;
    localparam MEM_ADDRESS = 32'h0010_0000;
    localparam DMA_BUFFER_SIZE = 1024*1024*32;
-   localparam DATA_SIZE = 2*1024;
+   localparam DATA_SIZE = 1*1024;
    
    //
    // UUT ports
@@ -74,15 +74,15 @@ module tb;
 
    // ADC data interface connected to
    // FPGA ports
-   assign hdmi_clk_p = adc_clk_p;
-   assign hdmi_clk_n = adc_clk_n;
+   assign jd_p[2] = adc_clk_p;
+   assign jd_n[2] = adc_clk_n;
 
    assign jd_p[0] = adc_data_p[3];
    assign jd_n[0] = adc_data_n[3];
    assign jd_p[1] = adc_data_p[2];
    assign jd_n[1] = adc_data_n[2];
-   assign jd_p[2] = adc_data_p[1];
-   assign jd_n[2] = adc_data_n[1];
+   assign jb_p[1] = adc_data_p[1];
+   assign jb_n[1] = adc_data_n[1];
    assign jd_p[3] = adc_data_p[0];
    assign jd_n[3] = adc_data_n[0];
    

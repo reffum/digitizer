@@ -11,7 +11,7 @@ module adc16dv160
    output [7:0] d_p, d_n
    );
 
-   parameter FREQ = 160e6;
+   parameter FREQ = 10e6;
    
    localparam realtime PERIOD = 1s / FREQ;
    localparam realtime TSU = 1ns;

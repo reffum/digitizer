@@ -51,8 +51,8 @@ set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { led[3]
 
 
 ##HDMI Signals
-set_property -dict { PACKAGE_PIN H17    } [get_ports hdmi_clk_n]; #IO_L13N_T2_MRCC_35 Sch=HDMI_CLK_N
-set_property -dict { PACKAGE_PIN H16    } [get_ports hdmi_clk_p]; #IO_L13P_T2_MRCC_35 Sch=HDMI_CLK_P
+set_property -dict { PACKAGE_PIN H17    IOSTANDARD LVCMOS33} [get_ports hdmi_clk_n]; #IO_L13N_T2_MRCC_35 Sch=HDMI_CLK_N
+set_property -dict { PACKAGE_PIN H16    IOSTANDARD LVCMOS33} [get_ports hdmi_clk_p]; #IO_L13P_T2_MRCC_35 Sch=HDMI_CLK_P
 set_property -dict { PACKAGE_PIN D20    } [get_ports { hdmi_d_n[0] }]; #IO_L4N_T0_35 Sch=HDMI_D0_N
 set_property -dict { PACKAGE_PIN D19    } [get_ports { hdmi_d_p[0] }]; #IO_L4P_T0_35 Sch=HDMI_D0_P
 #set_property -dict { PACKAGE_PIN B20   IOSTANDARD TMDS_33 } [get_ports { hdmi_d_n[1] }]; #IO_L1N_T0_AD0N_35 Sch=HDMI_D1_N
@@ -80,8 +80,8 @@ set_property -dict { PACKAGE_PIN J14  IOSTANDARD LVCMOS33 } [get_ports { ja_n[3]
 ##Pmod Header JB
 set_property -dict { PACKAGE_PIN T20   IOSTANDARD LVCMOS33} [get_ports { jb_p[0] }]; #IO_L15P_T2_DQS_34 Sch=JB1_p
 set_property -dict { PACKAGE_PIN U20   IOSTANDARD LVCMOS33} [get_ports { jb_n[0] }]; #IO_L15N_T2_DQS_34 Sch=JB1_N
-set_property -dict { PACKAGE_PIN V20   IOSTANDARD LVCMOS33} [get_ports { jb_p[1] }]; #IO_L16P_T2_34 Sch=JB2_P
-set_property -dict { PACKAGE_PIN W20   IOSTANDARD LVCMOS33 } [get_ports { jb_n[1] }]; #IO_L16N_T2_34 Sch=JB2_N
+set_property -dict { PACKAGE_PIN V20   } [get_ports { jb_p[1] }]; #IO_L16P_T2_34 Sch=JB2_P
+set_property -dict { PACKAGE_PIN W20   } [get_ports { jb_n[1] }]; #IO_L16N_T2_34 Sch=JB2_N
 set_property -dict { PACKAGE_PIN Y18   IOSTANDARD LVCMOS33} [get_ports { jb_p[2] }]; #IO_L17P_T2_34 Sch=JB3_P
 set_property -dict { PACKAGE_PIN Y19   IOSTANDARD LVCMOS33} [get_ports { jb_n[2] }]; #IO_L17N_T2_34 Sch=JB3_N
 set_property -dict { PACKAGE_PIN W18   IOSTANDARD LVCMOS33} [get_ports { jb_p[3] }]; #IO_L22P_T3_34 Sch=JB4_P

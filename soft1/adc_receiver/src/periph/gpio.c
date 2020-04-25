@@ -29,6 +29,7 @@ void gpio_init()
 	XGpioPs_SetOutputEnablePin(&Gpio, PIN_ADC_CSB, 1);
 
 	clkdisk_sen(false);
+	adc_csb(true);
 }
 
 void clkdisk_sen(bool b)

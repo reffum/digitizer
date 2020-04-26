@@ -1,4 +1,4 @@
-create_clock -period 100 -name adc_clk [get_ports jd_p[2]]
+create_clock -period 6.25 -name adc_clk [get_ports jd_p[2]]
 
 set_false_path -from [get_pins design_1_i/adc16dv160_input_0/inst/data_receiver_inst/FSM_sequential_state_cs_reg*/C] -to [get_pins design_1_i/adc16dv160_input_0/inst/data_receiver_inst/FIFO_DUALCLOCK_MACRO_inst/genblk5_0.fifo_18_bl_1.fifo_18_bl_1/WREN]
 set_false_path -from [get_pins design_1_i/adc16dv160_input_0/inst/data_receiver_inst/FSM_sequential_state_cs_reg*/C] -to [get_pins design_1_i/adc16dv160_input_0/inst/data_receiver_inst/FIFO_DUALCLOCK_MACRO_inst/genblk5_0.fifo_18_bl_1.fifo_18_bl_1/RST]
@@ -24,7 +24,7 @@ set_false_path -from [get_pins design_1_i/adc16dv160_input_0/inst/data_receiver_
 #
 
 set input_clock         adc_clk;      # Name of input clock
-set input_clock_period  100;    # Period of input clock (full-period)
+set input_clock_period  6.25;                # Period of input clock (full-period)
 set dv_bre              1.000;             # Data valid before the rising clock edge
 set dv_are              1.000;             # Data valid after the rising clock edge
 set dv_bfe              1.000;             # Data valid before the falling clock edge

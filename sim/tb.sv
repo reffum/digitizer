@@ -26,7 +26,7 @@ module tb;
    localparam DMA_ADDR = 32'h4040_0000;
    localparam MEM_ADDRESS = 32'h0010_0000;
    localparam DMA_BUFFER_SIZE = 1024*1024*32;
-   localparam DATA_SIZE = 1*1024;
+   localparam DATA_SIZE = 256*1024;
    
    //
    // UUT ports

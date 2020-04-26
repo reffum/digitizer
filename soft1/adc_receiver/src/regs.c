@@ -8,6 +8,7 @@
 #include "pwm.h"
 #include "adc16dv160.h"
 #include "hmc987.h"
+#include "ad9854.h"
 
 
 #define ADDR_ID				0
@@ -25,6 +26,8 @@
 #define PWM_FREQ			12
 #define PWM_DC				13
 #define PWM_CONTROL			14
+#define DDS_FREQ			15
+#define DDS_AMP				16
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -111,6 +114,12 @@ int reg_read(uint16_t addr, uint16_t* value)
 			*value = 0;
 
 		break;
+	case DDS_FREQ:
+		*value = ad9854_get_freq() / (1000 * 1000);
+		break;
+	case DDS_AMP:
+		*value = ad9854_get_amp();
+		break;
 
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
@@ -171,6 +180,13 @@ int reg_write(uint16_t addr, uint16_t* value)
 			pwm_enable();
 		else
 			pwm_disable();
+		break;
+
+	case DDS_FREQ:
+		ad9854_set_freq(*value * 1000 * 1000);
+		break;
+	case DDS_AMP:
+		ad9854_set_amp(*value);
 		break;
 
 	default:

@@ -15,5 +15,8 @@ void clkdisk_sen(bool);
 // Control ADC_CSB line
 void adc_csb(bool);
 
+void io_reset(bool);
+void ads_cs(bool);
+
 #endif	/* _GPIO_H_	*/
 

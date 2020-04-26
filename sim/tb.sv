@@ -117,9 +117,8 @@ module tb;
 
       automatic logic [15:0] AdcData[1024];
 
-      for(i = 0; i < $size(AdcData); i = i + 2) begin
-	 AdcData[i] = 16'h00FF;
-	 AdcData[i + 1] = 16'hFF00;
+      for(i = 0; i < $size(AdcData); i = i + 1) begin
+	 AdcData[i] = i;
       end
       
 

@@ -68,7 +68,7 @@ module digitizer
    input [3:0] 	jb_p, jb_n; 
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
-   output [0:0] je; 
+   inout [2:0] je; 
    input 	hdmi_clk_n, hdmi_clk_p;
    output [0:0]   hdmi_d_n, hdmi_d_p;
    
@@ -96,6 +96,7 @@ module digitizer
    wire FIXED_IO_ps_porb;
    wire FIXED_IO_ps_srstb;
    wire TTC0_WAVE1_OUT_0;
+   wire [1:0] gpio_emio_i, gpio_emio_o, gpio_emio_t;
    
    wire [7:0] adc_data_p, adc_data_n;
    wire       adc_clk_p, adc_n;
@@ -130,18 +131,15 @@ module digitizer
         .adc_data_p(adc_data_p),
 	.adc_data_n(adc_data_n),
 	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0),
-	.ADC_CLK_OUT(ADC_CLK_OUT));
-	
-//	OBUFDS #(
-//      .IOSTANDARD("TMDS_33"),
-//      .SLEW("FAST")
-//   ) OBUFDS_inst (
-//      .O(hdmi_d_p[0]),
-//      .OB(hdmi_d_n[0]),
-//      .I(ADC_CLK_OUT)
-//   );	
+	.ADC_CLK_OUT(ADC_CLK_OUT),
+    .GPIO_0_0_tri_i(gpio_emio_i),
+    .GPIO_0_0_tri_o(gpio_emio_o),
+    .GPIO_0_0_tri_t(gpio_emio_t)
+     );
 
-    assign hdmi_d_n[0] = ADC_CLK_OUT;
+    // LVCMOS33 CLK for ADC
+   assign hdmi_d_n[0] = ADC_CLK_OUT;
+   assign hdmi_d_p[0] = 1'b0;
    
    assign adc_clk_p = jd_p[2];
    assign adc_clk_n = jd_n[2];
@@ -166,4 +164,21 @@ module digitizer
    assign led[0] = 1'b1;
    assign je[0] = TTC0_WAVE1_OUT_0;
    
+   //
+   // GPIO EMIO
+   //
+  IOBUF GPIO_EMIO_JE2
+       (.I(gpio_emio_o[0]),
+        .IO(je[1]),
+        .O(gpio_emio_i[0]),
+        .T(gpio_emio_t[0])
+        );  
+        
+  IOBUF GPIO_EMIO_JE3
+       (.I(gpio_emio_o[1]),
+        .IO(je[2]),
+        .O(gpio_emio_i[1]),
+        .T(gpio_emio_t[1])
+        );                            
+
 endmodule

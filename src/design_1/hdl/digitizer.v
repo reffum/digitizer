@@ -132,14 +132,16 @@ module digitizer
 	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0),
 	.ADC_CLK_OUT(ADC_CLK_OUT));
 	
-	OBUFDS #(
-      .IOSTANDARD("TMDS_33"),
-      .SLEW("FAST")
-   ) OBUFDS_inst (
-      .O(hdmi_d_p[0]),
-      .OB(hdmi_d_n[0]),
-      .I(ADC_CLK_OUT)
-   );	
+//	OBUFDS #(
+//      .IOSTANDARD("TMDS_33"),
+//      .SLEW("FAST")
+//   ) OBUFDS_inst (
+//      .O(hdmi_d_p[0]),
+//      .OB(hdmi_d_n[0]),
+//      .I(ADC_CLK_OUT)
+//   );	
+
+    assign hdmi_d_n[0] = ADC_CLK_OUT;
    
    assign adc_clk_p = jd_p[2];
    assign adc_clk_n = jd_n[2];

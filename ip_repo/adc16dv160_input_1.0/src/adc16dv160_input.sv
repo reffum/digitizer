@@ -206,5 +206,11 @@ module adc16dv160_input_v1_0
       .I(adc_clk_i),
       .O(adc_clk)
       );
+      
+   //TODO: Remove this code
+   (*keep*) reg[15:0] dbg_cnt;
+   
+   always_ff @(posedge adc_clk)
+    dbg_cnt <= dbg_cnt + 1;      
    
 endmodule

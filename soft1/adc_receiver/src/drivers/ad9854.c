@@ -1,4 +1,6 @@
+#include <assert.h>
 #include <sleep.h>
+#include <string.h>
 #include "xil_printf.h"
 #include "ad9854.h"
 #include "gpio.h"
@@ -22,7 +24,7 @@ static uint8_t _READ = 0x80;
 //static unsigned REF_CLK = 160 * 1000 * 1000;
 
 // Internal SYSCLK
-static unsigned SYSCLK = 160 * 1000 * 1000;
+static unsigned SYSCLK = 20 * 1000 * 1000;
 
 // Vout_max, mV
 static unsigned V_OUT_MAX = 500;
@@ -76,6 +78,10 @@ void ad9854_init(void)
 	// register with other value
 	//
 
+	io_reset(true);
+	usleep(1000);
+	io_reset(false);
+
 	// This is default values with comparator power up and enable SDO pin
 	uint8_t data[] = {0x0, 0x64, 0x01, 0x21};
 	ad9854_write(CONTROL, data, sizeof(data));
@@ -84,7 +90,10 @@ void ad9854_init(void)
 	uint8_t read_data[4] = {0xFF, 0xFF, 0xFF, 0xFF};
 	ad9854_read(CONTROL, read_data, sizeof(data));
 
-	xil_printf("AD9854 init SUCCESS\n\r");
+	if( !memcmp(read_data, data, sizeof(data) ))
+		xil_printf("AD9854 init SUCCESS\n\r");
+	else
+		xil_printf("AD9854 init FAIL\n\r");
 }
 
 void ad9854_set_freq(unsigned freq)

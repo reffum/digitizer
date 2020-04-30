@@ -63,6 +63,15 @@ uint16_t spi_send_2wire(uint16_t word)
 	return recv;
 }
 
+uint8_t spi_send8_2wire(uint8_t word)
+{
+	uint16_t recv;
+
+	XSpiPs_PolledTransfer(&SpiInstance, (u8*)&word, (u8*)&recv, 1);
+
+	return recv;
+}
+
 void spi_write_1wire(uint8_t word)
 {
 	uint8_t recv;

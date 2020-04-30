@@ -64,7 +64,7 @@ static void ad9854_read(uint8_t addr, uint8_t* data, int size)
 	spi_write_1wire(addr | _READ);
 
 	for(i = 0; i < size; i++)
-		data[i] = spi_read_1wire();
+		data[i] = spi_send8_2wire(0);
 
 	ads_cs(true);
 
@@ -83,7 +83,7 @@ void ad9854_init(void)
 	io_reset(false);
 
 	// This is default values with comparator power up and enable SDO pin
-	uint8_t data[] = {0x0, 0x64, 0x01, 0x21};
+	uint8_t data[] = {0x0, 0x24, 0x01, 0x21};
 	ad9854_write(CONTROL, data, sizeof(data));
 
 	// Write check
@@ -94,15 +94,19 @@ void ad9854_init(void)
 		xil_printf("AD9854 init SUCCESS\n\r");
 	else
 		xil_printf("AD9854 init FAIL\n\r");
+
+	ad9854_set_freq(10*1000*1000);
+	ad9854_set_amp(4000);
 }
 
 void ad9854_set_freq(unsigned freq)
 {
 	// Accumulator resolution 2^48
 	// Value of Frequncy tuning word
-	uint64_t ftw = (freq * 2^48) / SYSCLK;
+	uint64_t ftw = 54975581388; //(freq * 2^48) / SYSCLK;
 
 	uint8_t data[6];
+	uint8_t rdata[6];
 
 	data[5] = ftw & 0xFF;
 	data[4] = (ftw >> 8) & 0xFF;
@@ -113,20 +117,28 @@ void ad9854_set_freq(unsigned freq)
 
 	ad9854_write(FTW1, data, sizeof(data));
 
+	ad9854_read(FTW1, rdata, sizeof(rdata));
+
 	Freq = freq;
 }
 
 void ad9854_set_amp(unsigned amp)
 {
 	// Set same amplitude in Q and I channels
-	uint16_t osk = amp * OSK_MAX / V_OUT_MAX;
+	uint16_t osk = 0xFFF;//amp * OSK_MAX / V_OUT_MAX;
 
 	uint8_t data[2];
+	uint8_t rdata[2];
+
 	data[1] = (osk) & 0xFF;
 	data[0] = (osk >> 8) & 0xFF;
 
 	ad9854_write(OSK_I_MULT, data, sizeof(data));
 	ad9854_write(OSK_Q_MULT, data, sizeof(data));
+
+	ad9854_write(0xB, data, sizeof(data));
+
+	ad9854_read(OSK_I_MULT, rdata, sizeof(data));
 
 	Amp = amp;
 }

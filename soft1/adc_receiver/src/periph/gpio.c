@@ -42,7 +42,7 @@ void gpio_init()
 	clkdisk_sen(false);
 	adc_csb(true);
 	ads_cs(true);
-	io_reset(false);
+	io_reset(true);
 }
 
 void clkdisk_sen(bool b)

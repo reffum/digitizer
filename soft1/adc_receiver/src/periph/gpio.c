@@ -14,6 +14,7 @@ static const int PIN_ADC_CSB = 9;
 // EMIO pins(Bank 2)
 static const int PIN_IO_RESET = 54;
 static const int PIN_IO_ADS_CS = 55;
+static const int PIN_IO_UPDATE = 56;
 
 void gpio_init()
 {
@@ -39,6 +40,9 @@ void gpio_init()
 	XGpioPs_SetDirectionPin(&Gpio, PIN_IO_ADS_CS, 1);
 	XGpioPs_SetOutputEnablePin(&Gpio, PIN_IO_ADS_CS, 1);
 
+	XGpioPs_SetDirectionPin(&Gpio, PIN_IO_UPDATE, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, PIN_IO_UPDATE, 1);
+
 	clkdisk_sen(false);
 	adc_csb(true);
 	ads_cs(true);
@@ -63,4 +67,9 @@ void io_reset(bool b)
 void ads_cs(bool b)
 {
 	XGpioPs_WritePin(&Gpio, PIN_IO_ADS_CS, b);
+}
+
+void io_update(bool b)
+{
+	XGpioPs_WritePin(&Gpio, PIN_IO_UPDATE, b);
 }

@@ -83,8 +83,11 @@ void ad9854_init(void)
 	io_reset(false);
 
 	// This is default values with comparator power up and enable SDO pin
-	uint8_t data[] = {0x0, 0x24, 0x01, 0x21};
+	uint8_t data[] = {0x0, 0x24, 0x00, 0x21};
 	ad9854_write(CONTROL, data, sizeof(data));
+
+	io_update(true);
+	io_update(false);
 
 	// Write check
 	uint8_t read_data[4] = {0xFF, 0xFF, 0xFF, 0xFF};
@@ -97,6 +100,9 @@ void ad9854_init(void)
 
 	ad9854_set_freq(10*1000*1000);
 	ad9854_set_amp(4000);
+
+	io_update(true);
+	io_update(false);
 }
 
 void ad9854_set_freq(unsigned freq)

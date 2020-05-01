@@ -40,7 +40,7 @@ static const uint16_t ID_VALUE = 0x55AA;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {0,1,0};
+} version = {0,2,0};
 
 uint16_t remote_port = 0;
 
@@ -115,7 +115,7 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 		break;
 	case DDS_FREQ:
-		*value = ad9854_get_freq() / (1000 * 1000);
+		*value = ad9854_get_freq();
 		break;
 	case DDS_AMP:
 		*value = ad9854_get_amp();
@@ -183,7 +183,7 @@ int reg_write(uint16_t addr, uint16_t* value)
 		break;
 
 	case DDS_FREQ:
-		ad9854_set_freq(*value * 1000 * 1000);
+		ad9854_set_freq(*value);
 		break;
 	case DDS_AMP:
 		ad9854_set_amp(*value);

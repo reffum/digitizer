@@ -24,7 +24,7 @@ static uint8_t _READ = 0x80;
 //static unsigned REF_CLK = 160 * 1000 * 1000;
 
 // Internal SYSCLK
-static unsigned SYSCLK = 20 * 1000 * 1000;
+static uint64_t SYSCLK = 300UL;
 
 // Vout_max, mV
 static unsigned V_OUT_MAX = 500;
@@ -89,7 +89,7 @@ void ad9854_init(void)
 	usleep(10000);
 
 	// This is default values with comparator power up and enable SDO pin
-	uint8_t data[] = {0x0, 0x24, 0x00, 0x21};
+	uint8_t data[] = {0x0, 0x4F, 0x00, 0x21};
 
 	ad9854_write(CONTROL, data, sizeof(data));
 
@@ -113,8 +113,8 @@ void ad9854_init(void)
 	else
 		xil_printf("AD9854 init FAIL\n\r");
 
-	ad9854_set_freq(10*1000*1000);
-	ad9854_set_amp(4000);
+	ad9854_set_freq(100);
+	ad9854_set_amp(0xFFF);
 
 	io_update(true);
 	usleep(10);
@@ -124,8 +124,10 @@ void ad9854_init(void)
 void ad9854_set_freq(unsigned freq)
 {
 	// Accumulator resolution 2^48
+	const uint64_t ResCoef = 281474976710656UL;
+
 	// Value of Frequncy tuning word
-	uint64_t ftw = 54975581388; //(freq * 2^48) / SYSCLK;
+	uint64_t ftw = ResCoef / SYSCLK * freq;
 
 	uint8_t data[6];
 	uint8_t rdata[6];
@@ -139,7 +141,9 @@ void ad9854_set_freq(unsigned freq)
 
 	ad9854_write(FTW1, data, sizeof(data));
 
-	ad9854_read(FTW1, rdata, sizeof(rdata));
+	io_update(true);
+	usleep(10);
+	io_update(false);
 
 	Freq = freq;
 }
@@ -147,7 +151,7 @@ void ad9854_set_freq(unsigned freq)
 void ad9854_set_amp(unsigned amp)
 {
 	// Set same amplitude in Q and I channels
-	uint16_t osk = 0xFFF;//amp * OSK_MAX / V_OUT_MAX;
+	uint16_t osk = amp;
 
 	uint8_t data[2];
 	uint8_t rdata[2];
@@ -156,11 +160,20 @@ void ad9854_set_amp(unsigned amp)
 	data[0] = (osk >> 8) & 0xFF;
 
 	ad9854_write(OSK_I_MULT, data, sizeof(data));
+
+	io_update(true);
+	usleep(10);
+	io_update(false);
+
+
 	ad9854_write(OSK_Q_MULT, data, sizeof(data));
 
-	ad9854_write(0xB, data, sizeof(data));
+	io_update(true);
+	usleep(10);
+	io_update(false);
 
 	ad9854_read(OSK_I_MULT, rdata, sizeof(data));
+	ad9854_read(OSK_Q_MULT, rdata, sizeof(data));
 
 	Amp = amp;
 }

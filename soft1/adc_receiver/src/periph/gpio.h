@@ -15,6 +15,7 @@ void clkdisk_sen(bool);
 // Control ADC_CSB line
 void adc_csb(bool);
 
+void master_reset(bool);
 void io_reset(bool);
 void io_update(bool);
 void ads_cs(bool);

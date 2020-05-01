@@ -78,12 +78,26 @@ void ad9854_init(void)
 	// register with other value
 	//
 
+	master_reset(true);
+	usleep(10000);
+	master_reset(false);
+	usleep(10000);
+
 	io_reset(true);
-	usleep(1000);
+	usleep(10000);
 	io_reset(false);
+	usleep(10000);
 
 	// This is default values with comparator power up and enable SDO pin
 	uint8_t data[] = {0x0, 0x24, 0x00, 0x21};
+
+	ad9854_write(CONTROL, data, sizeof(data));
+
+	io_reset(true);
+	usleep(10000);
+	io_reset(false);
+	usleep(10000);
+
 	ad9854_write(CONTROL, data, sizeof(data));
 
 	io_update(true);

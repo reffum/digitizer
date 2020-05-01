@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x88D454F2E8699270",
+      "boundary_crc": "0x60EF81D14D4E888A",
       "device": "xc7z010clg400-1",
       "name": "design_1",
       "synth_flow_mode": "Hierarchical",
@@ -694,22 +694,16 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m01_couplers": {
+          "s00_couplers_to_xbar": {
             "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
             ]
           },
           "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
               "s00_couplers/S_AXI"
-            ]
-          },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
             ]
           },
           "m00_couplers_to_ps7_0_axi_periph": {
@@ -728,6 +722,12 @@
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           }
         },
@@ -1217,10 +1217,10 @@
             "value": "1"
           },
           "PCW_GPIO_EMIO_GPIO_IO": {
-            "value": "3"
+            "value": "4"
           },
           "PCW_GPIO_EMIO_GPIO_WIDTH": {
-            "value": "3"
+            "value": "4"
           },
           "PCW_GPIO_HIGHADDR": {
             "value": "0xE000AFFF"
@@ -2490,10 +2490,10 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_M_AXI_GP0": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "processing_system7_0/M_AXI_GP0",
-          "ps7_0_axi_periph/S00_AXI"
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       },
       "ps7_0_axi_periph_M00_AXI": {
@@ -2502,34 +2502,22 @@
           "axi_dma_0/S_AXI_LITE"
         ]
       },
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
-      "axi_dma_0_M_AXI_S2MM": {
-        "interface_ports": [
-          "axi_dma_0/M_AXI_S2MM",
-          "axi_mem_intercon/S00_AXI"
-        ]
-      },
-      "adc16dv160_input_0_M00_AXIS": {
-        "interface_ports": [
-          "adc16dv160_input_0/M00_AXIS",
-          "axi_dma_0/S_AXIS_S2MM"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "processing_system7_0_GPIO_0": {
+      "processing_system7_0_M_AXI_GP0": {
         "interface_ports": [
-          "GPIO_0_0",
-          "processing_system7_0/GPIO_0"
+          "processing_system7_0/M_AXI_GP0",
+          "ps7_0_axi_periph/S00_AXI"
+        ]
+      },
+      "axi_mem_intercon_M00_AXI": {
+        "interface_ports": [
+          "axi_mem_intercon/M00_AXI",
+          "processing_system7_0/S_AXI_GP0"
         ]
       },
       "ps7_0_axi_periph_M01_AXI": {
@@ -2538,10 +2526,22 @@
           "adc16dv160_input_0/s_axi"
         ]
       },
-      "axi_mem_intercon_M00_AXI": {
+      "axi_dma_0_M_AXI_S2MM": {
         "interface_ports": [
-          "axi_mem_intercon/M00_AXI",
-          "processing_system7_0/S_AXI_GP0"
+          "axi_dma_0/M_AXI_S2MM",
+          "axi_mem_intercon/S00_AXI"
+        ]
+      },
+      "processing_system7_0_GPIO_0": {
+        "interface_ports": [
+          "GPIO_0_0",
+          "processing_system7_0/GPIO_0"
+        ]
+      },
+      "adc16dv160_input_0_M00_AXIS": {
+        "interface_ports": [
+          "adc16dv160_input_0/M00_AXIS",
+          "axi_dma_0/S_AXIS_S2MM"
         ]
       }
     },

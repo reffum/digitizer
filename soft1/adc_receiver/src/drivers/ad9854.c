@@ -101,6 +101,7 @@ void ad9854_init(void)
 	ad9854_write(CONTROL, data, sizeof(data));
 
 	io_update(true);
+	usleep(10);
 	io_update(false);
 
 	// Write check
@@ -116,6 +117,7 @@ void ad9854_init(void)
 	ad9854_set_amp(4000);
 
 	io_update(true);
+	usleep(10);
 	io_update(false);
 }
 

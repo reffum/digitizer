@@ -12,7 +12,7 @@
 void ad9854_init(void);
 
 // Set frequncy in DDS
-// freq in MHz
+// freq in Hz
 void ad9854_set_freq(unsigned freq);
 
 // Set amplitude in mV

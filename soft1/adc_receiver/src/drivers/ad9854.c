@@ -20,17 +20,8 @@ static int CONTROL = 7;
 // READ flag in instruction word
 static uint8_t _READ = 0x80;
 
-// External ref clk in Hz
-//static unsigned REF_CLK = 160 * 1000 * 1000;
-
 // Internal SYSCLK
-static uint64_t SYSCLK = 300UL;
-
-// Vout_max, mV
-static unsigned V_OUT_MAX = 500;
-
-// OSK max value
-static int OSK_MAX = 4096;
+static uint64_t SYSCLK = 300UL * 1000 * 1000;
 
 //
 // Variables
@@ -130,7 +121,6 @@ void ad9854_set_freq(unsigned freq)
 	uint64_t ftw = ResCoef / SYSCLK * freq;
 
 	uint8_t data[6];
-	uint8_t rdata[6];
 
 	data[5] = ftw & 0xFF;
 	data[4] = (ftw >> 8) & 0xFF;

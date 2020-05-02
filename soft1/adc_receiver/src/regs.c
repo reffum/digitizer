@@ -26,8 +26,9 @@
 #define PWM_FREQ			12
 #define PWM_DC				13
 #define PWM_CONTROL			14
-#define DDS_FREQ			15
-#define DDS_AMP				16
+#define DDS_FREQ_H			15
+#define DDS_FREQ_L			16
+#define DDS_AMP				17
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -43,6 +44,8 @@ const struct
 } version = {0,2,0};
 
 uint16_t remote_port = 0;
+
+uint32_t dds_freq = 0;
 
 extern struct sockaddr_in remote_addr;
 
@@ -114,9 +117,11 @@ int reg_read(uint16_t addr, uint16_t* value)
 			*value = 0;
 
 		break;
-	case DDS_FREQ:
-		*value = ad9854_get_freq();
+	case DDS_FREQ_L:
+		*value = ad9854_get_freq() & 0xFF;
 		break;
+	case DDS_FREQ_H:
+		*value = (ad9854_get_freq() >> 16) & 0xFF;
 	case DDS_AMP:
 		*value = ad9854_get_amp();
 		break;
@@ -182,9 +187,14 @@ int reg_write(uint16_t addr, uint16_t* value)
 			pwm_disable();
 		break;
 
-	case DDS_FREQ:
-		ad9854_set_freq(*value);
+	case DDS_FREQ_H:
+		dds_freq = *value << 16;
 		break;
+	case DDS_FREQ_L:
+		dds_freq |= *value;
+		ad9854_set_freq(dds_freq);
+		break;
+
 	case DDS_AMP:
 		ad9854_set_amp(*value);
 		break;

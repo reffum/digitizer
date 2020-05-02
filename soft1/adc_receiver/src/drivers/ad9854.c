@@ -95,30 +95,17 @@ void ad9854_init(void)
 	usleep(10);
 	io_update(false);
 
-	// Write check
-	uint8_t read_data[4] = {0xFF, 0xFF, 0xFF, 0xFF};
-	ad9854_read(CONTROL, read_data, sizeof(data));
-
-	if( !memcmp(read_data, data, sizeof(data) ))
-		xil_printf("AD9854 init SUCCESS\n\r");
-	else
-		xil_printf("AD9854 init FAIL\n\r");
-
-	ad9854_set_freq(100);
 	ad9854_set_amp(0xFFF);
-
-	io_update(true);
-	usleep(10);
-	io_update(false);
 }
 
 void ad9854_set_freq(unsigned freq)
 {
 	// Accumulator resolution 2^48
-	const uint64_t ResCoef = 281474976710656UL;
+	const double ResCoef = 281474976710656.0;
 
 	// Value of Frequncy tuning word
-	uint64_t ftw = ResCoef / SYSCLK * freq;
+	double ftw_d = ResCoef / SYSCLK * freq;
+	uint64_t ftw = (uint64_t)ftw_d;
 
 	uint8_t data[6];
 

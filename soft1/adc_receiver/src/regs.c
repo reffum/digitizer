@@ -41,7 +41,7 @@ static const uint16_t ID_VALUE = 0x55AA;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {0,2,0};
+} version = {0,2,1};
 
 uint16_t remote_port = 0;
 

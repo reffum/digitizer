@@ -35,6 +35,7 @@
 #include "spi.h"
 #include "gpio.h"
 #include "pwm.h"
+#include "i2c.h"
 #include "adc16dv160.h"
 #include "ad9854.h"
 
@@ -236,6 +237,7 @@ int main_thread()
 
     gpio_init();
     spi_init();
+    i2c_init();
     pwm_init();
     adc16dv160_init();
     ad9854_init();

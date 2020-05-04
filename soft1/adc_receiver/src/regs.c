@@ -207,6 +207,7 @@ int reg_write(uint16_t addr, uint16_t* value)
 		i2c_addr = *value >> 8;
 		i2c_reg = *value & 0xFF;
 		mcp23017_write_reg(i2c_addr, i2c_reg);
+		break;
 
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;

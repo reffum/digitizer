@@ -38,6 +38,7 @@
 #include "i2c.h"
 #include "adc16dv160.h"
 #include "ad9854.h"
+#include "mcp23017.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -241,6 +242,7 @@ int main_thread()
     pwm_init();
     adc16dv160_init();
     ad9854_init();
+    mcp23017_init();
 
 	/* initialize lwIP before calling sys_thread_new */
     lwip_init();

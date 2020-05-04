@@ -25,7 +25,7 @@ void i2c_init(void)
 	XIicPs_SetSClk(&Iic, IIC_SCLK_RATE);
 }
 
-bool i2c_read(uint8_t addr, uint8_t data[], int len)
+bool i2c_write(uint8_t addr, uint8_t data[], int len)
 {
 	int Status;
 	Status = XIicPs_MasterSendPolled(
@@ -37,7 +37,7 @@ bool i2c_read(uint8_t addr, uint8_t data[], int len)
 	return (Status == XST_SUCCESS);
 }
 
-bool i2c_write(uint8_t addr, uint8_t data[], int len)
+bool i2c_read(uint8_t addr, uint8_t data[], int len)
 {
 	int Status;
 	Status = XIicPs_MasterRecvPolled(&Iic, data,

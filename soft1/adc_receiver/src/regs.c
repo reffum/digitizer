@@ -30,7 +30,7 @@
 #define DDS_FREQ_H			15
 #define DDS_FREQ_L			16
 #define DDS_AMP				17
-#define IO_EXP_REG			17
+#define IO_EXP_REG			18
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -43,7 +43,7 @@ static const uint16_t ID_VALUE = 0x55AA;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {0,2,1};
+} version = {0,2,2};
 
 uint16_t remote_port = 0;
 

@@ -42,5 +42,12 @@ set_input_delay -clock $input_clock -min $dv_afe                                
 #report_timing -fall_from [get_ports $input_ports] -max_paths 20 -nworst 2 -delay_type min_max -name src_sync_cntr_ddr_in_fall  -file src_sync_cntr_ddr_in_fall.txt;
 
 set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[0].IDELAYE2_ADC_DATA}]  
-set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[1].IDELAYE2_ADC_DATA}]       
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[1].IDELAYE2_ADC_DATA}] 
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[2].IDELAYE2_ADC_DATA}]  
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[3].IDELAYE2_ADC_DATA}]  
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[4].IDELAYE2_ADC_DATA}]  
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[5].IDELAYE2_ADC_DATA}] 
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[6].IDELAYE2_ADC_DATA}] 
+set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[7].IDELAYE2_ADC_DATA}] 
+   
         

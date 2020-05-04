@@ -9,6 +9,7 @@
 #include "adc16dv160.h"
 #include "hmc987.h"
 #include "ad9854.h"
+#include "mcp23017.h"
 
 
 #define ADDR_ID				0
@@ -29,6 +30,7 @@
 #define DDS_FREQ_H			15
 #define DDS_FREQ_L			16
 #define DDS_AMP				17
+#define IO_EXP_REG			17
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -135,6 +137,8 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 int reg_write(uint16_t addr, uint16_t* value)
 {
+	uint8_t i2c_addr, i2c_reg;
+
 	switch(addr)
 	{
 	case ADDR_CONTROL:
@@ -198,6 +202,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 	case DDS_AMP:
 		ad9854_set_amp(*value);
 		break;
+
+	case IO_EXP_REG:
+		i2c_addr = *value >> 8;
+		i2c_reg = *value & 0xFF;
+		mcp23017_write_reg(i2c_addr, i2c_reg);
 
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;

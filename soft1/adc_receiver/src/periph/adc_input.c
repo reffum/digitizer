@@ -31,12 +31,12 @@ bool adc_input_get_test(void)
 // Set packet size
 void adc_input_set_size(uint32_t size)
 {
-	regs->DSIZE = size;
+	regs->DSIZE = size / 4;
 }
 
 uint32_t adc_input_get_size(void)
 {
-	return regs->DSIZE;
+	return regs->DSIZE * 4;
 }
 
 // Start transmittion

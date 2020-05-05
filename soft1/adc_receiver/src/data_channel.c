@@ -68,6 +68,8 @@ void data_thread(void * p)
 		while(1)
 		{
 			int r;
+			XAxiDma_Reset(&xaxidma);
+
 			// Start transfer from ADC to DDR
 			r = XAxiDma_SimpleTransfer(&xaxidma, (u32)dma_buffer,  sizeof(dma_buffer), XAXIDMA_DEVICE_TO_DMA);
 			assert(r == XST_SUCCESS);

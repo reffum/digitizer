@@ -48,6 +48,9 @@ void gpio_init()
 	XGpioPs_SetDirectionPin(&Gpio, PIN_IO_RESET, 1);
 	XGpioPs_SetOutputEnablePin(&Gpio, PIN_IO_RESET, 1);
 
+	XGpioPs_SetDirectionPin(&Gpio, PIN_ADC_EN, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, PIN_ADC_EN, 1);
+
 	clkdisk_sen(false);
 	adc_csb(true);
 	ads_cs(true);

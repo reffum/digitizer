@@ -5,6 +5,7 @@
 #include "xparameters.h"
 #include "adc_input.h"
 #include "modbus.h"
+#include "gpio.h"
 
 int data_socket;
 
@@ -83,6 +84,8 @@ void data_thread(void * p)
 					goto close_connection;
 				}
 			}
+
+			adc_en(false);
 
 			Xil_DCacheInvalidateRange((u32)dma_buffer, sizeof(dma_buffer));
 

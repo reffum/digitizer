@@ -16,6 +16,7 @@ static const int PIN_MASTER_RESET = 54;
 static const int PIN_IO_ADS_CS = 55;
 static const int PIN_IO_UPDATE = 56;
 static const int PIN_IO_RESET = 57;
+static const int PIN_ADC_EN = 58;
 
 void gpio_init()
 {
@@ -82,4 +83,9 @@ void ads_cs(bool b)
 void io_update(bool b)
 {
 	XGpioPs_WritePin(&Gpio, PIN_IO_UPDATE, b);
+}
+
+void adc_en(bool b)
+{
+	XGpioPs_WritePin(&Gpio, PIN_ADC_EN, b);
 }

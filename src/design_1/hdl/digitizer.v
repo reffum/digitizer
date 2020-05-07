@@ -68,7 +68,7 @@ module digitizer
    input [3:0] 	jb_p, jb_n; 
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
-   inout [4:0] je; 
+   inout [5:0] je; 
    input 	hdmi_clk_n, hdmi_clk_p;
    output [0:0]   hdmi_d_n, hdmi_d_p;
    
@@ -96,7 +96,7 @@ module digitizer
    wire FIXED_IO_ps_porb;
    wire FIXED_IO_ps_srstb;
    wire TTC0_WAVE1_OUT_0;
-   wire [3:0] gpio_emio_i, gpio_emio_o, gpio_emio_t;
+   wire [4:0] gpio_emio_i, gpio_emio_o, gpio_emio_t;
    
    wire [7:0] adc_data_p, adc_data_n;
    wire       adc_clk_p, adc_n;
@@ -193,6 +193,13 @@ module digitizer
         .IO(je[4]),
         .O(gpio_emio_i[3]),
         .T(gpio_emio_t[3])
-        );                                                
+        );  
+        
+  IOBUF GPIO_EMIO_JE8
+       (.I(gpio_emio_o[4]),
+        .IO(je[5]),
+        .O(gpio_emio_i[4]),
+        .T(gpio_emio_t[4])
+        );                                                       
 
 endmodule

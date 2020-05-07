@@ -1,3 +1,4 @@
+#include <sleep.h>
 #include "mb.h"
 #include "regs.h"
 #include "xaxidma.h"
@@ -10,6 +11,7 @@
 #include "hmc987.h"
 #include "ad9854.h"
 #include "mcp23017.h"
+#include "gpio.h"
 
 
 #define ADDR_ID				0
@@ -38,6 +40,9 @@
 #define _PWM_CONTROL_ENABLE	0x1
 
 static const uint16_t ID_VALUE = 0x55AA;
+
+// Delay from ADC_EN become true to start adc receive. In us
+static const int ADC_EN_DEL_US = 20;
 
 /* This firmware version */
 const struct
@@ -148,7 +153,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 			adc_input_set_test(false);
 
 		if(*value & _CONTROL_START)
+		{
+			adc_en(true);
+			usleep(ADC_EN_DEL_US);
 			adc_input_start();
+		}
 		break;
 	case ADDR_DSIZE:
 		adc_input_set_size(*value << 16);

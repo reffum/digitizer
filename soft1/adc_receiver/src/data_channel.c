@@ -15,7 +15,7 @@ XAxiDma xaxidma;
 uint16_t DATA_PORT = 1024;
 
 // Connected data socket address
-struct sockaddr_in data_remote_addr, data_local_addr;
+
 
 void data_channel_init(void)
 {
@@ -32,17 +32,11 @@ void data_channel_init(void)
     assert(r == XST_SUCCESS);
 }
 
-void data_channel_set_remote_params(struct in_addr sin_addr, uint16_t sin_port)
-{
-	data_remote_addr.sin_family = AF_INET;
-	data_remote_addr.sin_addr = sin_addr;
-	data_remote_addr.sin_port = sin_port;
-}
-
 void data_thread(void * p)
 {
 	int sock;
 	struct sockaddr_in remote_addr;
+	struct sockaddr_in data_local_addr;
 	int r, size;
 
 	data_channel_init();

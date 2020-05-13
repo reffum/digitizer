@@ -18,7 +18,6 @@
 #define ADDR_STATUS			1
 #define ADDR_CONTROL		2
 #define ADDR_DSIZE			3
-#define REMOTE_DATA_PORT	4
 #define V1					5
 #define V2					6
 #define V3					7
@@ -82,9 +81,6 @@ int reg_read(uint16_t addr, uint16_t* value)
 		break;
 	case ADDR_DSIZE:
 		*value = adc_input_get_size() >> 16;
-		break;
-	case REMOTE_DATA_PORT:
-		*value = remote_port;
 		break;
 
 	case V1:
@@ -161,10 +157,6 @@ int reg_write(uint16_t addr, uint16_t* value)
 		break;
 	case ADDR_DSIZE:
 		adc_input_set_size(*value << 16);
-		break;
-	case REMOTE_DATA_PORT:
-		remote_port = *value;
-		data_channel_set_remote_params(remote_addr.sin_addr, htons(remote_port));
 		break;
 
 	case ADC_ADDR:

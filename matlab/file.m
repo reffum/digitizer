@@ -1,11 +1,11 @@
-fileID = fopen('1_Noise external.dat');
+fileID = fopen('1.dat');
 A = fread(fileID, 'uint16');
 B = A(1:50000);
 
 %set(gcf,'renderer','zbuffer')
 
-pl = plot(B, '.');
-ytickformat('usd')
+pl = plot(A);
+%ytickformat('usd')
 % yticks = get(gca, 'YTick');
 % set(gca, 'YTickLabel', dec2hex(yticks));
 

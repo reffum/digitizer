@@ -4,7 +4,8 @@ _ide/
 *.log
 *~
 *.o
-
+transcript
+work/
 
 /project
 /digitizer
@@ -16,6 +17,7 @@ _ide/
 
 
 /soft1/*
+
 !/soft1/adc_receiver/
 /soft1/adc_receiver/*
 !/soft1/adc_receiver/src/
@@ -28,4 +30,13 @@ _ide/
 /soft1/modbus/*
 !/soft1/modbus/src/
 
+!/soft1/adc_real_time/
+/soft1/adc_real_time/*
+!/soft1/adc_real_time/src/
+!/soft1/adc_real_time/.cproject
+!/soft1/adc_real_time/.project
+
+
 /Packages/.repos.xml
+/sim/adc16dv160_input/modelsim.ini
+/sim/adc16dv160_input/*.wlf

@@ -20,7 +20,8 @@ module adc16dv160_input_axi_read
 
    input [31:0]        dsize,
    input 	       cr_test, 
-   input 	       sr_pc
+   input 	       sr_pc,
+   input 	       cr_rt
    );
 
    //
@@ -35,9 +36,13 @@ module adc16dv160_input_axi_read
       automatic logic [31:0] value = 0;
 
       case(addr[7:0])
-	AXI_ADDR_CR:
-	  if(cr_test)
-	    value = _CR_TEST;
+	AXI_ADDR_CR: begin
+	   if(cr_test)
+	     value |= _CR_TEST;
+	   if(cr_rt)
+	     value |= _CR_RT;
+	end
+	
 	AXI_ADDR_SR:
 	  if(sr_pc)
 	    value = _SR_PC;

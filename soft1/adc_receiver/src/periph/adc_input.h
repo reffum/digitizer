@@ -8,6 +8,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+void adc_input_init(void);
+
 // Set test mode
 void adc_input_set_test(bool);
 bool adc_input_get_test(void);

@@ -11,6 +11,7 @@ package adc16dv160_input_common;
    // Bits in registers
    localparam _CR_START = 1;
    localparam _CR_TEST = 2;
+   localparam _CR_RT = 4;
    
    localparam _SR_PC = 1;
    

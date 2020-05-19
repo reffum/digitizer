@@ -5,32 +5,37 @@
 module adc16dv160_input_data_receiver
   (
    // ADC inputs
-    input 		 adc_clk,
-    input [15:0] 	 adc_data,
+   input 		adc_clk,
+   input [15:0] 	adc_data,
 
-    // AXI STREAM MASTER interface
-    input wire 		 m00_axis_aclk,
-    input wire 		 m00_axis_aresetn,
-    output wire 	 m00_axis_tvalid,
-    output wire [31 : 0] m00_axis_tdata,
-    output wire [3 : 0]  m00_axis_tkeep,
-    output wire 	 m00_axis_tlast,
-    input wire 		 m00_axis_tready,
+   // AXI STREAM MASTER interface
+   input wire 		m00_axis_aclk,
+   input wire 		m00_axis_aresetn,
+   output wire 		m00_axis_tvalid,
+   output wire [31 : 0] m00_axis_tdata,
+   output wire [3 : 0] 	m00_axis_tkeep,
+   output wire 		m00_axis_tlast,
+   input wire 		m00_axis_tready,
 
    // Control signals
 
    // Packet size
-    input [31:0] 	 dsize,
+   input [31:0] 	dsize,
 
    // Test mode
-    input 		 test,
+   input 		test,
 
    // Start
-    input 		 start,
+   input 		start,
 
+   // Real-time start
+   input 		start_rt,
+
+   // Real-time sync input
+   input 		sync,
    // Packet transmittion complete flag
-    output logic 	 sr_pc
-   
+   output logic 	sr_pc
+  
    );
 
    //
@@ -62,7 +67,7 @@ module adc16dv160_input_data_receiver
    //
    // State
    //
-   enum  logic [2:0] {INIT, S0, S1, S2, S3, S4} state_ns, state_cs;
+   enum  logic [3:0] {INIT, S0, S1, S2, S3, S4, S5, S6, S7} state_ns, state_cs;
 
    //
    // Registers
@@ -98,9 +103,13 @@ module adc16dv160_input_data_receiver
 	INIT:
 	  if(counter_cs == INIT_COUNTER)
 	    state_ns <= S0;
-	S0:
-	  if(start)
-	    state_ns <= S1;
+	S0: begin
+	   if(start)
+	     state_ns <= S1;
+	   if(start_rt)
+	     state_ns <= S5;
+	end
+	
 	S1:
 	  if(test || !fifo_almost_empty)
 	    state_ns <= S2;
@@ -123,6 +132,27 @@ module adc16dv160_input_data_receiver
 	S4:
 	  if(TREADY)
 	    state_ns <= S0;
+
+	S5:
+	  if(sync)
+	    state_ns <= S6;
+
+	S6:
+	  if(!fifo_almost_empty)
+	    state_ns <= S7;
+
+	S7:
+	  if(TREADY)
+	    if(sync == 1'b0)
+	      state_ns <= S3;
+	    else
+	      if(!fifo_almost_empty)
+		state_ns <= S7;
+	      else
+		state_ns <= S6;
+
+	
+	      
       endcase // case (state_cs)
    end // block: STATE_LOGIC   
 
@@ -187,6 +217,18 @@ module adc16dv160_input_data_receiver
 	   TVALID <= 1'b1;
 	   TLAST <= 1'b1;
 	end
+
+	S5:
+	  fifo_wren_s <= 1'b0;
+
+	S7: begin
+	   TDATA <= GetData();
+	   TVALID <= 1'b1;
+
+	   if(TREADY)
+	     fifo_rden <= 1'b1;
+	end
+	  
 	default: ;
       endcase // case (state_cs)
    end // block: OUTPUTS_AND_CONTROL

@@ -39,6 +39,7 @@
 #include "adc16dv160.h"
 #include "ad9854.h"
 #include "mcp23017.h"
+#include "adc_input.h"
 
 #if LWIP_IPV6==1
 #include "lwip/ip.h"
@@ -212,6 +213,11 @@ void network_thread(void *p)
     sys_thread_new("data", data_thread, 0,
 		THREAD_STACKSIZE,
 		DEFAULT_THREAD_PRIO);
+
+    sys_thread_new("size_thread", size_thread, 0,
+		THREAD_STACKSIZE,
+		DEFAULT_THREAD_PRIO);
+
     vTaskDelete(NULL);
 #endif
 #else
@@ -237,12 +243,14 @@ int main_thread()
 
 
     gpio_init();
+    adc_input_init();
     spi_init();
     i2c_init();
     pwm_init();
     adc16dv160_init();
     ad9854_init();
     mcp23017_init();
+
 
 	/* initialize lwIP before calling sys_thread_new */
     lwip_init();

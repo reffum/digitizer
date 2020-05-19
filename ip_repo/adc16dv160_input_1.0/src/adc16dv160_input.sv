@@ -6,9 +6,10 @@ module adc16dv160_input_v1_0
     // ADC inputs
     input 		 adc_clk_p, adc_clk_n,
     input [7:0] 	 adc_data_p, adc_data_n,
+    input 		 sync,
     
     // REFCLK for IODEALYCTRL 
-    input ref_clk_delay,
+    input 		 ref_clk_delay,
 
     // AXI-lite slave interface
     input [31:0] 	 s_axi_awaddr,
@@ -52,8 +53,11 @@ module adc16dv160_input_v1_0
    
    // AXI DSIZE register
    logic [31:0] 	 dsize;
+
+   // CR register bits
    logic 		 cr_test;
    logic 		 cr_start;
+   logic 		 cr_rt;
    logic 		 sr_pc;
    
    //
@@ -61,9 +65,10 @@ module adc16dv160_input_v1_0
    //
    adc16dv160_input_data_receiver data_receiver_inst
      (
+      .sync(sync),
       .test(cr_test),
       .start(cr_start),
-      
+      .start_rt(cr_rt),
       .*
       );
 

@@ -13,6 +13,11 @@ volatile struct regs
 #define _CR_TEST		0x2
 #define _SR_PC			0x1
 
+void adc_input_init()
+{
+    adc_input_set_size(64*1024);
+    adc_input_set_test(false);
+}
 
 // Set test mode
 void adc_input_set_test(bool b)

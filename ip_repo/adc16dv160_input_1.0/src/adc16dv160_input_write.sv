@@ -23,7 +23,7 @@ module adc16dv160_input_write
    input 	      BREADY,
 
    output [31:0]      dsize,
-   output logic       cr_test, cr_start
+   output logic       cr_test, cr_start, cr_rt
    );
 
    //
@@ -36,6 +36,7 @@ module adc16dv160_input_write
    //
    logic [31:0] dsize_cs, dsize_ns;
    logic 	cr_test_ns, cr_test_cs;
+   logic 	cr_rt_ns, cr_rt_cs;
 
    //
    // State logic
@@ -70,9 +71,11 @@ module adc16dv160_input_write
       if(!ARESETN) begin
 	 dsize_cs <= 0;
 	 cr_test_cs <= 1'b0;
+	 cr_rt_cs <= 1'b0;
       end else begin
 	 dsize_cs <= dsize_ns;
 	 cr_test_cs <= cr_test_ns;
+	 cr_rt_cs <= cr_rt_ns;
       end
    end
 
@@ -80,6 +83,7 @@ module adc16dv160_input_write
       dsize_ns <= dsize_cs;
       cr_test_ns <= cr_test_cs;
       cr_start <= 1'b0;
+      cr_rt_ns <= cr_rt_cs;
       
       case(state_cs)
 	S1:
@@ -87,6 +91,7 @@ module adc16dv160_input_write
 	    AXI_ADDR_CR: begin
 	       cr_start <= WDATA[0];
 	       cr_test_ns <= WDATA[1];
+	       cr_rt_ns <= WDATA[2];
 	    end
 	    AXI_ADDR_DSIZE:
 	      dsize_ns <= WDATA;
@@ -122,5 +127,6 @@ module adc16dv160_input_write
    //
    assign dsize = dsize_cs;
    assign cr_test = cr_test_cs;
+   assign cr_rt = cr_rt_cs;
    
 endmodule // adc_input_write

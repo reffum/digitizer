@@ -11,7 +11,10 @@ void data_channel_init(void);
 // Start data receive from ADC, transmit it to memory throw DMA and send to UDP
 void data_channel_send(void);
 
-// Data thread
+// Data thread send data, received from ADC throw net
 void data_thread(void * p);
+
+// Size thread. This thread send size of last packet
+void size_thread(void*);
 
 #endif	/*	_DATA_CHANNEL_H_	*/

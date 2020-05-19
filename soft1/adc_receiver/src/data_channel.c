@@ -1,45 +1,58 @@
 #include <assert.h>
+
+#include "FreeRTOS.h"
+#include "queue.h"
+
 #include "lwip/sockets.h"
 #include "lwip/sockets.h"
+
 #include "xaxidma.h"
 #include "xparameters.h"
+
 #include "adc_input.h"
 #include "modbus.h"
 #include "gpio.h"
+#include "dma.h"
 
-int data_socket;
+#define AXI_DMA_LEN_MASK	(0x3FFFFFF)
+#define SIZE_QUEUE_ITEM_NUM	16
 
-u8 dma_buffer[1024*1024*32] __attribute__ ((aligned (32)));
-XAxiDma xaxidma;
+// Queue timeout value in ticks(Now there is 100 ticks per secons). Queue timeout is needed, because data_thread must
+// check, that client not close modbus connection, and if it is true, close connection
+// on DATA and SIZE ports
+static int QUEUE_TIMEOUT = 100;
 
+// Port for transmit ADC data
 uint16_t DATA_PORT = 1024;
 
-// Connected data socket address
+// Port for transmit size of last transmitted packed
+uint16_t SIZE_PORT = 1025;
 
+extern QueueHandle_t xDmaQueue;
 
-void data_channel_init(void)
-{
-	int r;
-	XAxiDma_Config *xaxidma_config;
-
-    adc_input_set_size(64*1024);
-    adc_input_set_test(false);
-
-    xaxidma_config = XAxiDma_LookupConfig(XPAR_AXI_DMA_0_DEVICE_ID);
-    assert(xaxidma_config);
-
-    r = XAxiDma_CfgInitialize(&xaxidma, xaxidma_config);
-    assert(r == XST_SUCCESS);
-}
+QueueHandle_t xSizeQueue;
 
 void data_thread(void * p)
 {
+	int data_socket;
 	int sock;
 	struct sockaddr_in remote_addr;
 	struct sockaddr_in data_local_addr;
 	int r, size;
+	BaseType_t xStatus;
+	uint8_t* bufferAddress;
 
-	data_channel_init();
+	// Create queue from this thread to size_thread.
+	// Via this queue it send size of last sended packet.
+	xSizeQueue = xQueueCreate(SIZE_QUEUE_ITEM_NUM, sizeof(size_t));
+	assert(xDmaQueue);
+
+	// Pointer to the next ready BD
+	XAxiDma_Bd *BdPtr;
+
+	// Last packet data size
+	size_t lastPacketSize = 0;
+	size_t bufferSize = 0;
 
 	data_socket = lwip_socket(AF_INET, SOCK_STREAM, 0);
 	assert(data_socket >= 0);
@@ -63,32 +76,42 @@ void data_thread(void * p)
 		while(1)
 		{
 			int r;
-			XAxiDma_Reset(&xaxidma);
 
-			// Start transfer from ADC to DDR
-			r = XAxiDma_SimpleTransfer(&xaxidma, (u32)dma_buffer,  sizeof(dma_buffer), XAXIDMA_DEVICE_TO_DMA);
-			assert(r == XST_SUCCESS);
-
-			// Wait until data is transferred in DDR of close MODBUS connection
-			while(XAxiDma_Busy(&xaxidma, XAXIDMA_DEVICE_TO_DMA))
+			while(1)
 			{
-				if(!modbus_connection_state())
+				xStatus = xQueueReceive(xDmaQueue, &BdPtr, QUEUE_TIMEOUT);
+				if(xStatus == errQUEUE_EMPTY)
 				{
-					XAxiDma_Reset(&xaxidma);
-					goto close_connection;
+					if(!modbus_connection_state())
+					{
+						goto close_connection;
+					}
 				}
+				else
+					break;
 			}
 
-			adc_en(false);
+			bufferSize = XAxiDma_BdGetActualLength(BdPtr, AXI_DMA_LEN_MASK);
+			lastPacketSize += bufferSize;
+			bufferAddress = (uint8_t*)XAxiDma_BdGetBufAddr(BdPtr);
 
-			Xil_DCacheInvalidateRange((u32)dma_buffer, sizeof(dma_buffer));
+			Xil_DCacheInvalidateRange((u32)bufferAddress, MAX_PKT_LEN);
 
-			int data_size = adc_input_get_size();
-
-			r = lwip_send(sock, dma_buffer, data_size, 0);
+			r = lwip_send(sock, bufferAddress, bufferSize, 0);
 
 			if(r == -1)
 				break;
+
+			// It this BD is last(complete) BD, send to size_thread size of
+			// last packet
+			uint32_t bdStatus = XAxiDma_BdGetSts(BdPtr);
+			if(bdStatus & XAXIDMA_BD_STS_RXEOF_MASK)
+			{
+				r =  xQueueSend(xSizeQueue, &lastPacketSize, 0);
+				assert(r == pdPASS);
+
+				lastPacketSize = 0;
+			}
 		}
 
 close_connection:
@@ -97,3 +120,55 @@ close_connection:
 	}
 }
 
+void size_thread(void* p)
+{
+	int server_socket;
+	int sock;
+	struct sockaddr_in remote_addr;
+	struct sockaddr_in data_local_addr;
+	int r;
+	int size;
+	int lastPacketSize;
+	BaseType_t xStatus;
+
+	server_socket = lwip_socket(AF_INET, SOCK_STREAM, 0);
+	assert(server_socket >= 0);
+
+	data_local_addr.sin_family = AF_INET;
+	data_local_addr.sin_port = htons(SIZE_PORT);
+	data_local_addr.sin_addr.s_addr = INADDR_ANY;
+
+	r = lwip_bind(server_socket, (struct sockaddr*)&data_local_addr, sizeof(data_local_addr));
+	assert(r >= 0);
+
+	while(1)
+	{
+		lwip_listen(server_socket, 0);
+
+		size = sizeof(remote_addr);
+
+		sock = lwip_accept(server_socket, (struct sockaddr*)&remote_addr, (socklen_t *)&size);
+		print("SIZE connect\r\n");
+
+		while(1)
+		{
+			xStatus = xQueueReceive(xSizeQueue, &lastPacketSize, QUEUE_TIMEOUT);
+			if(xStatus == errQUEUE_EMPTY)
+			{
+				if(!modbus_connection_state())
+				{
+					break;
+				}
+			}
+			else
+			{
+				r = lwip_send(sock, &lastPacketSize, sizeof(lastPacketSize), 0);
+				if(r == -1)
+					break;
+			}
+		}
+
+		close(sock);
+		print("SIZE disconnect\r\n");
+	}
+}

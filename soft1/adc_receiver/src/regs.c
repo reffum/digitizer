@@ -35,6 +35,7 @@
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
+#define _CONTROL_RT		0x4
 
 #define _PWM_CONTROL_ENABLE	0x1
 
@@ -77,6 +78,9 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 		if(adc_input_get_test())
 			*value |= _CONTROL_TEST;
+
+		if(adc_input_get_real_time())
+			*value |= _CONTROL_RT;
 
 		break;
 	case ADDR_DSIZE:
@@ -153,6 +157,15 @@ int reg_write(uint16_t addr, uint16_t* value)
 			adc_en(true);
 			usleep(ADC_EN_DEL_US);
 			adc_input_start();
+		}
+
+		if(*value & _CONTROL_RT)
+		{
+			adc_input_real_time(true);
+		}
+		else
+		{
+			adc_input_real_time(false);
 		}
 		break;
 	case ADDR_DSIZE:

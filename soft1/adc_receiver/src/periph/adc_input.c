@@ -11,6 +11,7 @@ volatile struct regs
 
 #define _CR_START		0x1
 #define _CR_TEST		0x2
+#define _CR_RT			0x4
 #define _SR_PC			0x1
 
 void adc_input_init()
@@ -50,3 +51,15 @@ void adc_input_start(void)
 	regs->CR |= _CR_START;
 }
 
+void adc_input_real_time(bool b)
+{
+	if(b)
+		regs->CR |= _CR_RT;
+	else
+		regs->CR &= ~_CR_RT;
+}
+
+bool adc_input_get_real_time(void)
+{
+	return (regs->CR & _CR_RT);
+}

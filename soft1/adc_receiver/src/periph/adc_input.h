@@ -21,4 +21,8 @@ uint32_t adc_input_get_size(void);
 // Start transmittion
 void adc_input_start(void);
 
+// Real-Time mode
+void adc_input_real_time(bool b);
+bool adc_input_get_real_time(void);
+
 #endif	/* _ADC_INPUT_H_ */

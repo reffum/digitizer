@@ -45,7 +45,7 @@ void data_thread(void * p)
 	// Create queue from this thread to size_thread.
 	// Via this queue it send size of last sended packet.
 	xSizeQueue = xQueueCreate(SIZE_QUEUE_ITEM_NUM, sizeof(size_t));
-	assert(xDmaQueue);
+	assert(xSizeQueue);
 
 	// Pointer to the next ready BD
 	XAxiDma_Bd *BdPtr;

@@ -19,7 +19,7 @@
  * Constants
  */
 
-#define BD_SIZE				(64*1024)
+#define BD_SIZE				(4*XAXIDMA_BD_NUM_WORDS)
 #define RX_BUFFER_SIZE		(128*1024*1024)
 
 #define COALESCING_COUNT	10
@@ -98,8 +98,8 @@ static void dma_rx_setup()
 
 	Status = XAxiDma_BdRingCreate(
 			RxRingPtr,
-			BdMemory,
-			BdMemory,
+			(UINTPTR)BdMemory,
+			(UINTPTR)BdMemory,
 			XAXIDMA_BD_MINIMUM_ALIGNMENT,
 			BdCount);
 
@@ -119,7 +119,7 @@ static void dma_rx_setup()
 	assert(Status == XST_SUCCESS);
 
 	BdCurPtr = BdPtr;
-	RxBufferPtr = RxBufferMemory;
+	RxBufferPtr = (UINTPTR)RxBufferMemory;
 
 	for (Index = 0; Index < FreeBdCount; Index++) {
 
@@ -174,10 +174,13 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	/* Get finished BDs from hardware */
 	BdCount = XAxiDma_BdRingFromHw(RxRingPtr, XAXIDMA_ALL_BDS, &BdPtr);
 
+	if(BdCount > DMA_QUEUE_ITEM_NUM)
+		__asm__("BKPT");
 
 	for(i = 0; i < BdCount; i++)
 	{
-		r =  xQueueSend(xDmaQueue, BdPtr + i, 0);
+		XAxiDma_Bd* p = BdPtr + i;
+		r =  xQueueSendFromISR(xDmaQueue, &p, NULL);
 		assert(r == pdPASS);
 	}
 }

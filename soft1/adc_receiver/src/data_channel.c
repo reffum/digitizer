@@ -91,13 +91,17 @@ void data_thread(void * p)
 					break;
 			}
 
+			Xil_DCacheInvalidateRange((u32)BdPtr, XAXIDMA_BD_NUM_WORDS);
 			bufferSize = XAxiDma_BdGetActualLength(BdPtr, AXI_DMA_LEN_MASK);
 			lastPacketSize += bufferSize;
 			bufferAddress = (uint8_t*)XAxiDma_BdGetBufAddr(BdPtr);
 
 			Xil_DCacheInvalidateRange((u32)bufferAddress, MAX_PKT_LEN);
 
+			printf("Send %d data\n", bufferSize);
+
 			r = lwip_send(sock, bufferAddress, bufferSize, 0);
+			printf("Sended: %d\n", r);
 
 			if(r == -1)
 				break;
@@ -107,6 +111,7 @@ void data_thread(void * p)
 			uint32_t bdStatus = XAxiDma_BdGetSts(BdPtr);
 			if(bdStatus & XAXIDMA_BD_STS_RXEOF_MASK)
 			{
+				print("Last buffer\n");
 				r =  xQueueSend(xSizeQueue, &lastPacketSize, 0);
 				assert(r == pdPASS);
 

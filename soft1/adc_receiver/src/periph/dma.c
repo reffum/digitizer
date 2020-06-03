@@ -48,7 +48,7 @@ XScuGic xscugic;
 volatile int Error;
 
 /* BD memory */
-uint8_t BdMemory[BD_SIZE];
+uint8_t BdMemory[BD_SIZE] __attribute__ ((aligned (XAXIDMA_BD_MINIMUM_ALIGNMENT)));
 
 /* RX from DMA buffer memory */
 uint8_t RxBufferMemory[RX_BUFFER_SIZE];

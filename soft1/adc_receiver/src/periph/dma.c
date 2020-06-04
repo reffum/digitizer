@@ -42,7 +42,6 @@
 XAxiDma xaxidma;
 
 /* Xilinx interrupt controller(PS) driver structure */
-XScuGic xscugic;
 
 // Error variable. It is settings to 1, if error occured.
 volatile int Error;
@@ -249,6 +248,8 @@ void irq_setup()
 {
 	XAxiDma_BdRing *RxRingPtr = XAxiDma_GetRxRing(&xaxidma);
 	int Status;
+
+	XScuGic_SetPriorityTriggerType(&xInterruptController, RX_INTR_ID, 0xA0, 0x3);
 
 	/*
 	 * Connect the device driver handler that will be called when an

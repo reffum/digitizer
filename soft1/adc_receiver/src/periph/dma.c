@@ -180,7 +180,7 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	{
 		XAxiDma_Bd* p = BdPtr + i;
 		r =  xQueueSendFromISR(xDmaQueue, &p, NULL);
-		assert(r == pdPASS);
+		//assert(r == pdPASS);
 	}
 }
 

@@ -20,7 +20,7 @@
 // Queue timeout value in ticks(Now there is 100 ticks per secons). Queue timeout is needed, because data_thread must
 // check, that client not close modbus connection, and if it is true, close connection
 // on DATA and SIZE ports
-static int QUEUE_TIMEOUT = 100;
+static int QUEUE_TIMEOUT = 500;
 
 // Port for transmit ADC data
 uint16_t DATA_PORT = 1024;
@@ -79,7 +79,8 @@ void data_thread(void * p)
 
 			while(1)
 			{
-				xStatus = xQueueReceive(xDmaQueue, &BdPtr, QUEUE_TIMEOUT);
+				TickType_t Timeout = pdMS_TO_TICKS(QUEUE_TIMEOUT);
+				xStatus = xQueueReceive(xDmaQueue, &BdPtr, Timeout);
 				if(xStatus == errQUEUE_EMPTY)
 				{
 					if(!modbus_connection_state())
@@ -157,7 +158,8 @@ void size_thread(void* p)
 
 		while(1)
 		{
-			xStatus = xQueueReceive(xSizeQueue, &lastPacketSize, QUEUE_TIMEOUT);
+			TickType_t Timeout = pdMS_TO_TICKS(QUEUE_TIMEOUT);
+			xStatus = xQueueReceive(xSizeQueue, &lastPacketSize, Timeout);
 			if(xStatus == errQUEUE_EMPTY)
 			{
 				if(!modbus_connection_state())

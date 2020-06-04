@@ -243,43 +243,29 @@ static void RxIntrHandler(void *Callback)
 	}
 }
 
+extern XScuGic xInterruptController; /* The XScuGic configuration defined by FreeRTOS */
+
 void irq_setup()
 {
 	XAxiDma_BdRing *RxRingPtr = XAxiDma_GetRxRing(&xaxidma);
 	int Status;
-
-	XScuGic_Config *IntcConfig;
-
-	/*
-	 * Initialize the interrupt controller driver so that it is ready to
-	 * use.
-	 */
-	IntcConfig = XScuGic_LookupConfig(XPAR_SCUGIC_SINGLE_DEVICE_ID);
-	assert(IntcConfig);
-
-	Status = XScuGic_CfgInitialize(&xscugic, IntcConfig,
-					IntcConfig->CpuBaseAddress);
-	assert(Status == XST_SUCCESS);
-
-	//TODO: May be it is worth changeng 0xA0 priority to other value, example, 0.
-	XScuGic_SetPriorityTriggerType(&xscugic, RX_INTR_ID, 0xA0, 0x3);
 
 	/*
 	 * Connect the device driver handler that will be called when an
 	 * interrupt for the device occurs, the handler defined above performs
 	 * the specific interrupt processing for the device.
 	 */
-	Status = XScuGic_Connect(&xscugic, RX_INTR_ID,
+	Status = XScuGic_Connect(&xInterruptController, RX_INTR_ID,
 			       (XInterruptHandler) RxIntrHandler, RxRingPtr);
 	assert(Status == XST_SUCCESS);
 
-	XScuGic_Enable(&xscugic, RX_INTR_ID);
+	XScuGic_Enable(&xInterruptController, RX_INTR_ID);
 
 	/* Enable interrupts from the hardware */
 	Xil_ExceptionInit();
 	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_IRQ_INT,
 			(Xil_ExceptionHandler)XScuGic_InterruptHandler,
-			(void *)&xscugic);
+			(void *)&xInterruptController);
 
 	Xil_ExceptionEnable();
 }

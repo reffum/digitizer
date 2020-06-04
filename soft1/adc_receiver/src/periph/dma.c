@@ -19,7 +19,7 @@
  * Constants
  */
 
-#define BD_SIZE				(4*XAXIDMA_BD_NUM_WORDS)
+#define BD_SIZE				(4*4*XAXIDMA_BD_NUM_WORDS)
 #define RX_BUFFER_SIZE		(128*1024*1024)
 
 #define COALESCING_COUNT	10

@@ -53,7 +53,7 @@ volatile int Error;
 uint8_t BdMemory[BD_SIZE] __attribute__ ((aligned (XAXIDMA_BD_MINIMUM_ALIGNMENT)));
 
 /* RX from DMA buffer memory */
-uint8_t RxBufferMemory[RX_BUFFER_SIZE];
+uint8_t RxBufferMemory[RX_BUFFER_SIZE*2];
 
 /* Queue for send message data_channel module about new available data buffers.
  * In this quque DMA interrupt send pointers to ready buffer BDs
@@ -150,9 +150,9 @@ static void dma_rx_setup()
 	 * If you would like to have multiple interrupts to happen, change
 	 * the COALESCING_COUNT to be a smaller value
 	 */
-	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
-			DELAY_TIMER_COUNT);
-	assert(Status == XST_SUCCESS);
+//	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
+//			DELAY_TIMER_COUNT);
+//	assert(Status == XST_SUCCESS);
 
 	Status = XAxiDma_BdRingToHw(RxRingPtr, FreeBdCount, BdPtr);
 	assert(Status == XST_SUCCESS);
@@ -177,14 +177,11 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	/* Get finished BDs from hardware */
 	BdCount = XAxiDma_BdRingFromHw(RxRingPtr, XAXIDMA_ALL_BDS, &BdPtr);
 
-	if(BdCount > DMA_QUEUE_ITEM_NUM)
-		__asm__("BKPT");
-
 	for(i = 0; i < BdCount; i++)
 	{
 		XAxiDma_Bd* p = BdPtr + i;
 		r =  xQueueSendFromISR(xDmaQueue, &p, NULL);
-		assert(r == pdPASS);
+		//assert(r == pdPASS);
 	}
 }
 

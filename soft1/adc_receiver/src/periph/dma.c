@@ -19,8 +19,11 @@
  * Constants
  */
 
-#define BD_SIZE				(4*4*XAXIDMA_BD_NUM_WORDS)
+
 #define RX_BUFFER_SIZE		(128*1024*1024)
+#define RX_PACKET_SIZE		(1*1024*1024)
+#define BD_NUM				(RX_BUFFER_SIZE/RX_PACKET_SIZE)
+#define BD_SIZE				(BD_NUM*4*XAXIDMA_BD_NUM_WORDS)
 
 #define COALESCING_COUNT	10
 #define DELAY_TIMER_COUNT	100
@@ -32,7 +35,7 @@
 #define RX_INTR_ID		XPAR_FABRIC_AXIDMA_0_VEC_ID
 
 // Number of maximum items in xDmaQueue
-#define DMA_QUEUE_ITEM_NUM	16
+#define DMA_QUEUE_ITEM_NUM	(BD_NUM*4)
 
 /**
  * Variables
@@ -94,6 +97,7 @@ static void dma_rx_setup()
 	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT,
 				sizeof(BdMemory));
 
+	assert(BdCount == BD_NUM);
 
 	Status = XAxiDma_BdRingCreate(
 			RxRingPtr,
@@ -125,7 +129,7 @@ static void dma_rx_setup()
 		Status = XAxiDma_BdSetBufAddr(BdCurPtr, RxBufferPtr);
 		assert(Status == XST_SUCCESS);
 
-		Status = XAxiDma_BdSetLength(BdCurPtr, MAX_PKT_LEN,
+		Status = XAxiDma_BdSetLength(BdCurPtr, RX_PACKET_SIZE,
 					RxRingPtr->MaxTransferLen);
 		assert(Status == XST_SUCCESS);
 
@@ -136,7 +140,7 @@ static void dma_rx_setup()
 
 		XAxiDma_BdSetId(BdCurPtr, RxBufferPtr);
 
-		RxBufferPtr += MAX_PKT_LEN;
+		RxBufferPtr += RX_PACKET_SIZE;
 		BdCurPtr = (XAxiDma_Bd *)XAxiDma_BdRingNext(RxRingPtr, BdCurPtr);
 	}
 
@@ -180,7 +184,7 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	{
 		XAxiDma_Bd* p = BdPtr + i;
 		r =  xQueueSendFromISR(xDmaQueue, &p, NULL);
-		//assert(r == pdPASS);
+		assert(r == pdPASS);
 	}
 }
 

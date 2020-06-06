@@ -167,7 +167,7 @@ module digitizer
 
    assign led[0] = 1'b1;
    assign je[0] = TTC0_WAVE1_OUT_0;
-   assign sync = je6;
+   assign sync = ~je6;
    
    //
    // GPIO EMIO

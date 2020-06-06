@@ -41,6 +41,7 @@ void data_thread(void * p)
 	int r, size;
 	BaseType_t xStatus;
 	uint8_t* bufferAddress;
+	bool test = false;
 
 	// Create queue from this thread to size_thread.
 	// Via this queue it send size of last sended packet.
@@ -91,6 +92,13 @@ void data_thread(void * p)
 				else
 					break;
 			}
+
+			adc_en(test);
+			test = !test;
+
+			TickType_t c = xTaskGetTickCount();
+
+			printf("TICK: %lu\n\r", c);
 
 			Xil_DCacheInvalidateRange((u32)BdPtr, XAXIDMA_BD_NUM_WORDS);
 			bufferSize = XAxiDma_BdGetActualLength(BdPtr, AXI_DMA_LEN_MASK);

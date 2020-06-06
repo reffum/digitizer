@@ -6,6 +6,8 @@
 
 #include "lwip/sockets.h"
 
+#define DATA_THREAD_PRIO	3
+
 void data_channel_init(void);
 
 // Start data receive from ADC, transmit it to memory throw DMA and send to UDP

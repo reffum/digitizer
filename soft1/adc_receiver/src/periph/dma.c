@@ -14,6 +14,7 @@
 #include "xscugic.h"
 
 #include "dma.h"
+#include "gpio.h"
 
 /**
  * Constants
@@ -173,6 +174,7 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	int BdCount, i;
 	XAxiDma_Bd *BdPtr;
 	BaseType_t r;
+	BaseType_t pxHigherPriorityTaskWoken = pdTRUE;
 
 	/* Get finished BDs from hardware */
 	BdCount = XAxiDma_BdRingFromHw(RxRingPtr, XAXIDMA_ALL_BDS, &BdPtr);
@@ -180,7 +182,7 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	for(i = 0; i < BdCount; i++)
 	{
 		XAxiDma_Bd* p = BdPtr + i;
-		r =  xQueueSendFromISR(xDmaQueue, &p, NULL);
+		r =  xQueueSendFromISR(xDmaQueue, &p, &pxHigherPriorityTaskWoken);
 		//assert(r == pdPASS);
 	}
 }

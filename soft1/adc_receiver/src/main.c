@@ -214,7 +214,7 @@ void network_thread(void *p)
 
     sys_thread_new("data", data_thread, 0,
 		THREAD_STACKSIZE,
-		DEFAULT_THREAD_PRIO);
+		DATA_THREAD_PRIO);
 
     sys_thread_new("size_thread", size_thread, 0,
 		THREAD_STACKSIZE,

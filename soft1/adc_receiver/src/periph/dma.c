@@ -27,7 +27,7 @@
 #define BD_SIZE				(BD_NUM*4*XAXIDMA_BD_NUM_WORDS)
 
 #define COALESCING_COUNT	10
-#define DELAY_TIMER_COUNT	100
+#define DELAY_TIMER_COUNT	0
 
 /* Timeout loop counter for reset
  */
@@ -151,9 +151,9 @@ static void dma_rx_setup()
 	 * If you would like to have multiple interrupts to happen, change
 	 * the COALESCING_COUNT to be a smaller value
 	 */
-//	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
-//			DELAY_TIMER_COUNT);
-//	assert(Status == XST_SUCCESS);
+	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
+			DELAY_TIMER_COUNT);
+	assert(Status == XST_SUCCESS);
 
 	Status = XAxiDma_BdRingToHw(RxRingPtr, FreeBdCount, BdPtr);
 	assert(Status == XST_SUCCESS);

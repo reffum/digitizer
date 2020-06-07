@@ -93,38 +93,43 @@ void data_thread(void * p)
 					break;
 			}
 
-			adc_en(test);
-			test = !test;
 
-			TickType_t c = xTaskGetTickCount();
 
-			printf("TICK: %lu\n\r", c);
+			do{
+				adc_en(test);
+				test = !test;
 
-			Xil_DCacheInvalidateRange((u32)BdPtr, XAXIDMA_BD_NUM_WORDS);
-			bufferSize = XAxiDma_BdGetActualLength(BdPtr, AXI_DMA_LEN_MASK);
-			lastPacketSize += bufferSize;
-			bufferAddress = (uint8_t*)XAxiDma_BdGetBufAddr(BdPtr);
+				//Xil_DCacheInvalidateRange((u32)BdPtr, XAXIDMA_BD_NUM_WORDS);
+				bufferSize = XAxiDma_BdGetActualLength(BdPtr, AXI_DMA_LEN_MASK);
+				lastPacketSize += bufferSize;
+				bufferAddress = (uint8_t*)XAxiDma_BdGetBufAddr(BdPtr);
 
-			Xil_DCacheInvalidateRange((u32)bufferAddress, MAX_PKT_LEN);
+				//Xil_DCacheInvalidateRange((u32)bufferAddress, MAX_PKT_LEN);
 
-			//printf("Send %d data\n", bufferSize);
-			r = lwip_send(sock, bufferAddress, bufferSize, 0);
-			//printf("Sended: %d\n", r);
+				//printf("Send %d data\n", bufferSize);
 
-			if(r == -1)
-				break;
+				r = lwip_send(sock, bufferAddress, bufferSize, 0);
+				//printf("Sended: %d\n", r);
 
-			// It this BD is last(complete) BD, send to size_thread size of
-			// last packet
-			uint32_t bdStatus = XAxiDma_BdGetSts(BdPtr);
-			if(bdStatus & XAXIDMA_BD_STS_RXEOF_MASK)
-			{
-				//print("Last buffer\n\r");
-				r =  xQueueSend(xSizeQueue, &lastPacketSize, 0);
-				assert(r == pdPASS);
+				if(r == -1)
+					break;
 
-				lastPacketSize = 0;
-			}
+				// It this BD is last(complete) BD, send to size_thread size of
+				// last packet
+				uint32_t bdStatus = XAxiDma_BdGetSts(BdPtr);
+				if(bdStatus & XAXIDMA_BD_STS_RXEOF_MASK)
+				{
+					printf("Last buffer: %d\n\r", lastPacketSize);
+					r =  xQueueSend(xSizeQueue, &lastPacketSize, 0);
+					assert(r == pdPASS);
+
+					lastPacketSize = 0;
+				}
+
+				xStatus = xQueueReceive(xDmaQueue, &BdPtr, 0);
+
+			}while( xStatus == pdPASS);
+
 		}
 
 close_connection:

@@ -50,6 +50,10 @@ module adc16dv160_input_v1_0
    //
    logic 		 adc_clk, adc_clk_io;
    logic [15:0] 	 adc_data;
+
+   // Synchronized sync
+   logic 		 sync_s;
+   
    
    // AXI DSIZE register
    logic [31:0] 	 dsize;
@@ -65,7 +69,7 @@ module adc16dv160_input_v1_0
    //
    adc16dv160_input_data_receiver data_receiver_inst
      (
-      .sync(sync),
+      .sync(sync_s),
       .test(cr_test),
       .start(cr_start),
       .start_rt(cr_rt),
@@ -110,6 +114,14 @@ module adc16dv160_input_v1_0
       .*
       );
 
+   synchronizer #(.SIZE(1)) synchronizer_sync
+     (
+      .clk(m00_axis_aclk),
+      .resetn(m00_axis_aresetn),
+      .in(sync),
+      .out(sync_s)
+      );
+   
    //
    // Data input buffers and DDR logic
    //

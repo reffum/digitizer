@@ -11,6 +11,7 @@ proc compilecode {} {
     vlog  ${IP}/adc16dv160_input_1.0/src/adc16dv160_input_data_receiver.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/adc16dv160_input_write.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/data_extend.sv
+    vlog  ${IP}/adc16dv160_input_1.0/src/synchronizer.sv
 
     vlog $XILINX/verilog/src/glbl.v
     vlog ../adc16dv160.sv

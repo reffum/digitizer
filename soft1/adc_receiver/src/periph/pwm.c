@@ -21,6 +21,11 @@ void pwm_init(void)
 	assert(Status == XST_SUCCESS);
 
 	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_MATCH_MODE | XTTCPS_OPTION_WAVE_POLARITY | XTTCPS_OPTION_WAVE_DISABLE);
+
+	//TODO: For debug only
+	pwm_set_freq(1000);
+	pwm_set_dc(10);
+	pwm_enable();
 }
 
 void pwm_enable(void)

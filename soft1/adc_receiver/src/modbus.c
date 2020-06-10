@@ -6,6 +6,7 @@
 #include "mb.h"
 #include "lwip/sockets.h"
 #include "regs.h"
+#include "adc_input.h"
 
 static const uint16_t MODBUS_ID = 1;
 static const unsigned MODBUS_PORT = 502;
@@ -104,6 +105,9 @@ void modbus_thread(void * p)
 		}
 
 		close(modbus_socket);
+
+		adc_input_real_time(false);
+
 		print("MODBUS disconnect\r\n");
 		conn_state = false;
 	}

@@ -12,6 +12,7 @@
 #include "ad9854.h"
 #include "mcp23017.h"
 #include "gpio.h"
+#include "dma.h"
 
 
 #define ADDR_ID				0
@@ -36,6 +37,8 @@
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
 #define _CONTROL_RT		0x4
+
+#define _STATUS_RF_OVF	0x1
 
 #define _PWM_CONTROL_ENABLE	0x1
 
@@ -72,6 +75,10 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 	case ADDR_STATUS:
 		*value = 0;
+
+		if(dma_ovf())
+			*value = _STATUS_RF_OVF;
+
 		break;
 	case ADDR_CONTROL:
 		*value = 0;

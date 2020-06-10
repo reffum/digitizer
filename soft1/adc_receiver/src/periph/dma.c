@@ -50,6 +50,9 @@ XAxiDma xaxidma;
 // Error variable. It is settings to 1, if error occured.
 volatile int Error;
 
+// BD queue overflow flag
+volatile bool BdOvf = false;
+
 /* BD memory */
 uint8_t BdMemory[BD_SIZE] __attribute__ ((aligned (XAXIDMA_BD_MINIMUM_ALIGNMENT)));
 
@@ -65,6 +68,11 @@ static void queue_setup()
 {
 	xDmaQueue = xQueueCreate(DMA_QUEUE_ITEM_NUM, sizeof(void*));
 	assert(xDmaQueue);
+}
+
+bool dma_ovf(void)
+{
+	return BdOvf;
 }
 
 static void dma_rx_setup()
@@ -151,9 +159,9 @@ static void dma_rx_setup()
 	 * If you would like to have multiple interrupts to happen, change
 	 * the COALESCING_COUNT to be a smaller value
 	 */
-	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
-			DELAY_TIMER_COUNT);
-	assert(Status == XST_SUCCESS);
+//	Status = XAxiDma_BdRingSetCoalesce(RxRingPtr, COALESCING_COUNT,
+//			DELAY_TIMER_COUNT);
+//	assert(Status == XST_SUCCESS);
 
 	Status = XAxiDma_BdRingToHw(RxRingPtr, FreeBdCount, BdPtr);
 	assert(Status == XST_SUCCESS);
@@ -183,6 +191,11 @@ static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
 	{
 		XAxiDma_Bd* p = BdPtr + i;
 		r =  xQueueSendFromISR(xDmaQueue, &p, &pxHigherPriorityTaskWoken);
+
+		if(r == pdPASS)
+			BdOvf = false;
+		else
+			BdOvf = true;
 		//assert(r == pdPASS);
 	}
 }

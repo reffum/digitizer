@@ -32,6 +32,8 @@ extern QueueHandle_t xDmaQueue;
 
 QueueHandle_t xSizeQueue;
 
+int size_sock;
+
 void data_thread(void * p)
 {
 	int data_socket;
@@ -112,17 +114,17 @@ void data_thread(void * p)
 				//printf("Sended: %d\n", r);
 
 				if(r == -1)
-					break;
+					goto close_connection;
 
 				// It this BD is last(complete) BD, send to size_thread size of
 				// last packet
 				uint32_t bdStatus = XAxiDma_BdGetSts(BdPtr);
 				if(bdStatus & XAXIDMA_BD_STS_RXEOF_MASK)
 				{
-					printf("Last buffer: %d\n\r", lastPacketSize);
-					r =  xQueueSend(xSizeQueue, &lastPacketSize, 0);
-					assert(r == pdPASS);
-
+					//printf("Last buffer: %d\n\r", lastPacketSize);
+					//r =  xQueueSend(xSizeQueue, &lastPacketSize, 100);
+					//assert(r == pdPASS);
+					r = lwip_send(size_sock, &lastPacketSize, sizeof(lastPacketSize), 0);
 					lastPacketSize = 0;
 				}
 
@@ -141,7 +143,6 @@ close_connection:
 void size_thread(void* p)
 {
 	int server_socket;
-	int sock;
 	struct sockaddr_in remote_addr;
 	struct sockaddr_in data_local_addr;
 	int r;
@@ -165,7 +166,7 @@ void size_thread(void* p)
 
 		size = sizeof(remote_addr);
 
-		sock = lwip_accept(server_socket, (struct sockaddr*)&remote_addr, (socklen_t *)&size);
+		size_sock = lwip_accept(server_socket, (struct sockaddr*)&remote_addr, (socklen_t *)&size);
 		print("SIZE connect\r\n");
 
 		while(1)
@@ -181,13 +182,13 @@ void size_thread(void* p)
 			}
 			else
 			{
-				r = lwip_send(sock, &lastPacketSize, sizeof(lastPacketSize), 0);
+				r = lwip_send(size_sock, &lastPacketSize, sizeof(lastPacketSize), 0);
 				if(r == -1)
 					break;
 			}
 		}
 
-		close(sock);
+		close(size_sock);
 		print("SIZE disconnect\r\n");
 	}
 }

@@ -19,6 +19,7 @@
 #define DMA_LEN_MASK	0x03FFFFFF
 
 extern uint8_t BdMemory[BD_SIZE];
+uint8_t RxBufferMemory[RX_BUFFER_SIZE*2];
 extern XAxiDma xaxidma;
 
 // Current or last processed BD
@@ -44,24 +45,30 @@ static uint8_t* send_data(uint8_t* address, size_t size)
 	size_t size_0, size_1;
 	err_t err;
 
-	if(address + size > BdMemory + sizeof(BdMemory))
+	assert( address >= RxBufferMemory && address <= RxBufferMemory + sizeof(RxBufferMemory));
+
+	if(address + size > RxBufferMemory + sizeof(RxBufferMemory))
 	{
-		size_0 = BdMemory + sizeof(BdMemory) - address;
+		size_0 = RxBufferMemory + sizeof(RxBufferMemory) - address;
 		size_1 = size - size_0;
 
-		err = tcp_write(data_pcb, address, size_0, 1);
+		err = tcp_write(data_pcb, address, size_0, 0);
 		assert(err == ERR_OK);
 
-		err = tcp_write(data_pcb, BdMemory, size_1, 1);
+		err = tcp_write(data_pcb, RxBufferMemory, size_1, 0);
 		assert(err == ERR_OK);
 
-		return BdMemory + size_1;
+		address = RxBufferMemory + size_1;
 	}
 	else
 	{
-		err = tcp_write(data_pcb, address, size, 1);
-		return address + size;
+		err = tcp_write(data_pcb, address, size, 0);
+		address = address + size;
 	}
+
+	assert( address >= RxBufferMemory && address <= RxBufferMemory + sizeof(RxBufferMemory));
+
+	return address;
 }
 
 
@@ -79,6 +86,9 @@ static err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
 		tcp_recv(tpcb, NULL);
 
 		data_pcb = NULL;
+
+		printf("Connection closed\n");
+		state = S0;
 
 		return ERR_OK;
 	}
@@ -98,6 +108,8 @@ static err_t send_callback(void *arg, struct tcp_pcb *tpcb,
 		{
 			send_data(BufferAddress, BufferSize);
 			state = S0;
+
+			//printf("Packet send\n");
 		}
 		else
 		{
@@ -129,7 +141,7 @@ static err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err)
 
 XAxiDma_Bd* get_next_bd(XAxiDma_Bd* bd)
 {
-	if((void*)(bd + 1) > (void*)(BdMemory + sizeof(BdMemory)))
+	if((void*)(bd + 1) >= (void*)(BdMemory + sizeof(BdMemory)))
 		bd = (XAxiDma_Bd*)BdMemory;
 	else
 		bd = bd + 1;
@@ -145,12 +157,16 @@ static uint8_t * get_last_packet(size_t* size)
 
 	size_t SumSize = 0;
 	uint8_t* address = (uint8_t*)XAxiDma_BdGetBufAddr(CurrBd);
-
+	assert( address >= RxBufferMemory && address <= RxBufferMemory + sizeof(RxBufferMemory));
 
 
 	do{
 		BdStatus = XAxiDma_BdGetSts(CurrBd);
-		assert(BdStatus & XAXIDMA_BD_STS_COMPLETE_MASK);
+		if( !(BdStatus & XAXIDMA_BD_STS_COMPLETE_MASK))
+		{
+			CurrBd = get_next_bd(CurrBd);
+			continue;
+		}
 
 		BdLen = XAxiDma_BdGetLength(CurrBd, DMA_LEN_MASK);
 		SumSize = SumSize + BdLen;
@@ -163,6 +179,8 @@ static uint8_t * get_last_packet(size_t* size)
 	}while( !(BdStatus & XAXIDMA_BD_STS_RXEOF_MASK) );
 
 	*size = SumSize;
+
+
 
 	return address;
 }
@@ -195,6 +213,8 @@ void data_server_init()
 	state = S0;
 }
 
+int packet_counter = 0;
+
 void data_server_poll(void)
 {
 	uint32_t irq;
@@ -210,7 +230,12 @@ void data_server_poll(void)
 		irq = XAxiDma_IntrGetIrq(&xaxidma, XAXIDMA_DEVICE_TO_DMA);
 		if(irq & XAXIDMA_IRQ_IOC_MASK)
 		{
+			XAxiDma_IntrAckIrq(&xaxidma,XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
+			packet_counter++;
+
 			BufferAddress = get_last_packet(&BufferSize);
+
+			//printf("Packet size: %d\n", BufferSize);
 
 			// Send buffer size
 			tcp_write(data_pcb, &BufferSize, sizeof(BufferSize), 1);
@@ -227,9 +252,11 @@ void data_server_poll(void)
 				BufferSize -= tcpsize;
 				state = S1;
 			}
+
+
 		}
 
-		XAxiDma_IntrAckIrq(&xaxidma,XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
+
 
 		break;
 

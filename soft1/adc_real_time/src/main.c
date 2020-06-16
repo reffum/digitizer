@@ -263,3 +263,9 @@ int main()
 
 	return 0;
 }
+
+void __assert_func (const char *_file, int _line, const char * _func, const char * _e)
+{
+	printf("Assert fail: %s:%d. In function %s: %s\n", _file, _line, _func, _e);
+	while(1);
+}

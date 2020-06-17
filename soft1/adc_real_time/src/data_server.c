@@ -52,17 +52,17 @@ static uint8_t* send_data(uint8_t* address, size_t size)
 		size_0 = RxBufferMemory + sizeof(RxBufferMemory) - address;
 		size_1 = size - size_0;
 
-		err = tcp_write(data_pcb, address, size_0, 0);
+		err = tcp_write(data_pcb, address, size_0, 1);
 		assert(err == ERR_OK);
 
-		err = tcp_write(data_pcb, RxBufferMemory, size_1, 0);
+		err = tcp_write(data_pcb, RxBufferMemory, size_1, 1);
 		assert(err == ERR_OK);
 
 		address = RxBufferMemory + size_1;
 	}
 	else
 	{
-		err = tcp_write(data_pcb, address, size, 0);
+		err = tcp_write(data_pcb, address, size, 1);
 		address = address + size;
 	}
 
@@ -101,33 +101,35 @@ static err_t send_callback(void *arg, struct tcp_pcb *tpcb,
 {
 	size_t tcpsize;
 
-	switch(state)
-	{
-	case S1:
-		if(BufferSize <= tcp_sndbuf(data_pcb))
-		{
-			send_data(BufferAddress, BufferSize);
-			state = S0;
-
-			//printf("Packet send\n");
-		}
-		else
-		{
-			tcpsize = tcp_sndbuf(data_pcb);
-			BufferAddress = send_data(BufferAddress, tcpsize);
-			BufferSize -= tcpsize;
-		}
-		break;
-
-	default:
-		break;
-	}
+//	switch(state)
+//	{
+//	case S1:
+//		if(BufferSize <= tcp_sndbuf(data_pcb))
+//		{
+//			send_data(BufferAddress, BufferSize);
+//			state = S0;
+//
+//			//printf("Packet send\n");
+//		}
+//		else
+//		{
+//			tcpsize = tcp_sndbuf(data_pcb);
+//			BufferAddress = send_data(BufferAddress, tcpsize);
+//			BufferSize -= tcpsize;
+//		}
+//		break;
+//
+//	default:
+//		break;
+//	}
 	return ERR_OK;
 }
 
 static err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err)
 {
 	data_pcb = newpcb;
+
+	printf("Connection accept\n");
 
 	/* set the receive callback for this connection */
 	tcp_recv(newpcb, recv_callback);
@@ -162,18 +164,14 @@ static uint8_t * get_last_packet(size_t* size)
 
 	do{
 		BdStatus = XAxiDma_BdGetSts(CurrBd);
-		if( !(BdStatus & XAXIDMA_BD_STS_COMPLETE_MASK))
-		{
-			CurrBd = get_next_bd(CurrBd);
-			continue;
-		}
+//		if( !(BdStatus & XAXIDMA_BD_STS_COMPLETE_MASK))
+//		{
+//			CurrBd = get_next_bd(CurrBd);
+//			continue;
+//		}
 
-		BdLen = XAxiDma_BdGetLength(CurrBd, DMA_LEN_MASK);
+		BdLen = XAxiDma_BdGetActualLength(CurrBd, DMA_LEN_MASK);
 		SumSize = SumSize + BdLen;
-
-		// Clear complete
-		BdStatus &= ~(XAXIDMA_BD_STS_COMPLETE_MASK);
-		XAxiDma_BdWrite(CurrBd, XAXIDMA_BD_STS_OFFSET, BdStatus);
 
 		CurrBd = get_next_bd(CurrBd);
 	}while( !(BdStatus & XAXIDMA_BD_STS_RXEOF_MASK) );
@@ -234,7 +232,6 @@ void data_server_poll(void)
 			packet_counter++;
 
 			BufferAddress = get_last_packet(&BufferSize);
-
 			//printf("Packet size: %d\n", BufferSize);
 
 			// Send buffer size
@@ -255,12 +252,26 @@ void data_server_poll(void)
 
 
 		}
-
-
-
 		break;
 
 	case S1:
+		if(tcp_sndbuf(data_pcb) == 0)
+		{
+			break;
+		}
+		else if(BufferSize <= tcp_sndbuf(data_pcb))
+		{
+			send_data(BufferAddress, BufferSize);
+			state = S0;
+
+			//printf("Packet send\n");
+		}
+		else
+		{
+			tcpsize = tcp_sndbuf(data_pcb);
+			BufferAddress = send_data(BufferAddress, tcpsize);
+			BufferSize -= tcpsize;
+		}
 		break;
 	}
 }

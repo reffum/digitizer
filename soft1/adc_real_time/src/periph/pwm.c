@@ -24,7 +24,7 @@ void pwm_init(void)
 
 	//TODO: For debug only
 	pwm_set_freq(1000);
-	pwm_set_dc(1);
+	pwm_set_dc(95);
 	pwm_enable();
 }
 

@@ -15,6 +15,7 @@
 
 #include "xaxidma.h"
 #include "dma.h"
+#include "gpio.h"
 
 #define DMA_LEN_MASK	0x03FFFFFF
 
@@ -66,6 +67,8 @@ static uint8_t* send_data(uint8_t* address, size_t size)
 		address = address + size;
 	}
 
+	tcp_output(data_pcb);
+
 	assert( address >= RxBufferMemory && address <= RxBufferMemory + sizeof(RxBufferMemory));
 
 	return address;
@@ -101,27 +104,28 @@ static err_t send_callback(void *arg, struct tcp_pcb *tpcb,
 {
 	size_t tcpsize;
 
-//	switch(state)
-//	{
-//	case S1:
-//		if(BufferSize <= tcp_sndbuf(data_pcb))
-//		{
-//			send_data(BufferAddress, BufferSize);
-//			state = S0;
-//
-//			//printf("Packet send\n");
-//		}
-//		else
-//		{
-//			tcpsize = tcp_sndbuf(data_pcb);
-//			BufferAddress = send_data(BufferAddress, tcpsize);
-//			BufferSize -= tcpsize;
-//		}
-//		break;
-//
-//	default:
-//		break;
-//	}
+	switch(state)
+	{
+	case S1:
+		if(BufferSize <= tcp_sndbuf(data_pcb))
+		{
+			send_data(BufferAddress, BufferSize);
+			state = S0;
+
+			//printf("Packet send\n");
+		}
+		else
+		{
+			tcpsize = tcp_sndbuf(data_pcb);
+			BufferAddress = send_data(BufferAddress, tcpsize);
+			BufferSize -= tcpsize;
+		}
+		break;
+
+	default:
+		adc_en(false);
+		break;
+	}
 	return ERR_OK;
 }
 
@@ -228,6 +232,8 @@ void data_server_poll(void)
 		irq = XAxiDma_IntrGetIrq(&xaxidma, XAXIDMA_DEVICE_TO_DMA);
 		if(irq & XAXIDMA_IRQ_IOC_MASK)
 		{
+			adc_en(true);
+
 			XAxiDma_IntrAckIrq(&xaxidma,XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
 			packet_counter++;
 
@@ -236,6 +242,7 @@ void data_server_poll(void)
 
 			// Send buffer size
 			tcp_write(data_pcb, &BufferSize, sizeof(BufferSize), 1);
+			tcp_output(data_pcb);
 			assert(err == ERR_OK);
 
 			if(BufferSize <= tcp_sndbuf(data_pcb))
@@ -249,29 +256,29 @@ void data_server_poll(void)
 				BufferSize -= tcpsize;
 				state = S1;
 			}
-
-
 		}
 		break;
 
 	case S1:
-		if(tcp_sndbuf(data_pcb) == 0)
-		{
-			break;
-		}
-		else if(BufferSize <= tcp_sndbuf(data_pcb))
-		{
-			send_data(BufferAddress, BufferSize);
-			state = S0;
-
-			//printf("Packet send\n");
-		}
-		else
-		{
-			tcpsize = tcp_sndbuf(data_pcb);
-			BufferAddress = send_data(BufferAddress, tcpsize);
-			BufferSize -= tcpsize;
-		}
+//		if(tcp_sndbuf(data_pcb) == 0)
+//		{
+//			break;
+//		}
+//		else if(BufferSize <= tcp_sndbuf(data_pcb))
+//		{
+//			send_data(BufferAddress, BufferSize);
+//			state = S0;
+//			adc_en(false);
+//
+//			//printf("Packet send\n");
+//		}
+//		else
+//		{
+//			tcpsize = tcp_sndbuf(data_pcb);
+//			BufferAddress = send_data(BufferAddress, tcpsize);
+//			BufferSize -= tcpsize;
+//		}
 		break;
+
 	}
 }

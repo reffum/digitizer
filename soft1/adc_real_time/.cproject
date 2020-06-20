@@ -73,11 +73,7 @@
                                     								
                                 </option>
                                 								
-                                <option id="xilinx.gnu.compiler.symbols.defined.714632079" superClass="xilinx.gnu.compiler.symbols.defined" useByScannerDiscovery="false" valueType="definedSymbols">
-                                    									
-                                    <listOptionValue builtIn="false" value="DEBUG"/>
-                                    								
-                                </option>
+                                <option id="xilinx.gnu.compiler.symbols.defined.714632079" name="Defined symbols (-D)" superClass="xilinx.gnu.compiler.symbols.defined" useByScannerDiscovery="false" valueType="definedSymbols"/>
                                 								
                                 <inputType id="xilinx.gnu.armv7.c.compiler.input.1392298721" name="C source files" superClass="xilinx.gnu.armv7.c.compiler.input"/>
                                 							

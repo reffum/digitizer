@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 
-static unsigned PWM_FREQ_MIN __attribute__((unused)) = 10000;
+static unsigned PWM_FREQ_MIN __attribute__((unused)) = 1;
 static unsigned PWM_FREQ_MAX __attribute__((unused)) = 15000;
 
 static unsigned PWM_DC_MIN __attribute__((unused)) = 1;

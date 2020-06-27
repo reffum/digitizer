@@ -23,8 +23,8 @@ void pwm_init(void)
 	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_MATCH_MODE | XTTCPS_OPTION_WAVE_POLARITY | XTTCPS_OPTION_WAVE_DISABLE);
 
 	//TODO: For debug only
-	pwm_set_freq(1);
-	pwm_set_dc(95);
+	pwm_set_freq(100);
+	pwm_set_dc(90);
 	pwm_enable();
 }
 

@@ -57,6 +57,7 @@
 #include "i2c.h"
 #include "pwm.h"
 #include "spi.h"
+#include "adc16dv160.h"
 
 /* defined by each RAW mode application */
 void print_app_header();
@@ -239,6 +240,7 @@ int main()
 	pwm_init();
 	spi_init();
 	dma_init();
+	adc16dv160_init();
 	modbus_init();
 	data_server_init();
 

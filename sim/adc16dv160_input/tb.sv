@@ -96,7 +96,7 @@ module tb;
       automatic logic [15:0] AdcData[1024];
 
       for(i = 0; i < $size(AdcData); i = i + 1) begin
-	 AdcData[i] = i;
+	 AdcData[i] = 16'hAAAA;
       end      
 
       adc16dv160_inst.Start(AdcData);
@@ -118,12 +118,18 @@ module tb;
 
       // Wait some times before assert sync
       #100us;
-      
+
+
       repeat(5) begin
 	 sync = 1'b1;
-	 #(SYNC_TIME) sync = 1'b0;
+	 #(SYNC_TIME/2) m00_axis_tready = 1'b0;
+	 #500ns m00_axis_tready = 1'b1;
+	 #(SYNC_TIME/2) sync = 1'b0;
 	 #(SYNC_PERIOD);
       end
+
+      
+	 
 
       #100us;
 

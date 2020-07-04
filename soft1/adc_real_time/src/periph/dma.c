@@ -49,7 +49,10 @@ uint8_t RxBufferMemory[RX_BUFFER_SIZE*2];
 
 bool dma_ovf(void)
 {
-	return BdOvf;
+//	uint32_t Status = XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR, XAXIDMA_SR_OFFSET);
+//
+//	return Status & XAXIDMA_ERR_SG_INT_MASK;
+	return false;
 }
 
 void dma_init()
@@ -152,16 +155,3 @@ void dma_init()
 	assert(Status == XST_SUCCESS);
 }
 
-static void RxCallBack(XAxiDma_BdRing * RxRingPtr)
-{
-	int BdCount, i;
-	XAxiDma_Bd *BdPtr;
-
-	/* Get finished BDs from hardware */
-	BdCount = XAxiDma_BdRingFromHw(RxRingPtr, XAXIDMA_ALL_BDS, &BdPtr);
-
-	for(i = 0; i < BdCount; i++)
-	{
-		XAxiDma_Bd* p = BdPtr + i;
-	}
-}

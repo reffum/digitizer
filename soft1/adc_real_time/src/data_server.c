@@ -168,6 +168,7 @@ static uint8_t * get_last_packet(size_t* size)
 
 	do{
 		BdStatus = XAxiDma_BdGetSts(CurrBd);
+
 //		if( !(BdStatus & XAXIDMA_BD_STS_COMPLETE_MASK))
 //		{
 //			CurrBd = get_next_bd(CurrBd);
@@ -216,7 +217,7 @@ void data_server_init()
 }
 
 int packet_counter = 0;
-
+volatile uint32_t curdesc_l,curdesc_m;
 void data_server_poll(void)
 {
 	uint32_t irq;
@@ -233,6 +234,9 @@ void data_server_poll(void)
 		if(irq & XAXIDMA_IRQ_IOC_MASK)
 		{
 			adc_en(true);
+
+			curdesc_l = XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR, 0x38);
+			curdesc_m = XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR, 0x3C);
 
 			XAxiDma_IntrAckIrq(&xaxidma,XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
 			packet_counter++;
@@ -260,24 +264,6 @@ void data_server_poll(void)
 		break;
 
 	case S1:
-//		if(tcp_sndbuf(data_pcb) == 0)
-//		{
-//			break;
-//		}
-//		else if(BufferSize <= tcp_sndbuf(data_pcb))
-//		{
-//			send_data(BufferAddress, BufferSize);
-//			state = S0;
-//			adc_en(false);
-//
-//			//printf("Packet send\n");
-//		}
-//		else
-//		{
-//			tcpsize = tcp_sndbuf(data_pcb);
-//			BufferAddress = send_data(BufferAddress, tcpsize);
-//			BufferSize -= tcpsize;
-//		}
 		break;
 
 	}

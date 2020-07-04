@@ -36,6 +36,8 @@ set_property MARK_DEBUG true [get_nets design_1_i/adc16dv160_input_0/m00_axis_tv
 set_property MARK_DEBUG true [get_nets {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[0]}]
 set_property MARK_DEBUG true [get_nets {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[1]}]
 set_property MARK_DEBUG true [get_nets {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[3]}]
+connect_debug_port dbg_hub/clk [get_nets u_ila_0_FCLK_CLK0]
+
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
@@ -48,25 +50,61 @@ set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
 set_property port_width 1 [get_debug_ports u_ila_0/clk]
 connect_debug_port u_ila_0/clk [get_nets [list design_1_i/processing_system7_0/inst/FCLK_CLK0]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 3 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[0]} {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[1]} {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[3]}]]
+set_property port_width 1 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {design_1_i/axi_dma_0_M_AXI_SG_ARBURST[0]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
 set_property port_width 32 [get_debug_ports u_ila_0/probe1]
 connect_debug_port u_ila_0/probe1 [get_nets [list {design_1_i/adc16dv160_input_0/m00_axis_tdata[0]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[1]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[2]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[3]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[4]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[5]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[6]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[7]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[8]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[9]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[10]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[11]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[12]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[13]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[14]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[15]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[16]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[17]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[18]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[19]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[20]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[21]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[22]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[23]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[24]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[25]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[26]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[27]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[28]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[29]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[30]} {design_1_i/adc16dv160_input_0/m00_axis_tdata[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-set_property port_width 1 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tlast]]
+set_property port_width 3 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[0]} {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[1]} {design_1_i/adc16dv160_input_0/inst/data_receiver_inst/state_cs[3]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-set_property port_width 1 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tready]]
+set_property port_width 2 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_AWBURST[0]} {design_1_i/axi_mem_intercon_M00_AXI_AWBURST[1]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
-set_property port_width 1 [get_debug_ports u_ila_0/probe4]
-connect_debug_port u_ila_0/probe4 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tvalid]]
+set_property port_width 4 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_AWQOS[0]} {design_1_i/axi_mem_intercon_M00_AXI_AWQOS[1]} {design_1_i/axi_mem_intercon_M00_AXI_AWQOS[2]} {design_1_i/axi_mem_intercon_M00_AXI_AWQOS[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 2 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_RID[1]} {design_1_i/axi_mem_intercon_M00_AXI_RID[2]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 2 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_ARLOCK[0]} {design_1_i/axi_mem_intercon_M00_AXI_ARLOCK[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 2 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_BID[1]} {design_1_i/axi_mem_intercon_M00_AXI_BID[2]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 2 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_ARBURST[0]} {design_1_i/axi_mem_intercon_M00_AXI_ARBURST[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 2 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_AWLOCK[0]} {design_1_i/axi_mem_intercon_M00_AXI_AWLOCK[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 4 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {design_1_i/axi_mem_intercon_M00_AXI_ARQOS[0]} {design_1_i/axi_mem_intercon_M00_AXI_ARQOS[1]} {design_1_i/axi_mem_intercon_M00_AXI_ARQOS[2]} {design_1_i/axi_mem_intercon_M00_AXI_ARQOS[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+set_property port_width 1 [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tlast]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+set_property port_width 1 [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list design_1_i/adc16dv160_input_0/m00_axis_tvalid]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-connect_debug_port dbg_hub/clk [get_nets u_ila_0_FCLK_CLK0]
+connect_debug_port dbg_hub/clk [get_nets clk]

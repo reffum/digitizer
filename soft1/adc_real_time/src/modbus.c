@@ -27,6 +27,7 @@ static void modbus_responce(uint8_t* data, unsigned size)
 {
 	err_t err = tcp_write(modbus_pcb, data, size, TCP_WRITE_FLAG_COPY);
 	assert(err == ERR_OK);
+	tcp_output(modbus_pcb);
 }
 
 

@@ -21,7 +21,7 @@ void adc16dv160_init()
 //	adc16dv160_write(0xB, 0x50);
 //
 //
-	adc16dv160_write(0, 0x66);
+	adc16dv160_write(0, 0x06);
 }
 
 void adc16dv160_write(uint8_t addr, uint8_t data)

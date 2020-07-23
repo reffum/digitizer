@@ -48,7 +48,7 @@ static const int ADC_EN_DEL_US = 20;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {0,4,0};
+} version = {1,0,0};
 
 uint16_t remote_port = 0;
 

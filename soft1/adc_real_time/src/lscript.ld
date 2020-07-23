@@ -55,7 +55,7 @@ SECTIONS
 
 .bdmem : {
 	*(.bdmem)
-} > ps7_ram_0
+} > ps7_ddr_0
 
 .init : {
    KEEP (*(.init))

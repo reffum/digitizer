@@ -25,4 +25,20 @@ void adc_input_start(void);
 void adc_input_real_time(bool b);
 bool adc_input_get_real_time(void);
 
+// Level sync settings
+void adc_input_ls(bool);
+bool adc_input_get_ls(void);
+
+void adc_input_ls_start_thr(uint16_t);
+uint16_t adc_input_get_ls_start_thr(void);
+
+void adc_input_ls_stop_thr(uint16_t);
+uint16_t adc_input_get_ls_stop_thr(void);
+
+void adc_input_ls_n_start(uint32_t);
+uint32_t adc_input_get_ls_n_start(void);
+
+void adc_input_ls_n_stop(uint32_t);
+uint32_t adc_input_get_ls_n_stop(void);
+
 #endif	/* _ADC_INPUT_H_ */

@@ -21,7 +21,12 @@ module adc16dv160_input_axi_read
    input [31:0]        dsize,
    input 	       cr_test, 
    input 	       sr_pc,
-   input 	       cr_rt
+   input 	       cr_rt,
+   input 	       cr_ls,
+   input [15:0]        ls_start_thr,
+   input [15:0]        ls_stop_thr,
+   input [31:0]        ls_n_start,
+   input [31:0]        ls_n_stop
    );
 
    //
@@ -41,6 +46,8 @@ module adc16dv160_input_axi_read
 	     value |= _CR_TEST;
 	   if(cr_rt)
 	     value |= _CR_RT;
+	   if(cr_ls)
+	     value |= _CR_LS;
 	end
 	
 	AXI_ADDR_SR:
@@ -48,6 +55,19 @@ module adc16dv160_input_axi_read
 	    value = _SR_PC;
 	AXI_ADDR_DSIZE:
 	  value = dsize;
+
+	AXI_ADDR_LS_START_THR:
+	  value = ls_start_thr;
+
+	AXI_ADDR_LS_STOP_THR:
+	  value = ls_stop_thr;
+
+	AXI_ADDR_LS_N_START:
+	  value = ls_n_start;
+
+	AXI_ADDR_LS_N_STOP:
+	  value = ls_n_stop;
+	
 	default:
 	  value = 0;
       endcase // case (addr)

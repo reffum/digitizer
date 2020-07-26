@@ -1,6 +1,6 @@
 
 set IP "../../ip_repo"
-set XILINX "c:/Xilinx/Vivado/2019.2/data"
+set XILINX "D:/XilinxVitis/Vivado/2019.2/data"
 proc compilecode {} {
     global IP
     global XILINX
@@ -12,9 +12,11 @@ proc compilecode {} {
     vlog  ${IP}/adc16dv160_input_1.0/src/adc16dv160_input_write.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/data_extend.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/synchronizer.sv
+    vlog  ${IP}/adc16dv160_input_1.0/src/level_sync.sv
 
     vlog $XILINX/verilog/src/glbl.v
     vlog ../adc16dv160.sv
+    vlog axi_stream_receiver.sv
     vlog -novopt tb.sv
 }
 
@@ -22,6 +24,7 @@ proc simulate {} {
     vsim -onfinish final \
 	-voptargs="+acc=p+/UUT +acc=m+/UUT/adc16dv160_input_write_inst" \
 	-voptargs="+acc=f+/UUT/adc16dv160_input_write_inst/state_cs"  \
+	-voptargs="+acc=n+/UUT/adc_data" \
 	-voptargs="+acc=n+/UUT/dsize"  \
 	-voptargs="+acc=n+/UUT/cr_test"  \
 	-voptargs="+acc=n+/UUT/cr_start"  \
@@ -32,10 +35,11 @@ proc simulate {} {
 	-voptargs="+acc=n+/sync"  \
 	-voptargs="+acc=n+/m00_axis_aclk"  \
 	-voptargs="+acc=n+/cb/*"  \
+	-voptargs="+acc=nfr+/UUT/level_sync_inst" \
 	-L unisims_ver -L unimacro_ver tb glbl
     
     assertion fail -recursive -action break tb
-    #    log -r /*
+    log -r /*
     add wave -group AXI /UUT/s_axi_*
     add wave -group AXIS /UUT/m00_axis_*
     add wave /m00_axis_aclk
@@ -47,6 +51,9 @@ proc simulate {} {
     add wave /UUT/sr_pc
     add wave /UUT/data_receiver_inst/state_cs
     add wave -group CB /cb/*
+    add wave -radix unsigned -format analog-step -min 31000 -max 34000 -height 100 /UUT/adc_data
+    add wave /UUT/level_sync_inst/*
+
     config wave -signalnamewidth 1
     
     run -all

@@ -2,3 +2,6 @@
 - Флаг Overflow
 - synchronize.sv Сделать так, чтобы оба регистра были в одном LUT.
 - Выяснить, почему нельзя прошить bitstream отдельно.
+
+- Don't reset FIFO in IDLE state and read data.
+

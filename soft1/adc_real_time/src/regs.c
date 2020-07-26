@@ -11,6 +11,7 @@
 #include "ad9854.h"
 #include "mcp23017.h"
 #include "gpio.h"
+#include "dma.h"
 
 #define ADDR_ID				0
 #define ADDR_STATUS			1
@@ -30,10 +31,15 @@
 #define DDS_FREQ_L			16
 #define DDS_AMP				17
 #define IO_EXP_REG			18
+#define LS_START_THR		19
+#define LS_STOP_THR			20
+#define LS_N_START			21
+#define LS_N_STOP			22
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
 #define _CONTROL_RT		0x4
+#define _CONTROL_LS		0x8
 
 #define _STATUS_RF_OVF	0x1
 
@@ -48,7 +54,7 @@ static const int ADC_EN_DEL_US = 20;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {1,0,0};
+} version = {1,1,0};
 
 uint16_t remote_port = 0;
 
@@ -85,6 +91,9 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 		if(adc_input_get_real_time())
 			*value |= _CONTROL_RT;
+
+		if(adc_input_get_ls())
+			*value |= _CONTROL_LS;
 
 		break;
 	case ADDR_DSIZE:
@@ -137,6 +146,19 @@ int reg_read(uint16_t addr, uint16_t* value)
 		*value = ad9854_get_amp();
 		break;
 
+	case LS_START_THR:
+		*value = adc_input_get_ls_start_thr();
+		break;
+	case LS_STOP_THR:
+		*value = adc_input_get_ls_stop_thr();
+		break;
+	case LS_N_START:
+		*value = adc_input_get_ls_n_start();
+		break;
+	case LS_N_STOP:
+		*value = adc_input_get_ls_n_stop();
+		break;
+
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
 	}
@@ -171,6 +193,12 @@ int reg_write(uint16_t addr, uint16_t* value)
 		{
 			adc_input_real_time(false);
 		}
+
+		if(*value & _CONTROL_LS)
+			adc_input_ls(true);
+		else
+			adc_input_ls(false);
+
 		break;
 	case ADDR_DSIZE:
 		adc_input_set_size(*value << 16);
@@ -225,6 +253,19 @@ int reg_write(uint16_t addr, uint16_t* value)
 		i2c_addr = *value >> 8;
 		i2c_reg = *value & 0xFF;
 		mcp23017_write_reg(i2c_addr, i2c_reg);
+		break;
+
+	case LS_START_THR:
+		adc_input_ls_start_thr(*value);
+		break;
+	case LS_STOP_THR:
+		adc_input_ls_stop_thr(*value);
+		break;
+	case LS_N_START:
+		adc_input_ls_n_start(*value);
+		break;
+	case LS_N_STOP:
+		adc_input_ls_n_stop(*value);
 		break;
 
 	default:

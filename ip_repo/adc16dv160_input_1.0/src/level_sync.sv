@@ -7,11 +7,12 @@
 //
 module level_sync
   (
-   input clk,
-   input resetn,
+   input 		 clk,
+   input 		 resetn,
    
    // Two ADC data samples
    input unsigned [31:0] adc_data,
+   input 		 adc_data_valid,
 
    // Start threashold
    input unsigned [15:0] start_threashold,
@@ -20,13 +21,13 @@ module level_sync
    input unsigned [15:0] stop_threashold,
 
    // Start samples number
-   input [31:0] start_samples_number,
+   input [31:0] 	 start_samples_number,
 
    // Stop samples number
-   input [31:0] stop_samples_number,
+   input [31:0] 	 stop_samples_number,
 
    // Packet synchronization output
-   output sync
+   output 		 sync
    );
 
    // State registers
@@ -73,17 +74,19 @@ module level_sync
 	S0: begin
 	   if(state_ns == S1)
 	     samples_counter_ns <= 0;
-	   else if( adc_data[31:16] < start_threashold &&
-		    adc_data[15:0] < start_threashold)
-	     samples_counter_ns <= samples_counter_cs + 1;
+	   else if(adc_data_valid)
+	     if( adc_data[31:16] < start_threashold &&
+		 adc_data[15:0] < start_threashold)
+	       samples_counter_ns <= samples_counter_cs + 1;
 	end
 
 	S1: begin
 	   if(state_ns == S0)
 	     samples_counter_ns <= 0;
-	   else if(adc_data[31:16] > stop_threashold &&
-		   adc_data[15:0] > stop_threashold)
-	     samples_counter_ns <= samples_counter_cs + 1;
+	   else if(adc_data_valid)
+	     if(adc_data[31:16] > stop_threashold &&
+		adc_data[15:0] > stop_threashold)
+	       samples_counter_ns <= samples_counter_cs + 1;
 	end
 
       endcase // case (state_cs)

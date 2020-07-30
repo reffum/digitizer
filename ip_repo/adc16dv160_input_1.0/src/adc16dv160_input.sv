@@ -51,8 +51,15 @@ module adc16dv160_input_v1_0
    logic 		 adc_clk, adc_clk_io;
    logic [15:0] 	 adc_data;
 
-   // Synchronized sync
+   // Sync signal
    logic 		 sync_s;
+   
+   // Extern  sync
+   logic 		 ext_sync;
+
+   // Level sync
+   logic 		 ls_sync;
+
    
    
    // AXI DSIZE register
@@ -62,7 +69,20 @@ module adc16dv160_input_v1_0
    logic 		 cr_test;
    logic 		 cr_start;
    logic 		 cr_rt;
+   logic 		 cr_ls;
+   
+   // SR register bits
    logic 		 sr_pc;
+   
+   logic [15:0] 	 ls_start_thr;
+   logic [15:0] 	 ls_stop_thr;
+   logic [31:0] 	 ls_n_start;
+   logic [31:0] 	 ls_n_stop;
+
+   // ADC data in ACLK domain. Each word contain 2 samples
+   logic [31:0] 	 adc_data_aclk;
+   logic 		 adc_data_aclk_valid;
+   
    
    //
    // Modules instantiation
@@ -119,8 +139,24 @@ module adc16dv160_input_v1_0
       .clk(m00_axis_aclk),
       .resetn(m00_axis_aresetn),
       .in(sync),
-      .out(sync_s)
+      .out(ext_sync)
       );
+
+   level_sync level_sync_inst
+     (
+      .clk(m00_axis_aclk),
+      .resetn(m00_axis_aresetn),
+      .adc_data(adc_data_aclk),
+      .adc_data_valid(adc_data_aclk_valid),
+      .start_threashold(ls_start_thr),
+      .stop_threashold(ls_stop_thr),
+      .start_samples_number(ls_n_start),
+      .stop_samples_number(ls_n_stop),
+      .sync(ls_sync)
+      );
+
+   assign sync_s = cr_ls ? ls_sync : ext_sync;
+   
    
    //
    // Data input buffers and DDR logic

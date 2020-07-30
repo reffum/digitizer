@@ -34,8 +34,13 @@ module adc16dv160_input_data_receiver
    // Real-time sync input
    input 		sync,
    // Packet transmittion complete flag
-   output logic 	sr_pc
-  
+   output logic 	sr_pc,
+
+   // ADC data in ACLK domain.
+   // Each word contain 2 samples
+   output [31:0] 	adc_data_aclk,
+   output 		adc_data_aclk_valid
+   
    );
 
    //
@@ -50,6 +55,9 @@ module adc16dv160_input_data_receiver
    logic  ACLK, ARESETN, TREADY, TVALID, TLAST;
    logic [3:0] TKEEP;
    logic [31:0] TDATA;
+
+   // Level sync
+   logic 	level_sync;
    
    
    /* FIFO signals */
@@ -201,7 +209,8 @@ module adc16dv160_input_data_receiver
 	
 	S0: begin
 	   sr_pc <= 1'b1;
-	   fifo_wren_s <= 1'b0;
+	   fifo_wren_s <= 1'b1;
+	   fifo_rden <= !fifo_almost_empty;
 	end
 
 	S2: begin
@@ -291,7 +300,6 @@ module adc16dv160_input_data_receiver
       .outvalid(fifo_wren_d)
       );
    
-
    //
    // Nets assignment
    //
@@ -308,5 +316,8 @@ module adc16dv160_input_data_receiver
    assign fifo_rdclk = ACLK;
 
    assign fifo_wren = fifo_wren_s & fifo_wren_d;
+
+   assign adc_data_aclk = fifo_do;
+   assign adc_data_aclk_valid = fifo_rden;
    
 endmodule // data_receiver

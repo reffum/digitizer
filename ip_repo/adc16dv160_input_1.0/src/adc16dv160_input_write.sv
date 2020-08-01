@@ -116,6 +116,7 @@ module adc16dv160_input_write
 	       cr_start <= WDATA[0];
 	       cr_test_ns <= WDATA[1];
 	       cr_rt_ns <= WDATA[2];
+	       cr_ls_ns <= WDATA[3];
 	    end
 	    
 	    AXI_ADDR_DSIZE:

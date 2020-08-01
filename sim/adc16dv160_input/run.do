@@ -12,9 +12,11 @@ proc compilecode {} {
     vlog  ${IP}/adc16dv160_input_1.0/src/adc16dv160_input_write.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/data_extend.sv
     vlog  ${IP}/adc16dv160_input_1.0/src/synchronizer.sv
+    vlog  ${IP}/adc16dv160_input_1.0/src/level_sync.sv
 
     vlog $XILINX/verilog/src/glbl.v
     vlog ../adc16dv160.sv
+    vlog axi_stream_receiver.sv
     vlog -novopt tb.sv
 }
 
@@ -35,7 +37,7 @@ proc simulate {} {
 	-L unisims_ver -L unimacro_ver tb glbl
     
     assertion fail -recursive -action break tb
-    #    log -r /*
+    log -r /*
     add wave -group AXI /UUT/s_axi_*
     add wave -group AXIS /UUT/m00_axis_*
     add wave /m00_axis_aclk
@@ -47,6 +49,7 @@ proc simulate {} {
     add wave /UUT/sr_pc
     add wave /UUT/data_receiver_inst/state_cs
     add wave -group CB /cb/*
+
     config wave -signalnamewidth 1
     
     run -all

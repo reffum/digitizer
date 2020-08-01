@@ -55,14 +55,11 @@ module adc16dv160_input_data_receiver
    logic  ACLK, ARESETN, TREADY, TVALID, TLAST;
    logic [3:0] TKEEP;
    logic [31:0] TDATA;
-
-   // Level sync
-   logic 	level_sync;
-   
    
    /* FIFO signals */
    logic fifo_empty, fifo_full;
    logic fifo_almost_empty;
+   logic fifo_almost_full;
    logic [31:0] fifo_do,  fifo_di;
    logic [8:0] fifo_rdcount, fifo_wrcount;
    logic fifo_rderr, fifo_wrerr;
@@ -70,12 +67,14 @@ module adc16dv160_input_data_receiver
    logic fifo_rst;
    logic fifo_rden, fifo_wren_s;
    logic fifo_wren_d;
+   logic fifo_wren;
+   
    
    
    //
    // State
    //
-   enum  logic [3:0] {INIT, S0, S1, S2, S3, S4, S5, S6, S7} state_ns, state_cs;
+   enum  logic [3:0] {INIT0, INIT1, S0, S1, S2, S3, S4, S5, S6, S7} state_ns, state_cs;
 
    //
    // Registers
@@ -99,7 +98,7 @@ module adc16dv160_input_data_receiver
    //
    always_ff @(posedge ACLK, negedge ARESETN) begin : STATE_REGISTER
       if(!ARESETN)
-	state_cs <= INIT;
+	state_cs <= INIT0;
       else
 	state_cs <= state_ns;
    end
@@ -108,9 +107,14 @@ module adc16dv160_input_data_receiver
       state_ns <= state_cs;
 
       case(state_cs)
-	INIT:
+	INIT0:
+	  if(counter_cs == INIT_COUNTER)
+	    state_ns <= INIT1;
+
+	INIT1:
 	  if(counter_cs == INIT_COUNTER)
 	    state_ns <= S0;
+	
 	S0: begin
 	   if(start)
 	     state_ns <= S1;
@@ -178,8 +182,15 @@ module adc16dv160_input_data_receiver
       counter_ns <= counter_cs;
 
       case(state_cs)
-	INIT:
+	INIT0:
+	  if(state_ns == INIT1)
+	    counter_ns <= 0;
+	  else
+	    counter_ns <= counter_cs + 1;
+
+	INIT1:
 	  counter_ns <= counter_cs + 1;
+	
 	S0:
 	  counter_ns <= dsize;
 	S2:
@@ -202,14 +213,19 @@ module adc16dv160_input_data_receiver
       
       
       case(state_cs)
-	INIT: begin
+	INIT0: begin
 	   fifo_rst <= 1'b1;
+	   fifo_wren_s <= 1'b0;
+	end
+
+	INIT1: begin
+	   fifo_rst <= 1'b0;
 	   fifo_wren_s <= 1'b0;
 	end
 	
 	S0: begin
 	   sr_pc <= 1'b1;
-	   fifo_wren_s <= 1'b1;
+	   fifo_wren_s <= !fifo_almost_full;
 	   fifo_rden <= !fifo_almost_empty;
 	end
 
@@ -227,8 +243,10 @@ module adc16dv160_input_data_receiver
 	   TLAST <= 1'b1;
 	end
 
-	S5:
-	  fifo_wren_s <= 1'b0;
+	S5: begin
+	   fifo_wren_s <= !fifo_almost_full;
+	   fifo_rden <= !fifo_almost_empty;
+	end
 
 	S7: begin
 	   TDATA <= GetData();
@@ -275,7 +293,7 @@ module adc16dv160_input_data_receiver
    ) FIFO_DUALCLOCK_MACRO_inst 
      (
       .ALMOSTEMPTY(fifo_almost_empty),// 1-bit output almost empty
-      .ALMOSTFULL(),  // 1-bit output almost full
+      .ALMOSTFULL(fifo_almost_full),  // 1-bit output almost full
       .DO(fifo_do),                   // Output data, width defined by DATA_WIDTH parameter
       .EMPTY(fifo_empty),             // 1-bit output empty
       .FULL(fifo_full),               // 1-bit output full

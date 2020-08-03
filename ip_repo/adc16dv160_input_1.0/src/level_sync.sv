@@ -78,6 +78,8 @@ module level_sync
 	     if( adc_data[31:16] < start_threashold &&
 		 adc_data[15:0] < start_threashold)
 	       samples_counter_ns <= samples_counter_cs + 1;
+	     else
+	       samples_counter_ns <= 0;
 	end
 
 	S1: begin
@@ -87,6 +89,9 @@ module level_sync
 	     if(adc_data[31:16] > stop_threashold &&
 		adc_data[15:0] > stop_threashold)
 	       samples_counter_ns <= samples_counter_cs + 1;
+	     else
+	       samples_counter_ns <= 0;
+
 	end
 
       endcase // case (state_cs)

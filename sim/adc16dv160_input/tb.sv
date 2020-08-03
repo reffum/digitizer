@@ -17,10 +17,10 @@ module tb;
    localparam realtime SYNC_PERIOD = 4ms;
 
    // Level sync mode parameters.
-   localparam LS_START_THR = 2000;
-   localparam LS_STOP_THR = 3000;
-   localparam LS_N_START = 10;
-   localparam LS_N_STOP = 10;
+   localparam LS_START_THR = 32000;
+   localparam LS_STOP_THR = 32250;
+   localparam LS_N_START = 1;
+   localparam LS_N_STOP = 100;
    
    
    //
@@ -139,22 +139,22 @@ module tb;
       
       
       // Start Real-time mode and level sync mode
-      WriteReg(AXI_ADDR_CR, _CR_RT);
+      WriteReg(AXI_ADDR_CR, _CR_RT | _CR_LS);
 
       // Check, that it bit is set
       ReadReg(AXI_ADDR_CR, cr);
-      assert(cr == (_CR_RT)) else $stop;
+      assert(cr == (_CR_RT | _CR_LS)) else $stop;
 
-      // For level sync test comment this and umcomment #10ms
-      #100us;
-      repeat(5) begin
-	 sync = 1'b1;
-	 #(SYNC_TIME/2) sync = 1'b0;
-	 #(SYNC_PERIOD);
-      end
-      #100us;
+      // // For level sync test comment this and umcomment #10ms
+      // #100us;
+      // repeat(5) begin
+      // 	 sync = 1'b1;
+      // 	 #(SYNC_TIME/2) sync = 1'b0;
+      // 	 #(SYNC_PERIOD);
+      // end
+      // #100us;
       
-//      #10ms;
+      #4ms;
       
 
       $finish;

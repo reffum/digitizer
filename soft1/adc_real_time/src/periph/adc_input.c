@@ -27,7 +27,7 @@ void adc_input_init()
 
     /* Set level sync default values */
     regs->LS_N_START = 1;
-    regs->LS_N_STOP = 20;
+    regs->LS_N_STOP = 100;
     regs->LS_START_THR = 32000;
     regs->LS_STOP_THR = 32200;
 }

@@ -26,9 +26,10 @@ void adc_input_init()
     adc_input_set_test(false);
 
     /* Set level sync default values */
-    regs->LS_N_START = regs->LS_N_STOP = 20;
-    regs->LS_START_THR = 2000;
-    regs->LS_STOP_THR = 3000;
+    regs->LS_N_START = 1;
+    regs->LS_N_STOP = 20;
+    regs->LS_START_THR = 32000;
+    regs->LS_STOP_THR = 32200;
 }
 
 // Set test mode

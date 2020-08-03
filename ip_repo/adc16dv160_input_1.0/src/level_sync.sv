@@ -91,6 +91,7 @@ module level_sync
 	       samples_counter_ns <= samples_counter_cs + 1;
 	     else
 	       samples_counter_ns <= 0;
+
 	end
 
       endcase // case (state_cs)

@@ -48,7 +48,7 @@ set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_
 set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[3].IDELAYE2_ADC_DATA}]  
 set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[4].IDELAYE2_ADC_DATA}]  
 set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[5].IDELAYE2_ADC_DATA}] 
-set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[6].IDELAYE2_ADC_DATA}] 
+set_property IDELAY_VALUE 25 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[6].IDELAYE2_ADC_DATA}] 
 set_property IDELAY_VALUE 15 [get_cells {design_1_i/adc16dv160_input_0/inst/gen_adc_data[7].IDELAYE2_ADC_DATA}] 
    
         

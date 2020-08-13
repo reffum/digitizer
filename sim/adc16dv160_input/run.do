@@ -51,7 +51,7 @@ proc simulate {} {
     add wave /UUT/sr_pc
     add wave /UUT/data_receiver_inst/state_cs
     add wave -group CB /cb/*
-    add wave -radix unsigned -format analog-step -min 31000 -max 34000 -height 100 /UUT/adc_data
+    add wave -radix unsigned -format analog-step -min 0 -max 56656 -height 75 /UUT/adc_data
     add wave /UUT/level_sync_inst/*
 
     config wave -signalnamewidth 1

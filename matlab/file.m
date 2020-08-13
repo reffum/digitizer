@@ -1,12 +1,12 @@
-fileID = fopen('1.dat');
+fileID = fopen('2020_08_GRE_1T_Valera.dat');
 A = fread(fileID, 'uint16');
 
 % 10ms data 
-%B = A(1:2048000);
+B = A(1600000:2800000);
 
 %set(gcf,'renderer','zbuffer')
 
-pl = plot(A);
+pl = plot(B);
 grid on;
 fclose(fileID);
 

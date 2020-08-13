@@ -2,8 +2,8 @@
 // level_sync.sv
 //
 // Generate packet synchronization signal depend on input data.
-// If given data samples number is less then threashold, set sync output to 1.
-// If given data samples number is more then threashold, set sync output to 0.
+// If it receive at least one sample less then threashold, set sync to 1.
+// If it receive n_sample samples more then threashold, set sync to 0.
 //
 module level_sync
   (
@@ -14,17 +14,9 @@ module level_sync
    input unsigned [31:0] adc_data,
    input 		 adc_data_valid,
 
-   // Start threashold
-   input unsigned [15:0] start_threashold,
-
-   // Stop threashold
-   input unsigned [15:0] stop_threashold,
-
-   // Start samples number
-   input [31:0] 	 start_samples_number,
-
-   // Stop samples number
-   input [31:0] 	 stop_samples_number,
+   // Parameters
+   input unsigned [15:0] threashold,
+   input unsigned [31:0] n_sample,
 
    // Packet synchronization output
    output 		 sync
@@ -51,52 +43,44 @@ module level_sync
       state_ns <= state_cs;
 
       case(state_cs)
-	S0:
-	  if(samples_counter_cs > start_samples_number)
-	    state_ns <= S1;
-	S1:
-	  if(samples_counter_cs > stop_samples_number)
-	    state_ns <= S0;
+	S0: begin
+	   if(adc_data_valid) 
+	      if(adc_data[31:16] < threashold ||
+		 adc_data[15:0] < threashold)
+		state_ns <= S1;
+	end
+
+	S1: begin
+	   if(samples_counter_cs > n_sample)
+	     state_ns <= S0;
+	end
       endcase // case (state_cs)
    end // block: STATE_LOGIC
 
-   always_ff @(posedge clk, negedge resetn) begin: DATA_REGISTER
-     if(~resetn)
-       samples_counter_cs <= 0;
-     else
-       samples_counter_cs <= samples_counter_ns;
+   always_ff @(posedge clk, negedge resetn) begin : DATA_REGISTER
+      if(!resetn)
+	samples_counter_cs <= 0;
+      else
+	samples_counter_cs <= samples_counter_ns;
    end
 
    always_comb begin : DATA_LOGIC
       samples_counter_ns <= samples_counter_cs;
 
       case(state_cs)
-	S0: begin
-	   if(state_ns == S1)
-	     samples_counter_ns <= 0;
-	   else if(adc_data_valid)
-	     if( adc_data[31:16] < start_threashold &&
-		 adc_data[15:0] < start_threashold)
-	       samples_counter_ns <= samples_counter_cs + 1;
-	     else
-	       samples_counter_ns <= 0;
-	end
-
+	S0: samples_counter_ns <= 0;
+	
 	S1: begin
-	   if(state_ns == S0)
-	     samples_counter_ns <= 0;
-	   else if(adc_data_valid)
-	     if(adc_data[31:16] > stop_threashold &&
-		adc_data[15:0] > stop_threashold)
-	       samples_counter_ns <= samples_counter_cs + 1;
-	     else
+	   if(adc_data_valid)
+	     if(adc_data[31:16] < threashold ||
+		adc_data[15:0] < threashold)
 	       samples_counter_ns <= 0;
-
+	     else
+	       samples_counter_ns <= samples_counter_cs + 2;
 	end
-
       endcase // case (state_cs)
    end // block: DATA_LOGIC
-   
+
 
    //
    // Outputs
@@ -105,5 +89,3 @@ module level_sync
    
 
 endmodule // level_sync
-
-   

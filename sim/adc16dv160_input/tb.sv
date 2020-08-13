@@ -17,11 +17,8 @@ module tb;
    localparam realtime SYNC_PERIOD = 4ms;
 
    // Level sync mode parameters.
-   localparam LS_START_THR = 32000;
-   localparam LS_STOP_THR = 32250;
-   localparam LS_N_START = 1;
-   localparam LS_N_STOP = 100;
-   
+   localparam LS_THR = 25000;
+   localparam LS_N = 100;
    
    //
    // UUT ports
@@ -119,24 +116,15 @@ module tb;
       repeat(20) @(posedge m00_axis_aclk);
 
       // Set Level sync mode parameters
-      WriteReg(AXI_ADDR_LS_START_THR, LS_START_THR);
-      WriteReg(AXI_ADDR_LS_STOP_THR, LS_STOP_THR);
-      WriteReg(AXI_ADDR_LS_N_START, LS_N_START);
-      WriteReg(AXI_ADDR_LS_N_STOP, LS_N_STOP);
+      WriteReg(AXI_ADDR_LS_THR, LS_THR);
+      WriteReg(AXI_ADDR_LS_N, LS_N);
 
       // Check the registers
-      ReadReg(AXI_ADDR_LS_START_THR, r);
-      assert(r == LS_START_THR) else $stop;
+      ReadReg(AXI_ADDR_LS_THR, r);
+      assert(r == LS_THR) else $stop;
 
-      ReadReg(AXI_ADDR_LS_STOP_THR, r);
-      assert(r == LS_STOP_THR) else $stop;
-
-      ReadReg(AXI_ADDR_LS_N_START, r);
-      assert(r == LS_N_START) else $stop;
-
-      ReadReg(AXI_ADDR_LS_N_STOP, r);
-      assert(r == LS_N_STOP) else $stop;
-      
+      ReadReg(AXI_ADDR_LS_N, r);
+      assert(r == LS_N) else $stop;
       
       // Start Real-time mode and level sync mode
       WriteReg(AXI_ADDR_CR, _CR_RT | _CR_LS);
@@ -154,7 +142,7 @@ module tb;
       // end
       // #100us;
       
-      #4ms;
+      #10ms;
       
 
       $finish;

@@ -74,10 +74,8 @@ module adc16dv160_input_v1_0
    // SR register bits
    logic 		 sr_pc;
    
-   logic [15:0] 	 ls_start_thr;
-   logic [15:0] 	 ls_stop_thr;
-   logic [31:0] 	 ls_n_start;
-   logic [31:0] 	 ls_n_stop;
+   logic [15:0] 	 ls_thr;
+   logic [31:0] 	 ls_n;
 
    // ADC data in ACLK domain. Each word contain 2 samples
    logic [31:0] 	 adc_data_aclk;
@@ -148,10 +146,8 @@ module adc16dv160_input_v1_0
       .resetn(m00_axis_aresetn),
       .adc_data(adc_data_aclk),
       .adc_data_valid(adc_data_aclk_valid),
-      .start_threashold(ls_start_thr),
-      .stop_threashold(ls_stop_thr),
-      .start_samples_number(ls_n_start),
-      .stop_samples_number(ls_n_stop),
+      .threashold(ls_thr),
+      .n_sample(ls_n),
       .sync(ls_sync)
       );
 

@@ -166,8 +166,12 @@ module digitizer
    assign adc_data_n[7] = jc_n[0];        
 
    assign led[0] = 1'b1;
+   assign led[3:1] = 3'h0;
    assign je[0] = TTC0_WAVE1_OUT_0;
    assign sync = ~je6;
+   
+   assign ja_p = 4'h0;
+   assign ja_n = 4'h0;
    
    //
    // GPIO EMIO

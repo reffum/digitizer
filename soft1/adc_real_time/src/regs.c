@@ -31,10 +31,8 @@
 #define DDS_FREQ_L			16
 #define DDS_AMP				17
 #define IO_EXP_REG			18
-#define LS_START_THR		19
-#define LS_STOP_THR			20
-#define LS_N_START			21
-#define LS_N_STOP			22
+#define LS_THR				19
+#define LS_N				20
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -54,7 +52,7 @@ static const int ADC_EN_DEL_US = 20;
 const struct
 {
 	uint8_t v1,v2,v3;
-} version = {1,2,0};
+} version = {1,3,0};
 
 uint16_t remote_port = 0;
 
@@ -146,18 +144,14 @@ int reg_read(uint16_t addr, uint16_t* value)
 		*value = ad9854_get_amp();
 		break;
 
-	case LS_START_THR:
-		*value = adc_input_get_ls_start_thr();
+	case LS_THR:
+		*value = adc_input_get_ls_thr();
 		break;
-	case LS_STOP_THR:
-		*value = adc_input_get_ls_stop_thr();
+
+	case LS_N:
+		*value = adc_input_get_ls_n();
 		break;
-	case LS_N_START:
-		*value = adc_input_get_ls_n_start();
-		break;
-	case LS_N_STOP:
-		*value = adc_input_get_ls_n_stop();
-		break;
+
 
 	default:
 		return MB_ILLEGAL_DATA_ADDRESS;
@@ -255,17 +249,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 		mcp23017_write_reg(i2c_addr, i2c_reg);
 		break;
 
-	case LS_START_THR:
-		adc_input_ls_start_thr(*value);
+	case LS_THR:
+		adc_input_ls_thr(*value);
 		break;
-	case LS_STOP_THR:
-		adc_input_ls_stop_thr(*value);
-		break;
-	case LS_N_START:
-		adc_input_ls_n_start(*value);
-		break;
-	case LS_N_STOP:
-		adc_input_ls_n_stop(*value);
+	case LS_N:
+		adc_input_ls_n(*value);
 		break;
 
 	default:

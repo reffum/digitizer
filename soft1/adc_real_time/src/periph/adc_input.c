@@ -7,10 +7,8 @@ volatile struct regs
 	uint32_t CR;
 	uint32_t SR;
 	uint32_t DSIZE;
-	uint32_t LS_START_THR;
-	uint32_t LS_STOP_THR;
-	uint32_t LS_N_START;
-	uint32_t LS_N_STOP;
+	uint32_t LS_THR;
+	uint32_t LS_N;
 } *regs = (struct regs*)XPAR_ADC16DV160_INPUT_0_BASEADDR;
 
 #define _CR_START		0x1
@@ -26,10 +24,8 @@ void adc_input_init()
     adc_input_set_test(false);
 
     /* Set level sync default values */
-    regs->LS_N_START = 1;
-    regs->LS_N_STOP = 100;
-    regs->LS_START_THR = 32000;
-    regs->LS_STOP_THR = 32200;
+    regs->LS_N = 100;
+    regs->LS_THR = 25000;
 }
 
 // Set test mode
@@ -90,42 +86,22 @@ bool adc_input_get_ls(void)
 	return regs->CR & _CR_LS;
 }
 
-void adc_input_ls_start_thr(uint16_t value)
+void adc_input_ls_thr(uint16_t value)
 {
-	regs->LS_START_THR = value;
+	regs->LS_THR = value;
 }
 
-uint16_t adc_input_get_ls_start_thr(void)
+uint16_t adc_input_get_ls_thr(void)
 {
-	return regs->LS_START_THR;
+	return regs->LS_THR;
 }
 
-void adc_input_ls_stop_thr(uint16_t value)
+void adc_input_ls_n(uint32_t value)
 {
-	regs->LS_STOP_THR = value;
+	regs->LS_N = value;
 }
 
-uint16_t adc_input_get_ls_stop_thr(void)
+uint32_t adc_input_get_ls_n(void)
 {
-	return regs->LS_STOP_THR;
-}
-
-void adc_input_ls_n_start(uint32_t value)
-{
-	regs->LS_N_START = value;
-}
-
-uint32_t adc_input_get_ls_n_start(void)
-{
-	return regs->LS_N_START;
-}
-
-void adc_input_ls_n_stop(uint32_t value)
-{
-	regs->LS_N_STOP = value;
-}
-
-uint32_t adc_input_get_ls_n_stop(void)
-{
-	return regs->LS_N_STOP;
+	return regs->LS_N;
 }

@@ -6,7 +6,7 @@
 Fs = 160e6;
 
 % Sample period
-dt = 1 / Fs;
+dts = 1 / Fs;
 
 % Simulation time
 Tsim = 10e-3;

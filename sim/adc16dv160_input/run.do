@@ -1,6 +1,6 @@
 
 set IP "../../ip_repo"
-set XILINX "D:/XilinxVitis/Vivado/2019.2/data"
+set XILINX "C:/Xilinx/Vivado/2019.2/data"
 proc compilecode {} {
     global IP
     global XILINX

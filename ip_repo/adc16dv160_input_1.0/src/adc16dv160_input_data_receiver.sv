@@ -146,11 +146,15 @@ module adc16dv160_input_data_receiver
 	    state_ns <= S0;
 
 	S5:
-	  if(sync)
+	  if(!start_rt)
+	    state_ns <= S4;
+	  else if(sync)
 	    state_ns <= S6;
 
 	S6:
-	  if(!fifo_almost_empty)
+	  if(!start_rt)
+	    state_ns <= S4;
+	  else if(!fifo_almost_empty)
 	    state_ns <= S7;
 
 	S7:

@@ -133,6 +133,12 @@ module tb;
       ReadReg(AXI_ADDR_CR, cr);
       assert(cr == (_CR_RT | _CR_LS)) else $stop;
 
+      #2500us;
+
+      WriteReg(AXI_ADDR_CR, _CR_LS);
+      ReadReg(AXI_ADDR_CR, cr);
+      assert(cr == (_CR_LS)) else $stop;
+
       // // For level sync test comment this and umcomment #10ms
       // #100us;
       // repeat(5) begin

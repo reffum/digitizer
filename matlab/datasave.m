@@ -29,4 +29,3 @@ ylabel('|F(f)|');
 grid on;
 
 fclose(fileID);
-

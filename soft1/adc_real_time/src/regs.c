@@ -27,12 +27,13 @@
 #define PWM_FREQ			12
 #define PWM_DC				13
 #define PWM_CONTROL			14
-#define DDS_FREQ_H			15
-#define DDS_FREQ_L			16
-#define DDS_AMP				17
-#define IO_EXP_REG			18
-#define LS_THR				19
-#define LS_N				20
+#define PWM_N				15
+#define DDS_FREQ_H			16
+#define DDS_FREQ_L			17
+#define DDS_AMP				18
+#define IO_EXP_REG			19
+#define LS_THR				20
+#define LS_N				21
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -230,6 +231,11 @@ int reg_write(uint16_t addr, uint16_t* value)
 		else
 			pwm_disable();
 		break;
+
+	case PWM_N:
+		if(*value == 0)
+			return MB_ILLEGAL_DATA_VALUE;
+		pwm_start(*value);
 
 	case DDS_FREQ_H:
 		dds_freq = *value << 16;

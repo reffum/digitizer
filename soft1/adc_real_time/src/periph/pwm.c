@@ -5,7 +5,17 @@
 
 static XTtcPs TtcPsInst;  /* Timer counter instance */
 
-volatile int temp;
+// Number of pulses in N-pulses mode.
+static unsigned N = 0;
+
+static void StatusHandler(const void *CallBackRef, u32 StatusEvent)
+{
+	if(--N == 0)
+	{
+		XTtcPs_DisableInterrupts(&TtcPsInst, XTTCPS_IXR_CNT_OVR_MASK);
+		pwm_disable();
+	}
+}
 
 void pwm_init(void)
 {
@@ -22,10 +32,7 @@ void pwm_init(void)
 
 	XTtcPs_SetOptions(&TtcPsInst, XTTCPS_OPTION_INTERVAL_MODE | XTTCPS_OPTION_MATCH_MODE | XTTCPS_OPTION_WAVE_POLARITY | XTTCPS_OPTION_WAVE_DISABLE);
 
-	//TODO: For debug only
-	pwm_set_freq(100);
-	pwm_set_dc(80);
-	//pwm_enable();
+	XTtcPs_SetStatusHandler(&TtcPsInst, NULL, StatusHandler);
 }
 
 void pwm_enable(void)
@@ -44,6 +51,14 @@ bool pwm_is_enabled(void)
 	u32 options = XTtcPs_GetOptions(&TtcPsInst);
 
 	return (options & XTTCPS_OPTION_WAVE_DISABLE) ? false : true;
+}
+
+void pwm_start(unsigned pulse_num)
+{
+	N = pulse_num;
+
+	XTtcPs_EnableInterrupts(&TtcPsInst, XTTCPS_IXR_CNT_OVR_MASK);
+	pwm_enable();
 }
 
 // Set frequency in Hz

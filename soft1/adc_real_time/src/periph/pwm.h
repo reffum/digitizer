@@ -31,5 +31,8 @@ unsigned pwm_get_freq(void);
 void pwm_set_dc(unsigned dc);
 unsigned pwm_get_dc();
 
+// Start N pulses
+void pwm_start(unsigned pulse_num);
+
 #endif
 

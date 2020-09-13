@@ -2,9 +2,9 @@
 // AXI Lite write logic for adc_input
 //
 
-import adc16dv160_input_common::*;
+import lvds_input_common::*;
 
-module adc16dv160_input_write
+module lvds_input_write
   (
    input 	      ACLK,
    input 	      ARESETN,
@@ -23,7 +23,7 @@ module adc16dv160_input_write
    input 	      BREADY,
 
    output [31:0]      dsize,
-   output logic       cr_test, cr_start, cr_rt,
+   output logic       cr_test, cr_start, cr_rt
    );
 
    //

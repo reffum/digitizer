@@ -6,7 +6,7 @@ module lvds_input_data_receiver
   (
    // ADC inputs
    input 		adc_clk,
-   input [15:0] 	adc_data,
+   input [3:0] 		adc_data,
 
    // AXI STREAM MASTER interface
    input wire 		m00_axis_aclk,
@@ -34,7 +34,7 @@ module lvds_input_data_receiver
    // Real-time sync input
    input 		sync,
    // Packet transmittion complete flag
-   output logic 	sr_pc,
+   output logic 	sr_pc
    );
 
    //
@@ -220,7 +220,7 @@ module lvds_input_data_receiver
 	
 	S0: begin
 	   sr_pc <= 1'b1;
-	   fifo_wren <= !fifo_almost_full;
+	   fifo_wren <= 1'b0;
 	   fifo_rden <= !fifo_almost_empty;
 	end
 
@@ -239,7 +239,7 @@ module lvds_input_data_receiver
 	end
 
 	S5: begin
-	   fifo_wren <= !fifo_almost_full;
+	   fifo_wren <= 1'b0;
 	   fifo_rden <= !fifo_almost_empty;
 	end
 
@@ -304,7 +304,7 @@ module lvds_input_data_receiver
       .WREN(fifo_wren)                // 1-bit input write enable
    );
 
-   assign fifo_di = adc_data;
+   assign fifo_di = {28'd0, adc_data};
    
    
    //
@@ -319,7 +319,7 @@ module lvds_input_data_receiver
 
    assign m00_axis_tdata = TDATA;
    
-   assign fifo_wrclk = adc_clk;
+   assign fifo_wrclk = ~adc_clk;
    assign fifo_rdclk = ACLK;
 
 endmodule // data_receiver

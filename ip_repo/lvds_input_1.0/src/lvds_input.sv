@@ -4,12 +4,9 @@
 module lvds_input_v1_0
    (
     // ADC inputs
-    input 		 adc_clk_p, adc_clk_n,
+    input 		 adc_clk,
     input [3:0] 	 adc_data_p, adc_data_n,
     input 		 sync,
-    
-    // REFCLK for IODEALYCTRL 
-    input 		 ref_clk_delay,
 
     // AXI-lite slave interface
     input [31:0] 	 s_axi_awaddr,
@@ -48,8 +45,7 @@ module lvds_input_v1_0
    //
    // Nets
    //
-   logic 		 adc_clk, adc_clk_io;
-   logic [15:0] 	 adc_data;
+   logic [3:0] 		 adc_data;
 
    // Sync signal
    logic 		 sync_s;
@@ -134,8 +130,7 @@ module lvds_input_v1_0
    genvar 		 i;
 
    generate
-      for(i = 0; i < 3; i = i + 1) begin : gen_adc_data
-	 logic adc_data_i, adc_data_d1;
+      for(i = 0; i < $size(adc_data); i = i + 1) begin : gen_adc_data
 	 
 	 IBUFDS 
 	   #(
@@ -144,40 +139,13 @@ module lvds_input_v1_0
 	     .IOSTANDARD("LVDS_25")
 	     ) IBUFDS_JA 
 	     (
-	      .O(adc_data_i),
+	      .O(adc_data[i]),
 	      .I(adc_data_p[i]),
 	      .IB(adc_data_n[i])
 	      );
 
-	 assign adc_data[i] = adc_data_i;
-
       end // block: gen_adc_data      
    endgenerate
-   
-   // Adc clockc input 
-   IBUFDS 
-     #(
-       .DIFF_TERM("FALSE"),
-       .IBUF_LOW_PWR("FALSE"),
-       .IOSTANDARD("LVDS_25")
-       ) IBUFDS_ADC_CLK
-       (
-	.O(adc_clk_i),
-	.I(adc_clk_p),
-	.IB(adc_clk_n)
-	);     
-
-   BUFIO BUFIO_ADC_CLK
-     (
-      .I(adc_clk_i),
-      .O(adc_clk_io)
-      );
-
-   BUFG BUFG_ADC_CLK
-     (
-      .I(adc_clk_i),
-      .O(adc_clk)
-      );
       
    //TODO: Remove this code
    (*keep*) reg[15:0] dbg_cnt;

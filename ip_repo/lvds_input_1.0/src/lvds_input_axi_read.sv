@@ -21,7 +21,7 @@ module lvds_input_axi_read
    input [31:0]        dsize,
    input 	       cr_test, 
    input 	       sr_pc,
-   input 	       cr_rt,
+   input 	       cr_rt
    );
 
    //
@@ -41,8 +41,6 @@ module lvds_input_axi_read
 	     value |= _CR_TEST;
 	   if(cr_rt)
 	     value |= _CR_RT;
-	   if(cr_ls)
-	     value |= _CR_LS;
 	end
 	
 	AXI_ADDR_SR:

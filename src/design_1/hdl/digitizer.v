@@ -246,6 +246,5 @@ module digitizer
       .OB(jb_n[0]),   // Diff_n output (connect directly to top-level port)
       .I(lvds_clk)    // Buffer input
    );
-                                                      
 
 endmodule

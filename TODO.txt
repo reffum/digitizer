@@ -2,4 +2,8 @@
 - Флаг Overflow
 - synchronize.sv Сделать так, чтобы оба регистра были в одном LUT.
 - Выяснить, почему нельзя прошить bitstream отдельно.
+- Add in PWM possibility to send given number of pulses
 
+- Проверить исправленный IP с исправленным багом застревания
+
+- Для lvds_input написать свою документацию.

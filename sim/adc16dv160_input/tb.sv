@@ -18,7 +18,7 @@ module tb;
 
    // Level sync mode parameters.
    localparam LS_THR = 25000;
-   localparam LS_N = 100;
+   localparam LS_N = 1000;
    
    //
    // UUT ports
@@ -148,7 +148,7 @@ module tb;
       // end
       // #100us;
       
-      #10ms;
+      #5ms;
       
 
       $finish;

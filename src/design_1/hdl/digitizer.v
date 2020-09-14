@@ -65,8 +65,10 @@ module digitizer
    inout 	FIXED_IO_ps_porb;
    inout 	FIXED_IO_ps_srstb;
    
-   output [3:0] 	ja_p, ja_n;
-   input [3:0] 	jb_p, jb_n; 
+   input [3:0] 	ja_p, ja_n;
+   
+   inout [3:0] 	jb_p, jb_n; 
+   
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
    inout [5:0] je; 
@@ -98,12 +100,15 @@ module digitizer
    wire FIXED_IO_ps_porb;
    wire FIXED_IO_ps_srstb;
    wire TTC0_WAVE1_OUT_0;
-   wire [4:0] gpio_emio_i, gpio_emio_o, gpio_emio_t;
+   wire [5:0] gpio_emio_i, gpio_emio_o, gpio_emio_t;
    wire sync;
    
    wire [7:0] adc_data_p, adc_data_n;
    wire       adc_clk_p, adc_n;
    (*keep*) wire     ADC_CLK_OUT;
+   
+   wire [3:0] lvds_data_p, lvds_data_n;
+   wire lvds_clk;
    
    reg 	       led_cs;  
 
@@ -138,7 +143,11 @@ module digitizer
 	.sync(sync),
     .GPIO_0_0_tri_i(gpio_emio_i),
     .GPIO_0_0_tri_o(gpio_emio_o),
-    .GPIO_0_0_tri_t(gpio_emio_t)
+    .GPIO_0_0_tri_t(gpio_emio_t),
+    
+    .lvds_data_p(lvds_data_p),
+    .lvds_data_n(lvds_data_n),
+    .lvds_clk(lvds_clk)
      );
 
     // LVCMOS33 CLK for ADC
@@ -170,8 +179,8 @@ module digitizer
    assign je[0] = TTC0_WAVE1_OUT_0;
    assign sync = ~je6;
    
-   assign ja_p = 4'h0;
-   assign ja_n = 4'h0;
+   assign lvds_data_p = ja_p;
+   assign lvds_data_n = ja_n;
    
    //
    // GPIO EMIO
@@ -209,6 +218,34 @@ module digitizer
         .IO(je[5]),
         .O(gpio_emio_i[4]),
         .T(gpio_emio_t[4])
-        );                                                       
+        ); 
+        
+  IOBUF GPIO_EMIO_SEL1
+       (.I(gpio_emio_o[5]),
+        .IO(jb_p[2]),
+        .O(gpio_emio_i[5]),
+        .T(gpio_emio_t[5])
+        );  
+        
+  IOBUF GPIO_EMIO_SEL2
+       (.I(gpio_emio_o[5]),
+        .IO(jb_n[2]),
+        .O(gpio_emio_i[5]),
+        .T(gpio_emio_t[5])
+        );               
+           
+        
+   // LVDS_CLK
+   OBUFDS 
+   #(
+      .IOSTANDARD("LVDS_25"), // Specify the output I/O standard
+      .SLEW("FAST")           // Specify the output slew rate
+   ) OBUFDS_LVDS_CLK
+   (
+      .O(jb_p[0]),    // Diff_p output (connect directly to top-level port)
+      .OB(jb_n[0]),   // Diff_n output (connect directly to top-level port)
+      .I(lvds_clk)    // Buffer input
+   );
+                                                      
 
 endmodule

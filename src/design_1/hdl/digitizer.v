@@ -67,7 +67,7 @@ module digitizer
    
    input [3:0] 	ja_p, ja_n;
    
-   inout [3:0] 	jb_p, jb_n; 
+   input [3:0] 	jb_p, jb_n; 
    
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
@@ -147,8 +147,11 @@ module digitizer
     
     .lvds_data_p(lvds_data_p),
     .lvds_data_n(lvds_data_n),
-    .lvds_clk(lvds_clk)
+    .lvds_clk(lvds_clk),
+    .lvds_sync(lvds_sync)
      );
+     
+   assign lvds_sync = gpio_emio_o[5];
 
     // LVCMOS33 CLK for ADC
    assign hdmi_d_n[0] = ADC_CLK_OUT;
@@ -230,7 +233,7 @@ module digitizer
   IOBUF GPIO_EMIO_SEL2
        (.I(gpio_emio_o[5]),
         .IO(jb_n[2]),
-        .O(gpio_emio_i[5]),
+        .O(),
         .T(gpio_emio_t[5])
         );               
            
@@ -238,7 +241,7 @@ module digitizer
    // LVDS_CLK
    OBUFDS 
    #(
-      .IOSTANDARD("LVDS_25"), // Specify the output I/O standard
+      .IOSTANDARD("TMDS_33"), // Specify the output I/O standard
       .SLEW("FAST")           // Specify the output slew rate
    ) OBUFDS_LVDS_CLK
    (

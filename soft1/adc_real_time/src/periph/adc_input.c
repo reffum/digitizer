@@ -2,7 +2,7 @@
 #include "adc_input.h"
 
 // adc_input module AXI registers
-volatile struct regs
+volatile static struct regs
 {
 	uint32_t CR;
 	uint32_t SR;

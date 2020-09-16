@@ -12,6 +12,7 @@
 #include "mcp23017.h"
 #include "gpio.h"
 #include "dma.h"
+#include "lvds_input.h"
 
 #define ADDR_ID				0
 #define ADDR_STATUS			1
@@ -34,6 +35,8 @@
 #define IO_EXP_REG			19
 #define LS_THR				20
 #define LS_N				21
+#define PSEL				22
+#define LVDS_IN				23
 
 #define _CONTROL_START	0x1
 #define _CONTROL_TEST	0x2
@@ -44,10 +47,15 @@
 
 #define _PWM_CONTROL_ENABLE	0x1
 
+#define _LVDS_IN_EN			0x1
+
 static const uint16_t ID_VALUE = 0x55AA;
 
 // Delay from ADC_EN become true to start adc receive. In us
 static const int ADC_EN_DEL_US = 20;
+
+// PSEL delay
+static const int PSEL_DELAY_US = 180;
 
 /* This firmware version */
 const struct
@@ -151,6 +159,13 @@ int reg_read(uint16_t addr, uint16_t* value)
 
 	case LS_N:
 		*value = adc_input_get_ls_n();
+		break;
+
+	case LVDS_IN:
+		if(lvds_input_get_real_time())
+			*value = _LVDS_IN_EN;
+		else
+			*value = 0;
 		break;
 
 
@@ -260,6 +275,19 @@ int reg_write(uint16_t addr, uint16_t* value)
 		break;
 	case LS_N:
 		adc_input_ls_n(*value);
+		break;
+
+	case PSEL:
+		sel(true);
+		usleep(PSEL_DELAY_US);
+		sel(false);
+		break;
+
+	case LVDS_IN:
+		if(*value & _LVDS_IN_EN)
+			lvds_input_real_time(true);
+		else
+			lvds_input_real_time(false);
 		break;
 
 	default:

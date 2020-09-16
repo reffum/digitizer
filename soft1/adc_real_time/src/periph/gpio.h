@@ -20,6 +20,7 @@ void io_reset(bool);
 void io_update(bool);
 void ads_cs(bool);
 void adc_en(bool);
+void sel(bool b);
 
 #endif	/* _GPIO_H_	*/
 

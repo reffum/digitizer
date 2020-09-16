@@ -33,7 +33,12 @@ module digitizer
    FIXED_IO_ps_srstb,
   
    ja_p, ja_n,
-   jb_p, jb_n, 
+
+   jb1_p, jb1_n,
+   jb2_p, jb2_n,
+   jb3_p, jb3_n,
+   jb4_p, jb4_n,
+   
    jc_p, jc_n,
    jd_p, jd_n,
    je,
@@ -66,8 +71,11 @@ module digitizer
    inout 	FIXED_IO_ps_srstb;
    
    input [3:0] 	ja_p, ja_n;
-   
-   input [3:0] 	jb_p, jb_n; 
+
+   output 	jb1_p, jb1_n;
+   input 	jb2_p, jb2_n;
+   inout 	jb3_p, jb3_n;
+   input 	jb4_p, jb4_n;
    
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
@@ -141,14 +149,14 @@ module digitizer
 	.TTC0_WAVE1_OUT_0(TTC0_WAVE1_OUT_0),
 	.ADC_CLK_OUT(ADC_CLK_OUT),
 	.sync(sync),
-    .GPIO_0_0_tri_i(gpio_emio_i),
-    .GPIO_0_0_tri_o(gpio_emio_o),
-    .GPIO_0_0_tri_t(gpio_emio_t),
-    
-    .lvds_data_p(lvds_data_p),
-    .lvds_data_n(lvds_data_n),
-    .lvds_clk(lvds_clk),
-    .lvds_sync(lvds_sync)
+	.GPIO_0_0_tri_i(gpio_emio_i),
+	.GPIO_0_0_tri_o(gpio_emio_o),
+	.GPIO_0_0_tri_t(gpio_emio_t),
+     
+	.lvds_data_p(lvds_data_p),
+	.lvds_data_n(lvds_data_n),
+	.lvds_clk(lvds_clk),
+	.lvds_sync(lvds_sync)
      );
      
    assign lvds_sync = gpio_emio_o[5];
@@ -162,8 +170,8 @@ module digitizer
    
    assign adc_data_p[0] = jd_p[3];
    assign adc_data_n[0] = jd_n[3];
-   assign adc_data_p[1] = jb_p[1];
-   assign adc_data_n[1] = jb_n[1];
+   assign adc_data_p[1] = jb2_p;
+   assign adc_data_n[1] = jb2_n;
    assign adc_data_p[2] = jd_p[1];
    assign adc_data_n[2] = jd_n[1];   
    assign adc_data_p[3] = jd_p[0];
@@ -225,14 +233,14 @@ module digitizer
         
   IOBUF GPIO_EMIO_SEL1
        (.I(gpio_emio_o[5]),
-        .IO(jb_p[2]),
+        .IO(jb3_p),
         .O(gpio_emio_i[5]),
         .T(gpio_emio_t[5])
         );  
         
   IOBUF GPIO_EMIO_SEL2
        (.I(gpio_emio_o[5]),
-        .IO(jb_n[2]),
+        .IO(jb3_n),
         .O(),
         .T(gpio_emio_t[5])
         );               
@@ -241,13 +249,13 @@ module digitizer
    // LVDS_CLK
    OBUFDS 
    #(
-      .IOSTANDARD("TMDS_33"), // Specify the output I/O standard
-      .SLEW("FAST")           // Specify the output slew rate
+      .IOSTANDARD("TMDS_33"),
+      .SLEW("FAST")
    ) OBUFDS_LVDS_CLK
    (
-      .O(jb_p[0]),    // Diff_p output (connect directly to top-level port)
-      .OB(jb_n[0]),   // Diff_n output (connect directly to top-level port)
-      .I(lvds_clk)    // Buffer input
+      .O(jb1_p),
+      .OB(jb1_n),
+      .I(lvds_clk)
    );
 
 endmodule

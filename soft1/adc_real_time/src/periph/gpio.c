@@ -17,6 +17,7 @@ static const int PIN_IO_ADS_CS = 55;
 static const int PIN_IO_UPDATE = 56;
 static const int PIN_IO_RESET = 57;
 static const int PIN_ADC_EN = 58;
+static const int PIN_SEL = 59;
 
 void gpio_init()
 {
@@ -51,11 +52,15 @@ void gpio_init()
 	XGpioPs_SetDirectionPin(&Gpio, PIN_ADC_EN, 1);
 	XGpioPs_SetOutputEnablePin(&Gpio, PIN_ADC_EN, 1);
 
+	XGpioPs_SetDirectionPin(&Gpio, PIN_SEL, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, PIN_SEL, 1);
+
 	clkdisk_sen(false);
 	adc_csb(true);
 	ads_cs(true);
 	io_reset(false);
 	master_reset(true);
+	sel(false);
 }
 
 void clkdisk_sen(bool b)
@@ -91,4 +96,9 @@ void io_update(bool b)
 void adc_en(bool b)
 {
 	XGpioPs_WritePin(&Gpio, PIN_ADC_EN, b);
+}
+
+void sel(bool b)
+{
+	XGpioPs_WritePin(&Gpio, PIN_SEL, b);
 }

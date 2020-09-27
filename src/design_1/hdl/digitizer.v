@@ -31,7 +31,9 @@ module digitizer
    FIXED_IO_ps_clk,
    FIXED_IO_ps_porb,
    FIXED_IO_ps_srstb,
-  
+   
+   btn,
+   
    ja_p, ja_n,
 
    jb1_p, jb1_n,
@@ -42,9 +44,7 @@ module digitizer
    jc_p, jc_n,
    jd_p, jd_n,
    je,
-   je6,
-   hdmi_clk_n, hdmi_clk_p, 
-   hdmi_d_n, hdmi_d_p,   
+   je6, 
   
    led
    );
@@ -70,19 +70,19 @@ module digitizer
    inout 	FIXED_IO_ps_porb;
    inout 	FIXED_IO_ps_srstb;
    
-   input [3:0] 	ja_p, ja_n;
+   inout [1:0] btn;
+   
+   input [3:0] ja_p, ja_n;
 
    output 	jb1_p, jb1_n;
    input 	jb2_p, jb2_n;
-   inout 	jb3_p, jb3_n;
+   input 	jb3_p, jb3_n;
    input 	jb4_p, jb4_n;
    
    input [3:0] 	jc_p, jc_n; 
    input [3:0] 	jd_p, jd_n;
    inout [5:0] je; 
    input je6;
-   input 	hdmi_clk_n, hdmi_clk_p;
-   output [0:0]   hdmi_d_n, hdmi_d_p;
    
    output [3:0] led;
 
@@ -160,10 +160,6 @@ module digitizer
      );
      
    assign lvds_sync = gpio_emio_o[5];
-
-    // LVCMOS33 CLK for ADC
-   assign hdmi_d_n[0] = ADC_CLK_OUT;
-   assign hdmi_d_p[0] = 1'b0;
    
    assign adc_clk_p = jd_p[2];
    assign adc_clk_n = jd_n[2];
@@ -191,7 +187,7 @@ module digitizer
    assign sync = ~je6;
    
    assign lvds_data_p = ja_p;
-   assign lvds_data_n = ja_n;
+   assign lvds_data_n = ja_n;     
    
    //
    // GPIO EMIO
@@ -231,31 +227,23 @@ module digitizer
         .T(gpio_emio_t[4])
         ); 
         
-  IOBUF GPIO_EMIO_SEL1
+  IOBUF GPIO_EMIO_SELA
        (.I(gpio_emio_o[5]),
-        .IO(jb3_p),
+        .IO(btn[0]),
         .O(gpio_emio_i[5]),
         .T(gpio_emio_t[5])
         );  
         
-  IOBUF GPIO_EMIO_SEL2
+  IOBUF GPIO_EMIO_SELC
        (.I(gpio_emio_o[5]),
-        .IO(jb3_n),
+        .IO(btn[1]),
         .O(),
         .T(gpio_emio_t[5])
         );               
            
         
    // LVDS_CLK
-   OBUFDS 
-   #(
-      .IOSTANDARD("TMDS_33"),
-      .SLEW("FAST")
-   ) OBUFDS_LVDS_CLK
-   (
-      .O(jb1_p),
-      .OB(jb1_n),
-      .I(lvds_clk)
-   );
+
+   assign jb1_p = lvds_clk;
 
 endmodule

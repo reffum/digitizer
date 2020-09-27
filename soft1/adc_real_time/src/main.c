@@ -58,6 +58,7 @@
 #include "pwm.h"
 #include "spi.h"
 #include "adc16dv160.h"
+#include "lvds_input.h"
 
 /* defined by each RAW mode application */
 void print_app_header();
@@ -164,7 +165,7 @@ int main()
 #else
 	/* initialize IP addresses to be used */
 	IP4_ADDR(&ipaddr,  192, 168,   1, 10);
-	IP4_ADDR(&netmask, 255, 255, 254,  0);
+	IP4_ADDR(&netmask, 255, 255, 255,  0);
 	IP4_ADDR(&gw,      192, 168,   1,  1);
 #endif
 #endif
@@ -234,6 +235,7 @@ int main()
 
 #endif
 	/* start the application (web server, rxtest, txtest, etc..) */
+	lvds_input_init();
 	adc_input_init();
 	gpio_init();
 	i2c_init();

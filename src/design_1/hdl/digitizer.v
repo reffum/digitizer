@@ -226,24 +226,13 @@ module digitizer
         .O(gpio_emio_i[4]),
         .T(gpio_emio_t[4])
         ); 
-        
-  IOBUF GPIO_EMIO_SELA
-       (.I(gpio_emio_o[5]),
-        .IO(btn[0]),
-        .O(gpio_emio_i[5]),
-        .T(gpio_emio_t[5])
-        );  
-        
-  IOBUF GPIO_EMIO_SELC
-       (.I(gpio_emio_o[5]),
-        .IO(btn[1]),
-        .O(),
-        .T(gpio_emio_t[5])
-        );               
+   
+    // SELA and SELC
+    assign btn[0] = TTC0_WAVE1_OUT_0;   // SELA
+    assign btn[1] = TTC0_WAVE1_OUT_0;   // SELC       
            
         
    // LVDS_CLK
-
    assign jb1_p = lvds_clk;
 
 endmodule

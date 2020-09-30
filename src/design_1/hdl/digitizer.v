@@ -186,8 +186,8 @@ module digitizer
    assign je[0] = TTC0_WAVE1_OUT_0;
    assign sync = ~je6;
    
-   assign lvds_data_p = ja_p;
-   assign lvds_data_n = ja_n;     
+   assign lvds_data_p = 4'd0;
+   assign lvds_data_n = 4'd0;     
    
    //
    // GPIO EMIO
